@@ -1,0 +1,123 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{default}
+\usepackage{pslatex}
+\usepackage{graphicx}
+\usepackage{algorithmic}
+\usepackage{multicol}
+
+\renewcommand{\algorithmicfor}{\textbf{Pour}}
+\renewcommand{\algorithmicendfor}{\textbf{Fin Pour}}
+\renewcommand{\algorithmicdo}{\textbf{Faire}}
+\renewcommand{\algorithmicif}{\textbf{Si}}
+\renewcommand{\algorithmicendif}{\textbf{Fin Si}}
+\renewcommand{\algorithmicthen}{\textbf{Alors}}
+\renewcommand{\algorithmicreturn}{\textbf{Retourner}}
+
+\usetheme{Warsaw}
+
+\title{Comment simuler numériquement les alpes ?}
+\subtitle{Sujet de TPE}
+\author{Gros Alexis, Manceau Thibaut, Porteries Tristan}
+
+\makeindex
+
+\begin{document}
+
+% Titre
+\frame{\titlepage}
+
+% Sommaire
+\begin{frame}{Sommaire}
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{sommaire}
+    \begin{multicols}{2}
+      {\small
+        \tableofcontents[currentsection, hideothersubsections]}
+    \end{multicols}
+  \end{frame}
+}
+\end{frame}
+
+\begin{frame}{Pourquoi simuler un terrain numériquement en 3D ?}
+  \begin{enumerate}
+    \item Afin de mieux représenter les reliefs par rapport à la 2D. Les ombrages aident à l'effet de relief;
+    \item Utilisation dans les jeux vidéo.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Les chunks}
+  Définition : Ce sont des morceaux de terrain carrés composés du même nombre de vertices formant une grille déformée en profondeur (Z).
+  Tous ces vertices forment des triangles.
+  \begin{center}
+    \includegraphics[width=8cm]{chunk_simple_wireframe.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Les arbres binaires à 2 dimensions (QuadTree)}
+  C'est un arbre à 2 dimensions qui pour chaque noeud (carré 2D) contient 4 sous noeuds 2 fois plus petit.
+  Chaque fonction d'un noeud peut être appliquée à ses sous noeuds.
+  \begin{center}
+    \includegraphics[width=4cm]{picture_quadtree.png}
+    \includegraphics[width=6cm]{terrain_quadtree.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}{La Visibilité des noeuds dans le champ de vue (Frustum Culling)}
+    Pour savoir si un noeud est visible on teste si sa boîte englobante alignée (AABB) est dans le champ de la caméra.
+    \begin{center}
+      \includegraphics[width=2cm]{frustum_culling_cone.png}
+    \end{center}
+    \begin{center}
+      \includegraphics[width=5cm]{terrain_culling_0.png}
+      \includegraphics[width=5cm]{terrain_culling_1.png}
+    \end{center}   
+\end{frame}
+
+\begin{frame}
+\begin{multicols}{2}
+  \begin{algorithmic}[1]
+    \STATE $c_0 = 0$
+    \FOR{$p$ de $0$ jusqu'à $6$}
+      \STATE $c_1 = 0$
+      \FOR{$v$ de $0$ jusqu'à $8$}
+	\IF{$\overrightarrow{P_p} \ldotp \overrightarrow{B_v} < 0$}
+	  \STATE $c_1 = c_1 + 1$
+	\ENDIF
+      \ENDFOR
+      \IF{$c_1 = 8$}
+	\RETURN \FALSE
+      \ELSE
+	\STATE $c_0 = c_0 + 1$
+      \ENDIF
+    \ENDFOR
+    \IF{$c_0 > 0$}
+  \end{algorithmic}
+\end{multicols}
+  $P_n$ : matrice $4 \times 4$ du plan $n$ de la caméra, $B_n$ : la position du coin $n$ de la boîte de visibilité.
+\end{frame}
+
+
+\begin{frame}{La subdivision des noeuds}
+  Chaque noeud est subdivisé en fonction de la distance du bord le plus proche d'un noeud vers la caméra.
+  \begin{algorithmic}[1]
+    \STATE $d = \left\|\overrightarrow{CN}\right\| - r$
+    \FOR{$n$ de $n_{max}$ jusqu'à $1$}
+      \IF{$d_{max} \times \frac{n}{n_{max}} > d >= d_{max} \times \frac{n -1}{n_{max}}$}
+	\RETURN $n$
+      \ENDIF
+    \ENDFOR
+  \end{algorithmic}
+  $n_{max}$ : niveau de subdivisions maximale, $C$ : position de la caméra, $N$ : centre du noeud, 
+  $d_{max}$ : distance maximale pour subdiviser un noeud, $r$ : rayon du noeud.
+
+  
+\end{frame}
+
+
+
+
+\end{document}
