@@ -2,5 +2,6 @@
 *~
 /Pangea/CMakeCache.txt
 /Pangea/PWGenExe
-/Pangea/CMakeFiles/
+/Pangea/CMakeFiles/*
 /Pangea/Diapo_generation_terrain.pdf
+/Pangea/cmake_install.cmake
