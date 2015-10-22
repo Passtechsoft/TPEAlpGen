@@ -1,15 +1,32 @@
 #include "../Interface/utilities.h"
-#define MILLION 000000
+#include "Cell.h"
+#define MILLION 1000000
+
+struct Point3Df
+{
+public:
+	Point3Df(){};
+	Point3Df(float _x, float _y, float _z=0) : x(_x), y(_y), z(_z){};
+
+	float x, y, z;
+};
+
+typedef std::map<Point3Df, Cell> TableauCell;
+
 
 ///La classe world crée et génère un mode carré
 class World
 {
 public:
 	World();
-	RunStep(int nbYears=100#MILLION);
+	World(float m_width, float m_height, uint seaHeight);
+	void RunStep(int nbYears=100 * MILLION);
+	bool saveFile(std::string fileName);
 	
 	// Getters/setters:
-	Get
+	GetSet(m_amplitude, Amplitude);
+	GetSet(m_width, Width);
+	GetSet(m_height, Height);
 	
 private:
 	uint m_width, m_height;
@@ -18,4 +35,7 @@ private:
 	
 	uint m_seaHeight=5000;///La hauteur de l'océan, en mètre relativement à \a minHeight
 	float m_CO2percentage=.2f;///Le pourcentage de CO2 dans l'atmosphere, permet d'en déduire la température courante et ainsi de déclarer un âge flaciaire
+	TableauCell m_cells;
 };
+
+

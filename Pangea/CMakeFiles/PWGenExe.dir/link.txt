@@ -1,1 +1,1 @@
-/usr/bin/c++   -std=c++11 -Wall -Wextra -Wshadow -Wconversion -Wsign-conversion -Wunused-parameter -Wno-long-long -pedantic -O2    CMakeFiles/PWGenExe.dir/source/Interface/IO.cpp.o CMakeFiles/PWGenExe.dir/source/Core/Zone.cpp.o CMakeFiles/PWGenExe.dir/source/Core/Couche.cpp.o CMakeFiles/PWGenExe.dir/source/Core/World.cpp.o CMakeFiles/PWGenExe.dir/source/main.cpp.o  -o PWGenExe -rdynamic 
+/usr/bin/c++   -std=c++11 -Wall -Wextra -Wshadow -Wconversion -Wsign-conversion -Wunused-parameter -Wno-long-long -O2    CMakeFiles/PWGenExe.dir/source/main.cpp.o  -o PWGenExe -rdynamic 

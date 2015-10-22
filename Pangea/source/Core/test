@@ -1,5 +1,5 @@
 #define HORS_ZONE 0
-/* *********** struct ZoneBiome:
+/* *********** struct Zone:
  */
 
 
@@ -10,10 +10,10 @@ ostream& operator<<(ostream& output, const Point2D& pt)
 }
 
 
-ZoneBiome::ZoneBiome(ZoneSetup* setup, int diminutionExtToInter)
+Zone::ZoneBiome(ZoneSetup* setup, int diminutionExtToInter)
 		: m_setup(setup), m_diminutionExtToInter(diminutionExtToInter) {}
 
-ZoneBiome::ZoneBiome(ZoneSetup* setup, vector<Point2D> pts, int diminutionExtToInter)
+Zone::ZoneBiome(ZoneSetup* setup, vector<Point2D> pts, int diminutionExtToInter)
 		: m_setup(setup), m_diminutionExtToInter(diminutionExtToInter)
 {
 	AddPoints(pts, true);
@@ -26,7 +26,7 @@ ZoneBiome::ZoneBiome(ZoneSetup* setup, vector<Point2D> pts, int diminutionExtToI
 *\param rm Si on doit reset le tableau au lieu de simplement ajouter des vertices, doit valoir true
 *\param reversed Indique si le tableau est déjà dans le bon sens ou si
 */
-void ZoneBiome::AddPoints(const vector<Point2D>& pts, bool rm, bool finished)
+void Zone::AddPoints(const vector<Point2D>& pts, bool rm, bool finished)
 {
 	if(rm){
 		m_points=pts;
@@ -47,7 +47,7 @@ void ZoneBiome::AddPoints(const vector<Point2D>& pts, bool rm, bool finished)
 ///Construit la HitBox simplifiée du mesh, normalement inutile pour l'utilisateur, \n
 ///car la fonction AddPoint s'occupe de l'appeler automatiquement (si le mesh est \n
 ///déclaré comme fini
-bool ZoneBiome::BuildHitBox()
+bool Zone::BuildHitBox()
 {
 	if(m_points.size()<3)
 		return WARNING("On a tenté d'appeler la fonction buildhitbox alors que le mesh n'était pas fini.");
@@ -78,14 +78,14 @@ bool ZoneBiome::BuildHitBox()
 	return EXIT_SUCCESS;
 }
 
-///La fonction déterminante de ZoneBiome, teste la collision de la zone avec un point.
+///La fonction déterminante de Zone, teste la collision de la zone avec un point.
 ///\todo rendre la fonction fonctionnelle
 ///\param pt Le point à tester
-///\return Si le point pt est à l'intérieure du mesh 2D de la ZoneBiome
-float ZoneBiome::ValeurZ(const Point2D &pt) const
+///\return Si le point pt est à l'intérieure du mesh 2D de la Zone
+float Zone::ValeurZ(const Point2D &pt) const
 {
 	if(!m_finished){
-		DEBUG("3::: Un ZoneBiome d'addresse "<<this<<" a été testé via sa methode EnContact\n alors que son finished valait false!");
+		DEBUG("3::: Un Zone d'addresse "<<this<<" a été testé via sa methode EnContact\n alors que son finished valait false!");
 		return EXIT_FAILURE;
 	}
 

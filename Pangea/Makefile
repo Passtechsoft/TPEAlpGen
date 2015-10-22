@@ -114,102 +114,6 @@ PWGenExe/fast:
 	$(MAKE) -f CMakeFiles/PWGenExe.dir/build.make CMakeFiles/PWGenExe.dir/build
 .PHONY : PWGenExe/fast
 
-source/Core/Couche.o: source/Core/Couche.cpp.o
-.PHONY : source/Core/Couche.o
-
-# target to build an object file
-source/Core/Couche.cpp.o:
-	$(MAKE) -f CMakeFiles/PWGenExe.dir/build.make CMakeFiles/PWGenExe.dir/source/Core/Couche.cpp.o
-.PHONY : source/Core/Couche.cpp.o
-
-source/Core/Couche.i: source/Core/Couche.cpp.i
-.PHONY : source/Core/Couche.i
-
-# target to preprocess a source file
-source/Core/Couche.cpp.i:
-	$(MAKE) -f CMakeFiles/PWGenExe.dir/build.make CMakeFiles/PWGenExe.dir/source/Core/Couche.cpp.i
-.PHONY : source/Core/Couche.cpp.i
-
-source/Core/Couche.s: source/Core/Couche.cpp.s
-.PHONY : source/Core/Couche.s
-
-# target to generate assembly for a file
-source/Core/Couche.cpp.s:
-	$(MAKE) -f CMakeFiles/PWGenExe.dir/build.make CMakeFiles/PWGenExe.dir/source/Core/Couche.cpp.s
-.PHONY : source/Core/Couche.cpp.s
-
-source/Core/World.o: source/Core/World.cpp.o
-.PHONY : source/Core/World.o
-
-# target to build an object file
-source/Core/World.cpp.o:
-	$(MAKE) -f CMakeFiles/PWGenExe.dir/build.make CMakeFiles/PWGenExe.dir/source/Core/World.cpp.o
-.PHONY : source/Core/World.cpp.o
-
-source/Core/World.i: source/Core/World.cpp.i
-.PHONY : source/Core/World.i
-
-# target to preprocess a source file
-source/Core/World.cpp.i:
-	$(MAKE) -f CMakeFiles/PWGenExe.dir/build.make CMakeFiles/PWGenExe.dir/source/Core/World.cpp.i
-.PHONY : source/Core/World.cpp.i
-
-source/Core/World.s: source/Core/World.cpp.s
-.PHONY : source/Core/World.s
-
-# target to generate assembly for a file
-source/Core/World.cpp.s:
-	$(MAKE) -f CMakeFiles/PWGenExe.dir/build.make CMakeFiles/PWGenExe.dir/source/Core/World.cpp.s
-.PHONY : source/Core/World.cpp.s
-
-source/Core/Zone.o: source/Core/Zone.cpp.o
-.PHONY : source/Core/Zone.o
-
-# target to build an object file
-source/Core/Zone.cpp.o:
-	$(MAKE) -f CMakeFiles/PWGenExe.dir/build.make CMakeFiles/PWGenExe.dir/source/Core/Zone.cpp.o
-.PHONY : source/Core/Zone.cpp.o
-
-source/Core/Zone.i: source/Core/Zone.cpp.i
-.PHONY : source/Core/Zone.i
-
-# target to preprocess a source file
-source/Core/Zone.cpp.i:
-	$(MAKE) -f CMakeFiles/PWGenExe.dir/build.make CMakeFiles/PWGenExe.dir/source/Core/Zone.cpp.i
-.PHONY : source/Core/Zone.cpp.i
-
-source/Core/Zone.s: source/Core/Zone.cpp.s
-.PHONY : source/Core/Zone.s
-
-# target to generate assembly for a file
-source/Core/Zone.cpp.s:
-	$(MAKE) -f CMakeFiles/PWGenExe.dir/build.make CMakeFiles/PWGenExe.dir/source/Core/Zone.cpp.s
-.PHONY : source/Core/Zone.cpp.s
-
-source/Interface/IO.o: source/Interface/IO.cpp.o
-.PHONY : source/Interface/IO.o
-
-# target to build an object file
-source/Interface/IO.cpp.o:
-	$(MAKE) -f CMakeFiles/PWGenExe.dir/build.make CMakeFiles/PWGenExe.dir/source/Interface/IO.cpp.o
-.PHONY : source/Interface/IO.cpp.o
-
-source/Interface/IO.i: source/Interface/IO.cpp.i
-.PHONY : source/Interface/IO.i
-
-# target to preprocess a source file
-source/Interface/IO.cpp.i:
-	$(MAKE) -f CMakeFiles/PWGenExe.dir/build.make CMakeFiles/PWGenExe.dir/source/Interface/IO.cpp.i
-.PHONY : source/Interface/IO.cpp.i
-
-source/Interface/IO.s: source/Interface/IO.cpp.s
-.PHONY : source/Interface/IO.s
-
-# target to generate assembly for a file
-source/Interface/IO.cpp.s:
-	$(MAKE) -f CMakeFiles/PWGenExe.dir/build.make CMakeFiles/PWGenExe.dir/source/Interface/IO.cpp.s
-.PHONY : source/Interface/IO.cpp.s
-
 source/main.o: source/main.cpp.o
 .PHONY : source/main.o
 
@@ -243,18 +147,6 @@ help:
 	@echo "... PWGenExe"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... source/Core/Couche.o"
-	@echo "... source/Core/Couche.i"
-	@echo "... source/Core/Couche.s"
-	@echo "... source/Core/World.o"
-	@echo "... source/Core/World.i"
-	@echo "... source/Core/World.s"
-	@echo "... source/Core/Zone.o"
-	@echo "... source/Core/Zone.i"
-	@echo "... source/Core/Zone.s"
-	@echo "... source/Interface/IO.o"
-	@echo "... source/Interface/IO.i"
-	@echo "... source/Interface/IO.s"
 	@echo "... source/main.o"
 	@echo "... source/main.i"
 	@echo "... source/main.s"

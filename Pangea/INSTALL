@@ -1,0 +1,14 @@
+Il vous faut installer la SFML, SFGUI et THOR sfml (dans cet ordre, comme l'arme nucléaire et les canifs)
+
+	git SFML: https://github.com/SFML/SFML.git
+	git SFGUI: https://github.com/TankOs/SFGUI.git
+	git THOR sfml: https://github.com/Bromeon/Thor.git
+	
+	Une fois toutes les dépendances résolues (bonne chance x) ), vous pouvez aller dans Pangea pour taper:
+	
+	cmake .
+	make
+	
+	Et voulà, vous pouvez désormait lancer PWGenExe, en espérant que ce logiciel vous plaira!
+	
+utile: Uncrustify

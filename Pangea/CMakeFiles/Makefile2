@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = /home/creeps/Documents/TPEAlpGen/Pangea
 CMakeFiles/PWGenExe.dir/all:
 	$(MAKE) -f CMakeFiles/PWGenExe.dir/build.make CMakeFiles/PWGenExe.dir/depend
 	$(MAKE) -f CMakeFiles/PWGenExe.dir/build.make CMakeFiles/PWGenExe.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/creeps/Documents/TPEAlpGen/Pangea/CMakeFiles  1 2 3 4 5
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/creeps/Documents/TPEAlpGen/Pangea/CMakeFiles  1
 	@echo "Built target PWGenExe"
 .PHONY : CMakeFiles/PWGenExe.dir/all
 
@@ -72,7 +72,7 @@ all: CMakeFiles/PWGenExe.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/PWGenExe.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/creeps/Documents/TPEAlpGen/Pangea/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/creeps/Documents/TPEAlpGen/Pangea/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/PWGenExe.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/creeps/Documents/TPEAlpGen/Pangea/CMakeFiles 0
 .PHONY : CMakeFiles/PWGenExe.dir/rule

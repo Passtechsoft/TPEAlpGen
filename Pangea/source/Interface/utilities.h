@@ -4,6 +4,9 @@
 //Mettez cette ligne en commentaire si vous ne voulez pas voir affichés les messages de debug
 #define DEBUGMOD
 
+#include <SFML/System.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 
 #include <unistd.h>
 #include <cstdlib>
@@ -52,16 +55,22 @@
 #endif // DEBUGMOD
 
 #define Getter(nomvariable, suffixe) \
-auto Get#suffixe() 					 \
+template<typename T>				 \
+T Get##suffixe() 					 \
 { 									 \
 	return nomvariable;				 \
 }
 
 #define Setter(nomvariable, suffixe) \
-void Set#suffixe(auto modifier) 	 \
+template<typename T> 				 \
+void Set##suffixe(T modifier) 	 	 \
 { 									 \
 	nomvariable = modifier;			 \
 }
+
+#define GetSet(nomvariable, suffixe) \
+Getter(nomvariable, suffixe)		 \
+Setter(nomvariable, suffixe)		 \
 
 //Génère un pitit nbre aléatoire
 #define RAND(min, max) ( (rand() % (max-min+1))+min )
