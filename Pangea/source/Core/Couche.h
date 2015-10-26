@@ -7,7 +7,6 @@ class Roche
 public:
 	Roche();
 private:
-	float m_modulus;///Le module de la roche, qui détermine sa viscosité en GPA
 	float m_seuil;
 };
 

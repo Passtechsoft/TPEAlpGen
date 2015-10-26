@@ -5,3 +5,5 @@
 /Pangea/CMakeFiles/*
 /Pangea/Diapo_generation_terrain.pdf
 /Pangea/cmake_install.cmake
+/Pangea/MakeFile
+/Pangea/Data/.example/*

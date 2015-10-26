@@ -25,7 +25,10 @@ cmake_force:
 
 #=============================================================================
 # Set environment variables for the build.
-
+pp
+	deleted:    source/Interface/IO.h
+	new file:   source/UI/graphics.cpp
+	new file:   source/UI/graphics.h
 # The shell in which to execute make rules.
 SHELL = /bin/sh
 
