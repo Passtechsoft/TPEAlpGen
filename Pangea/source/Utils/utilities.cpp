@@ -41,7 +41,7 @@ bool probability(int prob, int sur)
 vector<string> separateWords(string sentence)
 {
 	vector<string> result;
-	
+
 	string word;
 	for(uint c=0; c != sentence.size(); c++)
 	{
@@ -52,7 +52,7 @@ vector<string> separateWords(string sentence)
 		else
 			word.push_back(sentence[c]);
 	}
-	
+
 	return result;
 }
 
@@ -93,13 +93,20 @@ bool isInWord(std::string word, std::string subWord)
 	return trouve;
 }
 
+std::map<std::string, std::vector<std::string>> getAttributes(std::vector<std::string> chaines, std::string header)
+{
+    std::map<std::string, std::vector<std::string> attributes;
+    if(!header.empty())
+        if(isInString(chaineheader))
+    return attributes;
+}
 std::vector<std::string> getFileWithSthx(std::ifstream &flux, unsigned int nbreMotsAttendus)
 {
 	std::string word;
 	std::vector<std::string> instructions;
 	flux>>word;
 
-	if(!isInWord(word, ":"))
+	if(!isInString(word, ":"))
 		instructions.push_back(word);
 
 	flux>>word;
