@@ -8,6 +8,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
+#include <tinyxml.h>
+
 #include <unistd.h>
 #include <cstdlib>
 #include <cmath>
