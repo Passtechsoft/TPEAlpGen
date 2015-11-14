@@ -1,0 +1,9 @@
+- Application du deplacement globale de la plaque à toutes les cellules.
+- Collision :
+	- Test de collision entre cellules avec des spheres.
+	- Enregistrement de la vélocité dû à la collision.
+- Deplacement des cellules en fonction de leur velocité enregistré :
+	Pour chaque rayons d'ondes :
+		- Construction d'un kdtree des cellules.
+		- Diffusion de la velocité aux cellules adjacentes.
+		- 
