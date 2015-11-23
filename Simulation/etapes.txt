@@ -6,4 +6,6 @@
 	Pour chaque rayons d'ondes :
 		- Construction d'un kdtree des cellules.
 		- Diffusion de la velocité aux cellules adjacentes.
-		- 
+
+Pour chaque tests de collision, la cellule declencheuse demande recursivement a totu les cellule adjacent si elle peuvent se deplacer:
+- pour chaque cellule on test si elle peuvent ce deplacer puis on stocke leur cellules adjacentes dans une list puis, prochaine iteration
