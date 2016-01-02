@@ -17,7 +17,10 @@ int main(int argc, char **argv)
 	
 	monde.SetStepDuration(50);
 	
-	monde.RunStep(;
+	monde.RunStep();
+	
+	
+	
 	INFO("Génération d'un terrain sur 100 millions d'années");
 	
 	

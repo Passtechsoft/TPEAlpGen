@@ -26,6 +26,7 @@
 #include <map>
 #include <queue>
 #include <list>
+#include <pair>
 
 
 #define PR_WHITE 30 //#seriouslybro
@@ -55,6 +56,8 @@
 #else
 #define affDebug(message, entree) ;
 #endif // DEBUGMOD
+
+#define PI 3.141592654
 
 #define Getter(nomvariable, suffixe) \
 template<typename T>				 \
@@ -109,8 +112,6 @@ void affPtrFlag();
 
 ///Permet de tester une certaine probabilité
 bool probability(int prob, int sur);
-///Renvoie le nombre en positif
-float positif(int a);
 ///Donne le mot n°\a word_num dans la chaine chaine, à noter que word_num commence par 0;
 std::string getWord(ushort word_num, std::string &chaine);
 ///\return true si \a subWord est dans \a word

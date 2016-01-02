@@ -45,9 +45,9 @@ vector<string> separateWords(string sentence)
 	string word;
 	for(uint c=0; c != sentence.size(); c++)
 	{
-		if(sentence[c] == " "){
+		if(sentence[c] == ' '){
 			result.push_back(word)
-			word="";
+			word.clear();
 		}
 		else
 			word.push_back(sentence[c]);
@@ -56,22 +56,24 @@ vector<string> separateWords(string sentence)
 	return result;
 }
 
-string getWord(ushort word_num, string &chaine)
+std::string getWord(unsigned short word_num, std::string &chaine)
 {
     string word;
     int compteur=0;
     for(unsigned int c=0; c!=chaine.size(); ++c)
     {
+        if(chaine[c]==' ') {
+            compteur++;
+            continue;
+        }
+
         if(compteur==word_num)
             word.push_back(chaine[c]);
         else if(compteur>word_num)
             break;
-
-        if(chaine[c]==' ')
-            compteur++;
     }
     if(word.empty())
-        WARNING("10::: le mot demandé (n°"<<word_num<<") est introuvable.");
+        WARNING(" le mot demandé (n°"<<word_num<<") est introuvable dans la chaine " << chaine);
     return word;
 }
 
@@ -96,10 +98,17 @@ bool isInWord(std::string word, std::string subWord)
 std::map<std::string, std::vector<std::string>> getAttributes(std::vector<std::string> chaines, std::string header)
 {
     std::map<std::string, std::vector<std::string> attributes;
-    if(!header.empty())
-        if(isInString(chaineheader))
+    uint c=0;
+    if(!header.empty()){
+        if(!isInString(chaineheader))
+            WARNING("L'en tête attendue est absente!");
+        ++c;
+    }
+
+
     return attributes;
 }
+
 std::vector<std::string> getFileWithSthx(std::ifstream &flux, unsigned int nbreMotsAttendus)
 {
 	std::string word;
@@ -108,6 +117,38 @@ std::vector<std::string> getFileWithSthx(std::ifstream &flux, unsigned int nbreM
 
 	if(!isInString(word, ":"))
 		instructions.push_back(word);
+
+	flux>>word;
+	unsigned int c=0;
+	for(;word!=";" && flux; ++c)
+	{
+		instructions.push_back(word);
+		flux>>word;
+	}
+
+	if(c >= nbreMotsAttendus){
+		WARNING(":7:: Le nombre de mots reçu a dépassé le nombre de mots attendus de "
+					<<c-nbreMotsAttendus+1<<" mots, il y a peut être une erreur dans le fichier "
+					"de configuration.");
+	}
+	if(!flux)
+		WARNING(":7:: Cette recherche a été poussée jusqu'au bout du fichier sans rencontrer de \" ;\", ce n'est pas normal.");
+
+	return instructions;
+}
+
+float positif(int a)
+{
+    if(a<0)
+        return a*-1;
+    return a;
+}
+
+
+namespace Unoise
+{
+    PermTable* lambdaPermTable=nullptr;//La table de permutation de base*
+    int seed=42;//Le seed!!!
 
 	flux>>word;
 	unsigned int c=0;
@@ -275,38 +316,6 @@ namespace Unoise
 			tmpNbrePts+=pointsEnvironnants->at(c).size();
 		if(tmpNbrePts != nbrPtsCotePaire*4)
 		{
-			WARNING("diamondSquareNoise: le paramètre pointsEnvirronants ne contient pas\n le nombre attendu de points, il ne sera pas utilisé.");
-			pointsEnvironnants=nullptr;//Ce qui va permettre de faire comme si ce paramètre déficient n'avait pas été entré
-		}
-		}
-
-
-		INFO("Le chunk de subdivision "<<subDivisions<<" généré vaut "<<nbrePointsCote<<" points de coté pour un total de "<<CARRE(nbrePointsCote)<<" points.");
-
-		if(pointsPrincipaux==nullptr)
-		{
-			//Durant cette première phase, nous créons les quatres sommets de base du chunk
-			chunkPoints[0][0]=							RAND(-amplitude, amplitude);
-			chunkPoints[nbrePointsCote][0]=				RAND(-amplitude, amplitude);
-			chunkPoints[0][nbrePointsCote]=				RAND(-amplitude, amplitude);
-			chunkPoints[nbrePointsCote][nbrePointsCote]=RAND(-amplitude, amplitude);
-		}
-		else
-		{
-			chunkPoints[0][0]=							pointsPrincipaux->at(0);
-			chunkPoints[nbrePointsCote][0]=				pointsPrincipaux->at(1);
-			chunkPoints[0][nbrePointsCote]=				pointsPrincipaux->at(2);
-			chunkPoints[nbrePointsCote][nbrePointsCote]=pointsPrincipaux->at(3);
-		}
-		if(subDivisions==0)
-			return chunkPoints;
-
-
-		float moyennePointsEnvironnants;//cette variable fait la [explicite] en utilisant le point de traitement actuel comme base.
-		for(uint c=1; c!=subDivisions+1; ++c)
-		{
-			//Il y a deux phases par subdivisions: d'abors la division carrée, puis la division diamond
-			uint nbrePointsActuels=pow(2, c)+1;
 			uint pas=nbrPtsCotePaire/(nbrePointsActuels-1);
 
 			//Di d=0; alors c'est la division carrée, sinon c'est la division diamond
@@ -339,7 +348,7 @@ namespace Unoise
     }
 
     /**
-    * \param x La position X
+    * \param x La position Xd
     * \param y La position Z
     * \param res La douceur du terrain
     * \param perm Le pointeur vers la table de permutation
