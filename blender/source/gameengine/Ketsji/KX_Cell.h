@@ -29,7 +29,7 @@ private:
 	bool m_computed;
 
 public:
-	KX_Cell()
+	KX_Cell();
 	virtual ~KX_Cell();
 
 	/** Trouve toutes les cellules adjacentes grace au KDTree et a la liste de
