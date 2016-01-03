@@ -7,3 +7,4 @@
 /Pangea/cmake_install.cmake
 /Pangea/MakeFile
 /Pangea/Data/.example/*
+/build_linux/*
