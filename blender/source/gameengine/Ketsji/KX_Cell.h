@@ -60,7 +60,7 @@ public:
 
 	/** Fait le rendu des cette cellules avec ses liens.
 	 */
-	void Render(unsigned int color);
+	void Render(MT_Vector3 color);
 
 	/// Renvoi vrai si la cellule à déjà était calculée.
 	bool GetComputed() const;

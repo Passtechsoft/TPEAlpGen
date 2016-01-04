@@ -49,11 +49,12 @@ void KX_Cell::Translate()
 	m_position += m_velocity;
 }
 
-void KX_Cell::Render(unsigned int color)
+void KX_Cell::Render(MT_Vector3 color)
 {
-	glBegin(GL_LINES)
+	glPointSize(5.0f);
+	glBegin(GL_POINTS);
 
-		glColor3f(1.0f, 0.0f, 0.0f);
+		glColor3fv(color.getValue());
 		glVertex3fv(m_position.getValue());
 
 	glEnd();

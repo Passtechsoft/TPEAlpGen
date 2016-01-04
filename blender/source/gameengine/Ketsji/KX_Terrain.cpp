@@ -11,7 +11,7 @@ KX_Terrain::KX_Terrain()
 		// Le décalage en x de la première cellule : alternance 0 et m_interval / 2.
 		float gapx = (y % 2) ? (m_interval / 2.0f) : 0.0f;
 		for (unsigned int x = 0; x < maxx; ++x) {
-			MT_Vector3 position(x * m_interval, y * m_interval, 0.0f);
+			MT_Vector3 position(x * m_interval + gapx, y * m_interval, 0.0f);
 			KX_Cell *cell = new KX_Cell(position);
 			m_cells.push_back(cell);
 		}
@@ -33,6 +33,6 @@ void KX_Terrain::Render()
 {
 	for (KX_CellList::iterator it = m_cells.begin(), end = m_cells.end(); it != end; ++it) {
 		KX_Cell *cell = *it;
-		cell->Render(255);
+		cell->Render(MT_Vector3(1.0f, 0.0f, 0.0f));
 	}
 }
