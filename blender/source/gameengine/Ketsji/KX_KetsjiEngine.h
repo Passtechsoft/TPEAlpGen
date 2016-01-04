@@ -44,6 +44,7 @@
 
 struct TaskScheduler;
 class KX_TimeCategoryLogger;
+class KX_Terrain;
 
 #define LEFT_EYE  1
 #define RIGHT_EYE 2
@@ -205,6 +206,8 @@ private:
 
 	/** Task scheduler for multi-threading */
 	TaskScheduler* m_taskscheduler;
+
+	KX_Terrain *m_terrain;
 
 	void					RenderFrame(KX_Scene* scene, KX_Camera* cam);
 	void					PostRenderScene(KX_Scene* scene);

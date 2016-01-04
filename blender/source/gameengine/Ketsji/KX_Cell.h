@@ -29,7 +29,9 @@ private:
 	bool m_computed;
 
 public:
-	KX_Cell();
+	/** Intialisation de la cellule a sa position originelle.
+	 */
+	KX_Cell(MT_Vector3 position);
 	virtual ~KX_Cell();
 
 	/** Trouve toutes les cellules adjacentes grace au KDTree et a la liste de
@@ -59,4 +61,7 @@ public:
 	/** Fait le rendu des cette cellules avec ses liens.
 	 */
 	void Render(unsigned int color);
+
+	/// Renvoi vrai si la cellule à déjà était calculée.
+	bool GetComputed() const;
 };

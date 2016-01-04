@@ -77,6 +77,8 @@
 
 #include "BL_Action.h" // For managing action lock.
 
+#include "KX_Terrain.h"
+
 #define DEFAULT_LOGIC_TIC_RATE 60.0
 //#define DEFAULT_PHYSICS_TIC_RATE 60.0
 
@@ -188,6 +190,8 @@ KX_KetsjiEngine::KX_KetsjiEngine(KX_ISystem* system)
 
 	m_taskscheduler = BLI_task_scheduler_create(TASK_SCHEDULER_AUTO_THREADS);
 
+	m_terrain = new KX_Terrain();
+
 	BL_Action::InitLock();
 }
 
@@ -208,6 +212,10 @@ KX_KetsjiEngine::~KX_KetsjiEngine()
 
 	if (m_taskscheduler)
 		BLI_task_scheduler_free(m_taskscheduler);
+
+	if (m_terrain) {
+		delete m_terrain;
+	}
 
 	BL_Action::EndLock();
 }

@@ -6,9 +6,11 @@ private:
 	/// L'arbre utilisé pour rechercher les cellules adjacentes.
 	KDTree *m_tree;
 	/// Toutes les cellules existantes.
-	KX_CellList *m_cells;
+	KX_CellList m_cells;
 	/// Le nombre de cellules en largeur.
 	unsigned int m_size;
+	/// L'espace entre les cellules.
+	float m_interval;
 
 	/// Liste de toutes les cellules fromant le front.
 	KX_CellList m_currentFront;
