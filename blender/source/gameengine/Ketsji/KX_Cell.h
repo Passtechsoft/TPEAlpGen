@@ -28,6 +28,9 @@ private:
 	 */ 
 	bool m_computed;
 
+	/// La couleur du rendu de la cellule.
+	MT_Vector3 m_color;
+
 public:
 	/** Intialisation de la cellule a sa position originelle.
 	 */
@@ -51,17 +54,24 @@ public:
 
 	/** Enregistre une velocité à appliquer à la fin du calcule.
 	 */
-	void AddVelocity(MT_Vector3& velocity);
+	void AddVelocity(MT_Vector3 velocity);
 
 	/** Applique la moyenne des velocités a la position et supprime toutes
 	 * les velocités à appliquer.
 	 */
 	void Translate();
 
+	/** Mise en place de la couleur de rendu de la cellule.
+	 */
+	void SetColor(MT_Vector3 color);
+
 	/** Fait le rendu des cette cellules avec ses liens.
 	 */
-	void Render(MT_Vector3 color);
+	void Render();
 
 	/// Renvoi vrai si la cellule à déjà était calculée.
 	bool GetComputed() const;
+
+	/// Renvoi la position de la cellule.
+	MT_Vector3 GetPosition() const;
 };

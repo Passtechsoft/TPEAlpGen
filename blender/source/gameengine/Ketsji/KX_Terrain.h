@@ -22,6 +22,11 @@ private:
 	/// Le numéro de la cellule de collision ayant créé le front.
 	unsigned int m_currentCollider;
 
+	/** Rconstruction de l'arbre avec la nouvelle position de toutes
+	 * les cellules.
+	 */
+	void RebuildTree();
+
 public:
 	KX_Terrain();
 	virtual ~KX_Terrain();

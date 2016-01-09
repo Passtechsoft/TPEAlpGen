@@ -1288,6 +1288,7 @@ void KX_KetsjiEngine::RenderFrame(KX_Scene* scene, KX_Camera* cam)
 
 	scene->RenderBuckets(camtrans, m_rasterizer);
 
+	m_terrain->NextFront();
 	m_terrain->Render();
 
 	//render all the font objects for this scene
