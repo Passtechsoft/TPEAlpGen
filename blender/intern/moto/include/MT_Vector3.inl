@@ -95,7 +95,12 @@ GEN_INLINE MT_Vector3 MT_Vector3::scaled(MT_Scalar xx, MT_Scalar yy, MT_Scalar z
 GEN_INLINE MT_Scalar MT_Vector3::angle(const MT_Vector3& v) const {
     MT_Scalar s = sqrtf(length2() * v.length2());
     MT_assert(!MT_fuzzyZero(s));
-    return acosf(dot(v) / s);
+// 	std::cout << dot(v) / s << std::endl;
+	float val = dot(v);
+	if (MT_abs(s) < MT_abs(val)) {
+		val = s;
+	}
+    return acosf(val / s);
 }
 
 GEN_INLINE MT_Vector3 MT_Vector3::cross(const MT_Vector3& v) const {

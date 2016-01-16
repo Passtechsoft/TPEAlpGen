@@ -18,15 +18,19 @@ private:
 	MT_Vector3 m_velocity;
 
 	/// La somme de toutes les velocités externes appliquées à cette cellule.
-	MT_Vector3 m_addedVelocity;
-	/// Le nombre de velocités externes appliquées à cette cellule.
-	unsigned int m_addedVelocityCount;
+	std::vector<MT_Vector3> m_addedVelocityList;
 
 	/** Evite le double calcul de cellules, si vrai :
 	 *    - la cellule ne peut pas être ajouter dans le front;
 	 *    - la cellule ne peut recevoir de velocité externe.
 	 */ 
 	bool m_computed;
+
+	/** Vrai quand la cellule fait partie du front, on utilise
+	 * cette variable pour eviter les doubles ajout de cellules dans
+	 * le front.
+	 */
+	bool m_inFront;
 
 	/// La couleur du rendu de la cellule.
 	MT_Vector3 m_color;
@@ -47,19 +51,32 @@ public:
 	 */
 	void AppendAjacents(KX_CellList& cells);
 
+	void AddInFront(KX_CellList& cells);
+
 	/** Applique sa propre vélocité à toutes les cellules adjacentes non
 	 * calculées.
 	 */
-	void PropagateVelocity();
+	void PropagateVelocity(unsigned int layer);
 
 	/** Enregistre une velocité à appliquer à la fin du calcule.
 	 */
-	void AddVelocity(MT_Vector3 velocity);
+	void AddVelocity(MT_Vector3 velocity, unsigned int layer);
+
+	/** Reservation d'une liste de calque par cellules de collision
+	 * pour la vélocité propagée.
+	 */
+	void ResizeVelocityLayers(unsigned int count);
 
 	/** Applique la moyenne des velocités a la position et supprime toutes
 	 * les velocités à appliquer.
 	 */
-	void Translate();
+	void Translate(float time);
+
+	/** Remet la cellule à l'état non calculé.
+	 */
+	void ResetComputed();
+
+	void ResetVelocity();
 
 	/** Mise en place de la couleur de rendu de la cellule.
 	 */
@@ -69,8 +86,14 @@ public:
 	 */
 	void Render();
 
+	/** Fait le rendu de la velocité externe par un trait rouge.
+	 */
+	void RenderVelocity(unsigned int layer);
+
 	/// Renvoi vrai si la cellule à déjà était calculée.
 	bool GetComputed() const;
+
+	bool GetInFront() const;
 
 	/// Renvoi la position de la cellule.
 	MT_Vector3 GetPosition() const;

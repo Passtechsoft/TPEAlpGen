@@ -1,5 +1,13 @@
 #include "KX_Cell.h"
 
+struct KX_ColliderInfo
+{
+	KX_Cell *cell;
+	MT_Vector3 velocity;
+};
+
+typedef std::vector<KX_ColliderInfo> KX_ColliderInfoList;
+
 class KX_Terrain
 {
 private:
@@ -11,6 +19,8 @@ private:
 	unsigned int m_size;
 	/// L'espace entre les cellules.
 	float m_interval;
+	/// Le temps actuelle + 1 à chaque fin de collision.
+	float m_time;
 
 	/// Liste de toutes les cellules fromant le front.
 	KX_CellList m_currentFront;
@@ -18,7 +28,7 @@ private:
 	unsigned int m_frontIteration;
 
 	/// Toutes les cellules en collision. Cette liste est fixe pour le moment.
-	KX_CellList m_colliders;
+	KX_ColliderInfoList m_colliders;
 	/// Le numéro de la cellule de collision ayant créé le front.
 	unsigned int m_currentCollider;
 
