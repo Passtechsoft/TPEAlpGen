@@ -8,3 +8,4 @@
 /Pangea/MakeFile
 /Pangea/Data/.example/*
 /build_linux/*
+/build_linux_debug/*
