@@ -1,4 +1,5 @@
-\beamer@endinputifotherversion {3.33pt}
+\beamer@endinputifotherversion {3.36pt}
+\select@language {french}
 \beamer@sectionintoc {1}{Les ph\IeC {\'e}nom\IeC {\`e}nes g\IeC {\'e}ormophologiques}{3}{0}{1}
 \beamer@subsectionintoc {1}{1}{La subduction}{3}{0}{1}
 \beamer@subsectionintoc {1}{2}{L'obduction}{4}{0}{1}
@@ -7,8 +8,8 @@
 \beamer@subsectionintoc {2}{2}{L'alt\IeC {\'e}ration physico-chimique}{6}{0}{2}
 \beamer@sectionintoc {3}{Le syst\IeC {\`e}me cellulaire}{7}{0}{3}
 \beamer@subsectionintoc {3}{1}{Les cellules}{7}{0}{3}
-\beamer@sectionintoc {4}{Les interactions entre cellules}{8}{0}{4}
-\beamer@subsectionintoc {4}{1}{Loi du centre instantan\IeC {\'e} de rotation}{8}{0}{4}
-\beamer@subsectionintoc {4}{2}{La loi de Hook et le module de Young}{10}{0}{4}
-\beamer@subsectionintoc {4}{3}{La loi de Coulomb}{11}{0}{4}
-\beamer@sectionintoc {5}{Les images de simulation}{12}{0}{5}
+\beamer@subsectionintoc {3}{2}{La propagation par fronts}{8}{0}{3}
+\beamer@sectionintoc {4}{Les interactions entre cellules}{10}{0}{4}
+\beamer@subsectionintoc {4}{1}{Loi du centre instantan\IeC {\'e} de rotation}{10}{0}{4}
+\beamer@subsectionintoc {4}{2}{La loi de Hooke et le module de Young}{13}{0}{4}
+\beamer@subsectionintoc {4}{3}{La loi de Coulomb}{15}{0}{4}

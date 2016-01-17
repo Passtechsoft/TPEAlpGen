@@ -16,7 +16,9 @@ private:
 	/// Toutes les cellules existantes.
 	KX_CellList m_cells;
 	/// Le nombre de cellules en largeur.
-	unsigned int m_size;
+	unsigned int m_sizeX;
+	/// Le nombre de cellules en hauteur.
+	unsigned int m_sizeY;
 	/// L'espace entre les cellules.
 	float m_interval;
 	/// Le temps actuelle + 1 à chaque fin de collision.

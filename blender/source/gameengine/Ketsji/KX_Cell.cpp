@@ -68,7 +68,7 @@ void KX_Cell::AddInFront(KX_CellList& cells)
 }
 
 #define USE_DIRECTION
-// #define USE_DISTANCE
+#define USE_DISTANCE
 
 void KX_Cell::PropagateVelocity(unsigned int layer)
 {
@@ -101,13 +101,9 @@ void KX_Cell::PropagateVelocity(unsigned int layer)
 		KX_Cell *cell = adjacentActiveCellList[i];
 
 		MT_Vector3 direction = (cell->GetPosition() - m_position);
-		float angle = direction.angle(originalVelocity);
+		float angle = direction.angle(originalVelocity.normalized());
 		float dist = direction.length();
 		float v1 = originalVelocity.length();
-		// L'axe Z deduit par le plan formé par les 2 cellules et le vecteur de force.
-		MT_Vector3 zaxis = direction.cross(originalVelocity);
-		// L'axe Y perpendiculaire à la force et sur le même plan.
-		MT_Vector3 yaxis = zaxis.cross(originalVelocity);
 
 		float factor = 0.0f;
 		// L'angle est proche de 0 ou pi car l'absolu de son cosinus
@@ -115,14 +111,14 @@ void KX_Cell::PropagateVelocity(unsigned int layer)
 			factor = 1.0f;
 		}
 		else if (MT_fuzzyZero(std::cos(angle))) {
-			factor = 1.0f;
+			factor = 0.0f;
 		}
 		else {
 			// Application du centre de rotation instantané d'un solide.
 			// Le premier rayon.
-			float r1 = std::abs(dist / std::cos(MT_PI / 2.0f - angle));
+			float r1 = std::abs(dist / std::sin(angle));
 			// Le second rayon.
-			float r2 = std::abs(dist * std::tan(MT_PI / 2.0f - angle));
+			float r2 = std::abs(dist / std::tan(angle));
 
 			// La rotation du solide en rad/s.
 			float om = v1 / r1;
@@ -132,36 +128,49 @@ void KX_Cell::PropagateVelocity(unsigned int layer)
 			* de force et le vecteur vers la cellule adjacente.
 			*/
 			factor = v2;
-			if (factor < 0.0f) {
-				std::cout << "negative, factor : " << factor << ", r2 : " << r2 << ", om : " << om << std::endl;
+// 			std::cout << "factor : " << factor << ", angle : " << angle << ", r1 : " << r1 << ", r2 : " << r2 << std::endl;
+			if (factor > 1.0f) {
+				std::cout << "non-normalized factor : " << factor << std::endl;
 			}
 		}
-		cellFactorList[i] = factor;
+		cellFactorList[i] = factor / adjacentCellCount;
 		cellDirectionList[i] = direction;
 	}
 
+	/*float totalFactor = 0.0f;
+	for (unsigned i = 0; i < adjacentCellCount; ++i) {
+		totalFactor += cellFactorList[i];
+	}
+
+	if (MT_fuzzyZero(totalFactor)) {
+		return;
+	}
+
+	for (unsigned i = 0; i < adjacentCellCount; ++i) {
+		cellFactorList[i] /= totalFactor;
+	}*/
+
 	/** Puis on applique enfin la velocité.
 	 */
+	const float radius = std::sqrt(2.0f);
 	for (unsigned int i = 0; i < adjacentCellCount; ++i) {
 		KX_Cell *cell = adjacentActiveCellList[i];
 		float factor = cellFactorList[i];
-		MT_Vector3 velocity;
-
-#ifdef USE_DIRECTION
 		MT_Vector3 direction = cellDirectionList[i];
-		velocity = direction.normalized() * factor;
-#  ifdef USE_DISTANCE
-		float dist = direction.length();
-		float ratio = std::sqrt(2.0f) / dist;
-		velocity += direction * ratio;
-#  endif
+
+#ifdef USE_DISTANCE
+		float distance = direction.length();
+
+		MT_Vector3 velocity = direction.normalized() * factor * (radius / sqrt(distance));
 #else
-		velocity = originalVelocity * factor;
+		MT_Vector3 velocity = direction.normalized() * factor;
 #endif
 
 		cell->AddVelocity(velocity, layer);
 	}
 }
+
+// #define USE_ATTENUATION
 
 void KX_Cell::AddVelocity(MT_Vector3 velocity, unsigned int layer)
 {
@@ -173,7 +182,11 @@ void KX_Cell::AddVelocity(MT_Vector3 velocity, unsigned int layer)
 
 	float factor = 0.0f;
 	if (!MT_fuzzyZero(velocityDiffDist)) {
-		factor = 1.0f; //(-pow(velocityDiffDist - 2, 3)) / 50.0f + 0.8f;
+#ifdef USE_ATTENUATION
+		factor = (-pow(velocityDiffDist - 2, 3)) / 50.0f + 0.8f;
+#else
+		factor = 1.0f;
+#endif
 	}
 
 // 	CLAMP(factor, 0.0f, 0.8f);
@@ -216,13 +229,14 @@ void KX_Cell::SetColor(MT_Vector3 color)
 
 void KX_Cell::Render()
 {
-	glPointSize(5.0f);
-	glBegin(GL_POINTS);
+	glPushMatrix();
+	glTranslatef(m_position.x(), m_position.y(), m_position.z());
 
-		glColor3fv(m_color.getValue());
-		glVertex3fv(m_position.getValue());
+	glColor3fv(m_color.getValue());
+	GLUquadric *quad = gluNewQuadric();
+	gluSphere(quad, 0.4f, 10, 10);
 
-	glEnd();
+	glPopMatrix();
 
 	glBegin(GL_LINES);
 
@@ -239,8 +253,8 @@ void KX_Cell::Render()
 void KX_Cell::RenderVelocity(unsigned int layer)
 {
 	for (unsigned int i = 0; i < m_addedVelocityList.size(); ++i) {
-		MT_Vector3 velocity = (m_addedVelocityList[i]) * 10.0f;
-		MT_Vector3 position = m_position + MT_Vector3(0, 0, i * 0.01f);
+		MT_Vector3 velocity = (m_addedVelocityList[i]) * 100.0f;
+		MT_Vector3 position = m_position + MT_Vector3(0, 0, i * 1.0f);
 
 		glColor3f(1.0f, ((float)i) / m_addedVelocityList.size(), 0.0f);
 		glBegin(GL_LINES);
