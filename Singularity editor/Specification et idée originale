@@ -1,0 +1,14 @@
+Le singularity toolset est un ensemble d'outils de modélisation tournés vers la créatinn de monde interactifs généras procéduralement pour le jeu vidéo.
+
+Différents outils pouvant être intégrés dans ce concept:
+
+	- Le Genèse World Creator, un utilitaire propriétaire puissant permettant de:
+				-- Créer un monde selon des presets grâce à une sorte d'éditeur interactif
+				-- le baker pour le jeu video (singularity engine)
+				-- inclure simuler les forêts les océans, l'erosion
+				-- Pouvoir créer des zones de génération automatique soumises à preset qui serons rendues grâce au PangeaWorldSim
+				 
+	- Le singularity engine: Un moteur de jeu libre destiné à promouvoir nos fonctionnelités en les incluants de façon libre
+		-- Yapadnaw, un afficheur de terrain dynamique
+		-- logiquement, support du chargement de terrain de fichiers genèse
+	- 

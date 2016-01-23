@@ -1,0 +1,12 @@
+Rappel du concept:
+
+
+	- Le Genèse World Creator, un utilitaire propriétaire puissant permettant de:
+				-- Créer un monde selon des presets grâce à une sorte d'éditeur interactif
+				-- le baker pour le jeu video (singularity engine)
+				-- inclure simuler les forêts les océans, l'erosion
+				-- Pouvoir créer des zones de génération automatique soumises à preset qui serons rendues grâce au PangeaWorldSim
+				
+Le génèse world creator sera un logiciel unique composé d'une foultitude de logiciels subordonnés, sous forme de plugins.
+	Il y aura donc une API interne et un système de cross-compilation. 
+	Un système d'extension par torent est également envisageable.
