@@ -9,6 +9,8 @@ extern "C" {
 
 #include "glew-mx.h"
 
+static float radius = std::sqrt(std::pow(0.5f, 2.0f) + std::pow(1.0f, 2.0f));
+
 KX_Cell::KX_Cell(MT_Vector3 position):
 	m_position(position),
 	m_velocity(0.0f, 0.0f, 0.0f),
@@ -31,7 +33,6 @@ void KX_Cell::FindAdjacents(KDTree *tree, KX_CellList& cells)
 	// Futur tableau des position des cellules adjacentes.
 	KDTreeNearest *nearests = NULL;
 
-	const float radius = std::sqrt(2.0f);
 	// On recherche toutes les cellules dans un certain rayon.
 	unsigned int found = BLI_kdtree_range_search(tree, m_position.getValue(), &nearests, radius);
 
@@ -108,7 +109,7 @@ void KX_Cell::PropagateVelocity(unsigned int layer)
 		float factor = 0.0f;
 		// L'angle est proche de 0 ou pi car l'absolu de son cosinus
 		if (MT_fuzzyZero(std::sin(angle))) {
-			factor = 1.0f;
+			factor = 1.0f / adjacentCellCount;
 		}
 		else if (MT_fuzzyZero(std::cos(angle))) {
 			factor = 0.0f;
@@ -116,9 +117,9 @@ void KX_Cell::PropagateVelocity(unsigned int layer)
 		else {
 			// Application du centre de rotation instantané d'un solide.
 			// Le premier rayon.
-			float r1 = std::abs(dist / std::sin(angle));
+			float r1 = dist / std::sin(angle);
 			// Le second rayon.
-			float r2 = std::abs(dist / std::tan(angle));
+			float r2 = dist / std::tan(angle);
 
 			// La rotation du solide en rad/s.
 			float om = v1 / r1;
@@ -128,31 +129,40 @@ void KX_Cell::PropagateVelocity(unsigned int layer)
 			* de force et le vecteur vers la cellule adjacente.
 			*/
 			factor = v2;
-// 			std::cout << "factor : " << factor << ", angle : " << angle << ", r1 : " << r1 << ", r2 : " << r2 << std::endl;
+
 			if (factor > 1.0f) {
-				std::cout << "non-normalized factor : " << factor << std::endl;
+				std::cout << "non-normalized factor : " << factor << ", om : " << om << ", r1 : " << r1 << ", r2 : " << r2 << std::endl;
 			}
+			/*if (factor < 0.0f) {
+				std::cout << "negative factor : " << factor << std::endl;
+			}*/
 		}
 		cellFactorList[i] = factor / adjacentCellCount;
 		cellDirectionList[i] = direction;
 	}
 
-	/*float totalFactor = 0.0f;
+	float totalFactor = 0.0f;
 	for (unsigned i = 0; i < adjacentCellCount; ++i) {
-		totalFactor += cellFactorList[i];
+		totalFactor += std::abs(cellFactorList[i]);
 	}
 
 	if (MT_fuzzyZero(totalFactor)) {
 		return;
 	}
 
-	for (unsigned i = 0; i < adjacentCellCount; ++i) {
-		cellFactorList[i] /= totalFactor;
+	/*if (totalFactor > 1.0f) {
+		for (unsigned i = 0; i < adjacentCellCount; ++i) {
+			float bef = cellFactorList[i];
+			cellFactorList[i] /= totalFactor;
+			float aft = cellFactorList[i];
+			if (aft > bef) {
+				std::cout << "multitplied factor : " << bef << ", " << aft << ", " << totalFactor << std::endl;
+			}
+		}
 	}*/
 
 	/** Puis on applique enfin la velocité.
 	 */
-	const float radius = std::sqrt(2.0f);
 	for (unsigned int i = 0; i < adjacentCellCount; ++i) {
 		KX_Cell *cell = adjacentActiveCellList[i];
 		float factor = cellFactorList[i];
@@ -161,7 +171,9 @@ void KX_Cell::PropagateVelocity(unsigned int layer)
 #ifdef USE_DISTANCE
 		float distance = direction.length();
 
-		MT_Vector3 velocity = direction.normalized() * factor * (radius / sqrt(distance));
+		float comp = (1.0f + pow((distance - radius), 2));
+		std::cout << comp << ", " << distance << std::endl;
+		MT_Vector3 velocity = direction.normalized() * originalVelocity.length() /** factor*/ * comp;
 #else
 		MT_Vector3 velocity = direction.normalized() * factor;
 #endif
@@ -197,12 +209,14 @@ void KX_Cell::AddVelocity(MT_Vector3 velocity, unsigned int layer)
 
 void KX_Cell::Translate(float time)
 {
+	MT_Vector3 velocity(0.0f, 0.0f, 0.0f);
 	for (unsigned int layer = 0; layer < m_addedVelocityList.size(); ++layer) {
-		MT_Vector3 addedVelocity = m_addedVelocityList[layer];
-
-		m_position += addedVelocity;
-		m_velocity = addedVelocity;
+		velocity += m_addedVelocityList[layer];
 	}
+
+	m_position += velocity;
+	m_velocity = velocity;
+// 	std::cout << "velocity length : " << velocity.length() << std::endl;
 }
 
 void KX_Cell::ResetComputed()

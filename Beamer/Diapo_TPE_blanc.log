@@ -1,17 +1,17 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.16)  17 JAN 2016 13:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2016.1.17)  18 JAN 2016 17:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Diapo_TPE_blanc.tex
 (./Diapo_TPE_blanc.tex
-LaTeX2e <2015/10/01> patch level 2
-Babel <3.9m> and hyphenation patterns for 2 languages loaded.
+LaTeX2e <2014/05/01>
+Babel <3.9l> and hyphenation patterns for 4 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasercs.sty
-Package: beamerbasercs 2015/03/08 (rcs-revision 368aa9ba9d38)
+Package: beamerbasercs 2013/12/25 (rcs-revision 31cc758a62ae)
 )
-Document Class: beamer 2015/01/05 3.36 A class for typesetting presentations (r
-cs-revision 8a39122e1f63)
+Document Class: beamer 2013/12/02 3.33 A class for typesetting presentations (r
+cs-revision 332bfd3ce558)
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasemodes.sty
 Package: beamerbasemodes 2013/09/03 (rcs-revision 768f2d98ca64)
 \beamer@tempbox=\box26
@@ -77,7 +77,7 @@ Package ifpdf Info: pdfTeX in PDF mode is detected.
 Package: beamerbaseoptions 2013/03/10 (rcs-revision 47431932db0d)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 ))
 \beamer@paperwidth=\skip42
@@ -111,10 +111,10 @@ File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
@@ -122,7 +122,7 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 94.
+Package graphics Info: Driver file: pdftex.def on input line 91.
 
 (/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
@@ -152,10 +152,10 @@ ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
-Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
+Package: pgfrcs 2013/12/20 v3.0.0 (rcs-revision 1.28)
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
-Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
+Package: pgfsys 2013/11/30 v3.0.0 (rcs-revision 1.47)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
 \pgfkeys@pathtoks=\toks17
@@ -188,7 +188,7 @@ File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 Driver file for pgf: pgfsys-pdftex.def
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
-File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
+File: pgfsys-pdftex.def 2013/07/18  (rcs-revision 1.33)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
 f
@@ -221,7 +221,7 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
-Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
+Package: pgfcore 2010/04/11 v3.0.0 (rcs-revision 1.7)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
@@ -280,13 +280,13 @@ File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
 .tex
-File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
+File: pgfcorepathusage.code.tex 2013/12/13  (rcs-revision 1.23)
 \pgf@shorten@end@additional=\dimen156
 \pgf@shorten@start@additional=\dimen157
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
 x
-File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
+File: pgfcorescopes.code.tex 2013/10/09  (rcs-revision 1.44)
 \pgfpic=\box36
 \pgf@hbox=\box37
 \pgf@layerbox@main=\box38
@@ -294,12 +294,12 @@ File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
 ode.tex
-File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
+File: pgfcoregraphicstate.code.tex 2013/09/19  (rcs-revision 1.11)
 \pgflinewidth=\dimen158
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
 s.code.tex
-File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
+File: pgfcoretransformations.code.tex 2013/10/10  (rcs-revision 1.17)
 \pgf@pt@x=\dimen159
 \pgf@pt@y=\dimen160
 \pgf@pt@temp=\dimen161
@@ -317,7 +317,7 @@ File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
 x
-File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
+File: pgfcorearrows.code.tex 2013/11/07  (rcs-revision 1.40)
 \pgfarrowsep=\dimen162
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
@@ -330,7 +330,7 @@ File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
 tex
-File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
+File: pgfcoreexternal.code.tex 2013/07/15  (rcs-revision 1.20)
 \pgfexternal@startupbox=\box39
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
@@ -472,7 +472,7 @@ Package: beamerbaserequires 2010/05/01  (rcs-revision efa082c6111d)
 Package: beamerbasecompatibility 2012/05/01  (rcs-revision 67c48b3b652d)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasefont.sty
-Package: beamerbasefont 2015/01/05  (rcs-revision b4b4bee242e2)
+Package: beamerbasefont 2013/10/18  (rcs-revision 72f39e01808a)
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
@@ -517,7 +517,7 @@ Package: beamerbasesection 2013/06/07  (rcs-revision 60b9fe0f342f)
 \c@subsubsection=\count132
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseframe.sty
-Package: beamerbaseframe 2014/02/20  (rcs-revision 4b8ceeeff434)
+Package: beamerbaseframe 2013/10/02  (rcs-revision cdc8e9a3aaac)
 \beamer@framebox=\box40
 \beamer@frametitlebox=\box41
 \beamer@zoombox=\box42
@@ -534,7 +534,7 @@ Package: beamerbaseframe 2014/02/20  (rcs-revision 4b8ceeeff434)
 \c@framenumber=\count136
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseverbatim.sty
-Package: beamerbaseverbatim 2015/01/05  (rcs-revision 431510bb5890)
+Package: beamerbaseverbatim 2012/08/30  (rcs-revision dfdb135076b3)
 \beamer@verbatimfileout=\write4
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseframesize.sty
@@ -550,21 +550,21 @@ Package: beamerbaseframecomponents 2013/10/18  (rcs-revision 5cf6c5555a45)
 \beamer@footins=\box44
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasecolor.sty
-Package: beamerbasecolor 2015/02/21  (rcs-revision d944b04ee2d5)
+Package: beamerbasecolor 2010/06/06  (rcs-revision d1a9b48be06d)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasenotes.sty
 Package: beamerbasenotes 2012/12/19  (rcs-revision 1686da3db3c9)
 \beamer@frameboxcopy=\box45
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetoc.sty
-Package: beamerbasetoc 2015/03/08  (rcs-revision 7270298bbaae)
+Package: beamerbasetoc 2013/05/23  (rcs-revision 0fdf5bc43be8)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetemplates.sty
 Package: beamerbasetemplates 2010/05/01  (rcs-revision efa082c6111d)
 \beamer@sbttoks=\toks30
 
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseauxtemplates.sty
-Package: beamerbaseauxtemplates 2014/06/30  (rcs-revision 580088513a67)
+Package: beamerbaseauxtemplates 2013/09/04  (rcs-revision 4ac715c499d0)
 
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseboxes.sty
 Package: beamerbaseboxes 2012/05/13  (rcs-revision 56972908a390)
@@ -581,10 +581,10 @@ Package: beamerbaseboxes 2012/05/13  (rcs-revision 56972908a390)
 \beamer@blockheadheight=\dimen175
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaselocalstructure.sty
-Package: beamerbaselocalstructure 2014/09/10  (rcs-revision 393f6dcff371)
+Package: beamerbaselocalstructure 2013/09/04  (rcs-revision 4ac715c499d0)
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
-Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
+Package: enumerate 2014/10/28 v3.00 enumerate extensions (DPC)
 \@enLab=\toks31
 )
 \c@figure=\count138
@@ -593,7 +593,7 @@ Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \belowcaptionskip=\skip50
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasenavigation.sty
-Package: beamerbasenavigation 2015/02/27  (rcs-revision 923f4bf87efa)
+Package: beamerbasenavigation 2013/10/05  (rcs-revision 62be157fe783)
 \beamer@section@min@dim=\dimen176
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetheorems.sty
@@ -658,7 +658,7 @@ LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
-Package: amsthm 2015/03/04 v2.20.2
+Package: amsthm 2009/07/02 v2.20.1
 \thm@style=\toks37
 \thm@bodyfont=\toks38
 \thm@headfont=\toks39
@@ -688,7 +688,7 @@ Package: beamercolorthemedefault 2012/12/19  (rcs-revision 1686da3db3c9)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerthemede
 fault.sty
-Package: beamerinnerthemedefault 2014/06/30  (rcs-revision 580088513a67)
+Package: beamerinnerthemedefault 2013/10/15  (rcs-revision 65cb471f9634)
 \beamer@dima=\dimen186
 \beamer@dimb=\dimen187
 )
@@ -696,24 +696,22 @@ Package: beamerinnerthemedefault 2014/06/30  (rcs-revision 580088513a67)
 fault.sty
 Package: beamerouterthemedefault 2012/12/19  (rcs-revision 1686da3db3c9)
 ))) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2015/03/17 v1.2c Input encoding file
+Package: inputenc 2014/04/30 v1.2b Input encoding file
 \inpenc@prehook=\toks43
 \inpenc@posthook=\toks44
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2015/09/07 v1.1p UTF-8 support for inputenc
+File: utf8.def 2014/09/29 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
-File: t1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
-   defining Unicode char U+00A0 (decimal 160)
+File: t1enc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00AB (decimal 171)
-   defining Unicode char U+00AD (decimal 173)
    defining Unicode char U+00BB (decimal 187)
    defining Unicode char U+00BF (decimal 191)
    defining Unicode char U+00C0 (decimal 192)
@@ -834,10 +832,6 @@ File: t1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
    defining Unicode char U+016F (decimal 367)
    defining Unicode char U+0170 (decimal 368)
    defining Unicode char U+0171 (decimal 369)
-   defining Unicode char U+0174 (decimal 372)
-   defining Unicode char U+0175 (decimal 373)
-   defining Unicode char U+0176 (decimal 374)
-   defining Unicode char U+0177 (decimal 375)
    defining Unicode char U+0178 (decimal 376)
    defining Unicode char U+0179 (decimal 377)
    defining Unicode char U+017A (decimal 378)
@@ -845,10 +839,6 @@ File: t1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
    defining Unicode char U+017C (decimal 380)
    defining Unicode char U+017D (decimal 381)
    defining Unicode char U+017E (decimal 382)
-   defining Unicode char U+0218 (decimal 536)
-   defining Unicode char U+0219 (decimal 537)
-   defining Unicode char U+021A (decimal 538)
-   defining Unicode char U+021B (decimal 539)
    defining Unicode char U+200C (decimal 8204)
    defining Unicode char U+2013 (decimal 8211)
    defining Unicode char U+2014 (decimal 8212)
@@ -868,11 +858,9 @@ Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
-File: ot1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
-   defining Unicode char U+00A0 (decimal 160)
+File: ot1enc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
-   defining Unicode char U+00AD (decimal 173)
    defining Unicode char U+00B8 (decimal 184)
    defining Unicode char U+00BF (decimal 191)
    defining Unicode char U+00C5 (decimal 197)
@@ -890,14 +878,6 @@ File: ot1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
    defining Unicode char U+0142 (decimal 322)
    defining Unicode char U+0152 (decimal 338)
    defining Unicode char U+0153 (decimal 339)
-   defining Unicode char U+0174 (decimal 372)
-   defining Unicode char U+0175 (decimal 373)
-   defining Unicode char U+0176 (decimal 374)
-   defining Unicode char U+0177 (decimal 375)
-   defining Unicode char U+0218 (decimal 536)
-   defining Unicode char U+0219 (decimal 537)
-   defining Unicode char U+021A (decimal 538)
-   defining Unicode char U+021B (decimal 539)
    defining Unicode char U+2013 (decimal 8211)
    defining Unicode char U+2014 (decimal 8212)
    defining Unicode char U+2018 (decimal 8216)
@@ -909,7 +889,7 @@ Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
-File: omsenc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
+File: omsenc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
    defining Unicode char U+00B7 (decimal 183)
@@ -977,7 +957,7 @@ LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
 (Font)              scaled to size 9.85492pt on input line 456.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2015/08/19 v1.8n multicolumn formatting (FMi)
+Package: multicol 2014/10/28 v1.8i multicolumn formatting (FMi)
 \c@tracingmulticols=\count158
 \mult@box=\box56
 \multicol@leftmargin=\dimen191
@@ -1026,47 +1006,37 @@ Package: multicol 2015/08/19 v1.8n multicolumn formatting (FMi)
 \mc@col@check@num=\count166
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2015/08/03 3.9m The Babel package
+Package: babel 2014/09/25 3.9l The Babel package
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel-french/frenchb.ldf
-Language: frenchb 2015/11/25 v3.1j French support from the babel system
+Language: frenchb 2014/09/16 v3.1b French support from the babel system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2015/08/03 3.9m Babel common definitions
+File: babel.def 2014/09/25 3.9l Babel common definitions
 \babel@savecnt=\count167
-\U@D=\dimen256
+\U@D=\dimen200
 LaTeX Info: Redefining \textlatin on input line 1431.
 )
-\l@french = a dialect from \language\l@nohyphenation 
-
-
-Package babel Warning: No hyphenation patterns were preloaded for
-(babel)                the language `French' into the format.
-(babel)                Please, configure your TeX system to add them and
-(babel)                rebuild the format. Now I will use the patterns
-(babel)                preloaded for \language=nohyphenation instead on input l
-ine 75.
-
 \l@acadian = a dialect from \language\l@french 
 \l@canadien = a dialect from \language\l@french 
 \FBcolonskip=\skip59
 \FBthinskip=\skip60
 \FB@interchartokenstateORI=\count168
-Package babel Info: Making : an active character on input line 360.
-Package babel Info: Making ; an active character on input line 361.
-Package babel Info: Making ! an active character on input line 362.
-Package babel Info: Making ? an active character on input line 363.
+Package babel Info: Making : an active character on input line 371.
+Package babel Info: Making ; an active character on input line 372.
+Package babel Info: Making ! an active character on input line 373.
+Package babel Info: Making ? an active character on input line 374.
 \FBguillskip=\skip61
 \FBguill@level=\count169
-\FB@everypar=\toks57
-\FB@Mht=\dimen257
+\FB@Mht=\dimen201
 \std@mcc=\count170
 \dec@mcc=\count171
 \listindentFB=\skip62
 \labelwidthFB=\skip63
 \leftmarginFB=\skip64
-\parindentFFN=\dimen258
-)) (/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty)
+\parindentFFN=\dimen202
+))
+(/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty)
 Package frenchb.ldf Info: No list customisation for the beamer class,
 (frenchb.ldf)             reported on input line 10.
 
@@ -1164,16 +1134,16 @@ LaTeX Font Info:    ... okay on input line 22.
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count172
-\scratchdimen=\dimen259
+\scratchdimen=\dimen203
 \scratchbox=\box82
 \nofMPsegments=\count173
 \nofMParguments=\count174
-\everyMPshowfont=\toks58
+\everyMPshowfont=\toks57
 \MPscratchCnt=\count175
-\MPscratchDim=\dimen260
+\MPscratchDim=\dimen204
 \MPnumerator=\count176
 \makeMPintoPDFobject=\count177
-\everyMPtoPDFconversion=\toks59
+\everyMPtoPDFconversion=\toks58
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -1309,7 +1279,7 @@ Overfull \hbox (26.38728pt too wide) has occurred while \output is active
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 30.
+(Font)              scaled to size 8.99994pt on input line 32.
  (./Diapo_TPE_blanc.toc)
 Overfull \hbox (26.38728pt too wide) has occurred while \output is active
  [][][][]  
@@ -1317,40 +1287,118 @@ Overfull \hbox (26.38728pt too wide) has occurred while \output is active
 
 [2
 
-]
+] <Images/subduction.png, id=225, 542.025pt x 301.125pt>
+File: Images/subduction.png Graphic file (type png)
+
+<use Images/subduction.png>
+Package pdftex.def Info: Images/subduction.png used on input line 44.
+(pdftex.def)             Requested size: 170.71652pt x 94.84108pt.
+
+<Images/obduction.png, id=226, 542.025pt x 301.125pt>
+File: Images/obduction.png Graphic file (type png)
+
+<use Images/obduction.png>
+Package pdftex.def Info: Images/obduction.png used on input line 44.
+(pdftex.def)             Requested size: 170.71652pt x 94.84108pt.
+LaTeX Font Info:    Font shape `OT1/phv/m/sc' will be
+(Font)              scaled to size 8.99994pt on input line 44.
+
 Overfull \hbox (26.38728pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [3
 
-]
+ <./Images/subduction.png> <./Images/obduction.png>]
+<Images/Diapos/Alteration/Physique/cryoclastie.jpg, id=256, 903.375pt x 602.25p
+t>
+File: Images/Diapos/Alteration/Physique/cryoclastie.jpg Graphic file (type jpg)
+
+ <use Images/Diapos/Alteration/Physique/cryoclastie.jpg>
+Package pdftex.def Info: Images/Diapos/Alteration/Physique/cryoclastie.jpg used
+ on input line 61.
+(pdftex.def)             Requested size: 128.0374pt x 85.35284pt.
+
+<Images/Diapos/Alteration/Physique/haloclastie3.jpg, id=257, 635.37375pt x 283.
+81032pt>
+File: Images/Diapos/Alteration/Physique/haloclastie3.jpg Graphic file (type jpg
+)
+ <use Images/Diapos/Alteration/Physique/haloclastie3.jpg>
+Package pdftex.def Info: Images/Diapos/Alteration/Physique/haloclastie3.jpg use
+d on input line 61.
+(pdftex.def)             Requested size: 210.55022pt x 94.04744pt.
+
+Overfull \vbox (8.42673pt too high) detected at line 61
+ []
+
+
 Overfull \hbox (26.38728pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [4
 
-]
+ <./Images/Diapos/Alteration/Physique/cryoclastie.jpg> <./Images/Diapos/Alterat
+ion/Physique/haloclastie3.jpg>]
+<Images/Diapos/Alteration/Biologique/biology-unit-3-cell-energy-cellular-respir
+ation-notes-3-638.jpg, id=285, 640.3925pt x 480.79625pt>
+File: Images/Diapos/Alteration/Biologique/biology-unit-3-cell-energy-cellular-r
+espiration-notes-3-638.jpg Graphic file (type jpg)
+
+<use Images/Diapos/Alteration/Biologique/biology-unit-3-cell-energy-cellular-re
+spiration-notes-3-638.jpg>
+Package pdftex.def Info: Images/Diapos/Alteration/Biologique/biology-unit-3-cel
+l-energy-cellular-respiration-notes-3-638.jpg used on input line 71.
+(pdftex.def)             Requested size: 227.62204pt x 170.89294pt.
+
 Overfull \hbox (26.38728pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [5
 
-]
+ <./Images/Diapos/Alteration/Biologique/biology-unit-3-cell-energy-cellular-res
+piration-notes-3-638.jpg>]
+<Images/Diapos/Alteration/Chimiques/hydrolyse.png, id=314, 647.41875pt x 92.345
+pt>
+File: Images/Diapos/Alteration/Chimiques/hydrolyse.png Graphic file (type png)
+ <use Images/Diapos/Alteration/Chimiques/hydrolyse.png>
+Package pdftex.def Info: Images/Diapos/Alteration/Chimiques/hydrolyse.png used 
+on input line 86.
+(pdftex.def)             Requested size: 199.16928pt x 28.40823pt.
+
+<Images/Diapos/Alteration/Chimiques/hydrolyse.jpeg, id=315, 641.39626pt x 620.3
+175pt>
+File: Images/Diapos/Alteration/Chimiques/hydrolyse.jpeg Graphic file (type jpg)
+
+ <use Images/Diapos/Alteration/Chimiques/hydrolyse.jpeg>
+Package pdftex.def Info: Images/Diapos/Alteration/Chimiques/hydrolyse.jpeg used
+ on input line 86.
+(pdftex.def)             Requested size: 142.26378pt x 137.58717pt.
+
 Overfull \hbox (26.38728pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [6
 
-] <Images/hexagone.png, id=272, 677.53125pt x 339.2675pt>
-File: Images/hexagone.png Graphic file (type png)
+ <./Images/Diapos/Alteration/Chimiques/hydrolyse.png> <./Images/Diapos/Alterati
+on/Chimiques/hydrolyse.jpeg>]
+<Images/Diapos/Erosion/Eolienne/Vent.jpg, id=344, 240.14719pt x 158.84344pt>
+File: Images/Diapos/Erosion/Eolienne/Vent.jpg Graphic file (type jpg)
 
-<use Images/hexagone.png>
-Package pdftex.def Info: Images/hexagone.png used on input line 68.
-(pdftex.def)             Requested size: 113.81102pt x 56.98619pt.
+<use Images/Diapos/Erosion/Eolienne/Vent.jpg>
+Package pdftex.def Info: Images/Diapos/Erosion/Eolienne/Vent.jpg used on input 
+line 95.
+(pdftex.def)             Requested size: 142.26378pt x 94.09976pt.
+
+<Images/Diapos/Erosion/Eolienne/Vent2.jpg, id=345, 348.55219pt x 466.74374pt>
+File: Images/Diapos/Erosion/Eolienne/Vent2.jpg Graphic file (type jpg)
+
+<use Images/Diapos/Erosion/Eolienne/Vent2.jpg>
+Package pdftex.def Info: Images/Diapos/Erosion/Eolienne/Vent2.jpg used on input
+ line 95.
+(pdftex.def)             Requested size: 142.26378pt x 190.50441pt.
 
 Overfull \hbox (26.38728pt too wide) has occurred while \output is active
  [][][][]  
@@ -1358,54 +1406,31 @@ Overfull \hbox (26.38728pt too wide) has occurred while \output is active
 
 [7
 
- <./Images/hexagone.png>]
-<Images/front_1.png, id=304, 392.46625pt x 392.46625pt>
-File: Images/front_1.png Graphic file (type png)
+ <./Images/Diapos/Erosion/Eolienne/Vent.jpg> <./Images/Diapos/Erosion/Eolienne/
+Vent2.jpg>]
+<Images/Diapos/Erosion/Fluviale/bad_lands.jpg, id=374, 443.40656pt x 288.3272pt
+>
+File: Images/Diapos/Erosion/Fluviale/bad_lands.jpg Graphic file (type jpg)
+ <use Images/Diapos/Erosion/Fluviale/bad_lands.jpg>
+Package pdftex.def Info: Images/Diapos/Erosion/Fluviale/bad_lands.jpg used on i
+nput line 110.
+(pdftex.def)             Requested size: 142.26378pt x 92.50854pt.
 
-<use Images/front_1.png>
-Package pdftex.def Info: Images/front_1.png used on input line 88.
-(pdftex.def)             Requested size: 71.13188pt x 71.13193pt.
+<Images/Diapos/Erosion/Fluviale/n_base.jpg, id=375, 279.29344pt x 151.3153pt>
+File: Images/Diapos/Erosion/Fluviale/n_base.jpg Graphic file (type jpg)
 
-<Images/front_2.png, id=305, 392.46625pt x 392.46625pt>
-File: Images/front_2.png Graphic file (type png)
+<use Images/Diapos/Erosion/Fluviale/n_base.jpg>
+Package pdftex.def Info: Images/Diapos/Erosion/Fluviale/n_base.jpg used on inpu
+t line 110.
+(pdftex.def)             Requested size: 170.71652pt x 92.49382pt.
 
-<use Images/front_2.png>
-Package pdftex.def Info: Images/front_2.png used on input line 88.
-(pdftex.def)             Requested size: 71.13188pt x 71.13193pt.
-
-<Images/front_3.png, id=306, 392.46625pt x 392.46625pt>
-File: Images/front_3.png Graphic file (type png)
-
-<use Images/front_3.png>
-Package pdftex.def Info: Images/front_3.png used on input line 88.
-(pdftex.def)             Requested size: 71.13188pt x 71.13193pt.
-
-<Images/front_4.png, id=307, 392.46625pt x 392.46625pt>
-File: Images/front_4.png Graphic file (type png)
-
-<use Images/front_4.png>
-Package pdftex.def Info: Images/front_4.png used on input line 88.
-(pdftex.def)             Requested size: 71.13188pt x 71.13193pt.
-
-<Images/front_5.png, id=308, 392.46625pt x 392.46625pt>
-File: Images/front_5.png Graphic file (type png)
-
-<use Images/front_5.png>
-Package pdftex.def Info: Images/front_5.png used on input line 88.
-(pdftex.def)             Requested size: 71.13188pt x 71.13193pt.
-
-<Images/front_6.png, id=309, 392.46625pt x 392.46625pt>
-File: Images/front_6.png Graphic file (type png)
-
-<use Images/front_6.png>
-Package pdftex.def Info: Images/front_6.png used on input line 88.
-(pdftex.def)             Requested size: 71.13188pt x 71.13193pt.
-LaTeX Font Info:    Font shape `OT1/phv/m/sc' will be
-(Font)              scaled to size 8.99994pt on input line 88.
-
-Overfull \vbox (2.74715pt too high) detected at line 88
- []
-
+<Images/Diapos/Erosion/Fluviale/solixfluxion.jpg, id=376, 151.3153pt x 211.5403
+1pt>
+File: Images/Diapos/Erosion/Fluviale/solixfluxion.jpg Graphic file (type jpg)
+ <use Images/Diapos/Erosion/Fluviale/solixfluxion.jpg>
+Package pdftex.def Info: Images/Diapos/Erosion/Fluviale/solixfluxion.jpg used o
+n input line 110.
+(pdftex.def)             Requested size: 56.9055pt x 79.55336pt.
 
 Overfull \hbox (26.38728pt too wide) has occurred while \output is active
  [][][][]  
@@ -1413,13 +1438,24 @@ Overfull \hbox (26.38728pt too wide) has occurred while \output is active
 
 [8
 
- <./Images/front_1.png> <./Images/front_2.png> <./Images/front_3.png> <./Images
-/front_4.png> <./Images/front_5.png> <./Images/front_6.png>]
-<Images/layer.png, id=343, 541.02126pt x 340.27126pt>
-File: Images/layer.png Graphic file (type png)
- <use Images/layer.png>
-Package pdftex.def Info: Images/layer.png used on input line 98.
-(pdftex.def)             Requested size: 170.71652pt x 107.36772pt.
+ <./Images/Diapos/Erosion/Fluviale/bad_lands.jpg> <./Images/Diapos/Erosion/Fluv
+iale/n_base.jpg> <./Images/Diapos/Erosion/Fluviale/solixfluxion.jpg>]
+<Images/Diapos/Erosion/Karstique/dolines.jpg, id=405, 435.6275pt x 376.40625pt>
+File: Images/Diapos/Erosion/Karstique/dolines.jpg Graphic file (type jpg)
+<use Images/Diapos/Erosion/Karstique/dolines.jpg>
+Package pdftex.def Info: Images/Diapos/Erosion/Karstique/dolines.jpg used on in
+put line 121.
+(pdftex.def)             Requested size: 152.22241pt x 131.5259pt.
+
+<Images/Diapos/Erosion/Karstique/erosion-karstique-fig04.jpg, id=406, 340.1508p
+t x 392.667pt>
+File: Images/Diapos/Erosion/Karstique/erosion-karstique-fig04.jpg Graphic file 
+(type jpg)
+
+<use Images/Diapos/Erosion/Karstique/erosion-karstique-fig04.jpg>
+Package pdftex.def Info: Images/Diapos/Erosion/Karstique/erosion-karstique-fig0
+4.jpg used on input line 121.
+(pdftex.def)             Requested size: 113.81102pt x 131.37799pt.
 
 Overfull \hbox (26.38728pt too wide) has occurred while \output is active
  [][][][]  
@@ -1427,53 +1463,17 @@ Overfull \hbox (26.38728pt too wide) has occurred while \output is active
 
 [9
 
- <./Images/layer.png>]
-<Images/geogebra_1.png, id=372, 465.74pt x 467.7475pt>
-File: Images/geogebra_1.png Graphic file (type png)
+ <./Images/Diapos/Erosion/Karstique/dolines.jpg> <./Images/Diapos/Erosion/Karst
+ique/erosion-karstique-fig04.jpg>]
+<Images/Diapos/Erosion/Glaciaire/Erosion_glaciaire_Bourque4B.png, id=434, 377.4
+1pt x 241.90375pt>
+File: Images/Diapos/Erosion/Glaciaire/Erosion_glaciaire_Bourque4B.png Graphic f
+ile (type png)
 
-<use Images/geogebra_1.png>
-Package pdftex.def Info: Images/geogebra_1.png used on input line 115.
-(pdftex.def)             Requested size: 142.26378pt x 142.87332pt.
-LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 11
-5.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlptmcm.fd
-File: omlptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ptmcm.
-)
-LaTeX Font Info:    Try loading font information for OMX+psycm on input line 11
-5.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxpsycm.fd
-File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
-)
-LaTeX Font Info:    Try loading font information for U+msa on input line 115.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 115.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 115.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 115.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 115.
-LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 115.
-LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
-(Font)              scaled to size 9.85492pt on input line 115.
-LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 115.
-LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
-(Font)              scaled to size 7.19995pt on input line 115.
-LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <6> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 115.
-LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
-(Font)              scaled to size 5.39996pt on input line 115.
+<use Images/Diapos/Erosion/Glaciaire/Erosion_glaciaire_Bourque4B.png>
+Package pdftex.def Info: Images/Diapos/Erosion/Glaciaire/Erosion_glaciaire_Bour
+que4B.png used on input line 131.
+(pdftex.def)             Requested size: 227.62204pt x 145.89636pt.
 
 Overfull \hbox (26.38728pt too wide) has occurred while \output is active
  [][][][]  
@@ -1481,16 +1481,32 @@ Overfull \hbox (26.38728pt too wide) has occurred while \output is active
 
 [10
 
- <./Images/geogebra_1.png>]
-<Images/geogebra_2.png, id=407, 737.75626pt x 608.2725pt>
-File: Images/geogebra_2.png Graphic file (type png)
+ <./Images/Diapos/Erosion/Glaciaire/Erosion_glaciaire_Bourque4B.png>]
+<Images/Diapos/Erosion/marine/A_vent_B_mer.jpg, id=463, 453.19313pt x 294.34969
+pt>
+File: Images/Diapos/Erosion/marine/A_vent_B_mer.jpg Graphic file (type jpg)
+ <use Images/Diapos/Erosion/marine/A_vent_B_mer.jpg>
+Package pdftex.def Info: Images/Diapos/Erosion/marine/A_vent_B_mer.jpg used on 
+input line 144.
+(pdftex.def)             Requested size: 142.26378pt x 92.39725pt.
 
-<use Images/geogebra_2.png>
-Package pdftex.def Info: Images/geogebra_2.png used on input line 129.
-(pdftex.def)             Requested size: 170.71652pt x 140.75363pt.
+<Images/Diapos/Erosion/marine/taffoni.jpg, id=464, 341.77687pt x 255.95625pt>
+File: Images/Diapos/Erosion/marine/taffoni.jpg Graphic file (type jpg)
 
-Overfull \hbox (3.47377pt too wide) in paragraph at lines 129--129
-[][]  
+<use Images/Diapos/Erosion/marine/taffoni.jpg>
+Package pdftex.def Info: Images/Diapos/Erosion/marine/taffoni.jpg used on input
+ line 144.
+(pdftex.def)             Requested size: 113.81102pt x 85.23131pt.
+
+<Images/Diapos/Erosion/marine/upi.jpg, id=465, 413.29407pt x 277.035pt>
+File: Images/Diapos/Erosion/marine/upi.jpg Graphic file (type jpg)
+
+<use Images/Diapos/Erosion/marine/upi.jpg>
+Package pdftex.def Info: Images/Diapos/Erosion/marine/upi.jpg used on input lin
+e 144.
+(pdftex.def)             Requested size: 128.0374pt x 85.825pt.
+
+Overfull \vbox (3.05328pt too high) detected at line 144
  []
 
 
@@ -1500,42 +1516,14 @@ Overfull \hbox (26.38728pt too wide) has occurred while \output is active
 
 [11
 
- <./Images/geogebra_2.png>]
-<Images/cir_1.png, id=436, 392.46625pt x 196.735pt>
-File: Images/cir_1.png Graphic file (type png)
- <use Images/cir_1.png>
-Package pdftex.def Info: Images/cir_1.png used on input line 145.
-(pdftex.def)             Requested size: 99.58464pt x 49.91908pt.
+ <./Images/Diapos/Erosion/marine/A_vent_B_mer.jpg> <./Images/Diapos/Erosion/mar
+ine/taffoni.jpg> <./Images/Diapos/Erosion/marine/upi.jpg>]
+<simulation_physique.png, id=493, 790.955pt x 483.8075pt>
+File: simulation_physique.png Graphic file (type png)
 
-<Images/cir_2.png, id=437, 392.46625pt x 196.735pt>
-File: Images/cir_2.png Graphic file (type png)
- <use Images/cir_2.png>
-Package pdftex.def Info: Images/cir_2.png used on input line 145.
-(pdftex.def)             Requested size: 99.58464pt x 49.91908pt.
-
-<Images/cir_3.png, id=438, 392.46625pt x 196.735pt>
-File: Images/cir_3.png Graphic file (type png)
- <use Images/cir_3.png>
-Package pdftex.def Info: Images/cir_3.png used on input line 145.
-(pdftex.def)             Requested size: 99.58464pt x 49.91908pt.
-
-<Images/cir_4.png, id=439, 392.46625pt x 196.735pt>
-File: Images/cir_4.png Graphic file (type png)
- <use Images/cir_4.png>
-Package pdftex.def Info: Images/cir_4.png used on input line 145.
-(pdftex.def)             Requested size: 99.58464pt x 49.91908pt.
-
-<Images/cir_5.png, id=440, 392.46625pt x 196.735pt>
-File: Images/cir_5.png Graphic file (type png)
- <use Images/cir_5.png>
-Package pdftex.def Info: Images/cir_5.png used on input line 145.
-(pdftex.def)             Requested size: 99.58464pt x 49.91908pt.
-
-<Images/cir_6.png, id=441, 392.46625pt x 196.735pt>
-File: Images/cir_6.png Graphic file (type png)
- <use Images/cir_6.png>
-Package pdftex.def Info: Images/cir_6.png used on input line 145.
-(pdftex.def)             Requested size: 99.58464pt x 49.91908pt.
+<use simulation_physique.png>
+Package pdftex.def Info: simulation_physique.png used on input line 154.
+(pdftex.def)             Requested size: 227.62204pt x 139.23015pt.
 
 Overfull \hbox (26.38728pt too wide) has occurred while \output is active
  [][][][]  
@@ -1543,35 +1531,26 @@ Overfull \hbox (26.38728pt too wide) has occurred while \output is active
 
 [12
 
- <./Images/cir_1.png> <./Images/cir_2.png> <./Images/cir_3.png> <./Images/cir_4
-.png> <./Images/cir_5.png> <./Images/cir_6.png>]
-<Images/compression_kmplot.png, id=475, 574.145pt x 379.4175pt>
-File: Images/compression_kmplot.png Graphic file (type png)
-
-<use Images/compression_kmplot.png>
-Package pdftex.def Info: Images/compression_kmplot.png used on input line 168.
-(pdftex.def)             Requested size: 85.35826pt x 56.40648pt.
-
+ <./simulation_physique.png>]
 Overfull \hbox (26.38728pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [13
 
- <./Images/compression_kmplot.png>]
-<Images/no_compression.png, id=506, 392.46625pt x 196.735pt>
-File: Images/no_compression.png Graphic file (type png)
+] <Images/3100_cell.png, id=552, 776.9025pt x 156.585pt>
+File: Images/3100_cell.png Graphic file (type png)
 
-<use Images/no_compression.png>
-Package pdftex.def Info: Images/no_compression.png used on input line 178.
-(pdftex.def)             Requested size: 170.71652pt x 85.57903pt.
+<use Images/3100_cell.png>
+Package pdftex.def Info: Images/3100_cell.png used on input line 180.
+(pdftex.def)             Requested size: 284.52756pt x 57.34776pt.
 
-<Images/compression.png, id=507, 392.46625pt x 196.735pt>
-File: Images/compression.png Graphic file (type png)
+<Images/7100_cell.png, id=553, 775.89874pt x 155.58125pt>
+File: Images/7100_cell.png Graphic file (type png)
 
-<use Images/compression.png>
-Package pdftex.def Info: Images/compression.png used on input line 178.
-(pdftex.def)             Requested size: 170.71652pt x 85.57903pt.
+<use Images/7100_cell.png>
+Package pdftex.def Info: Images/7100_cell.png used on input line 180.
+(pdftex.def)             Requested size: 284.52756pt x 57.05374pt.
 
 Overfull \hbox (26.38728pt too wide) has occurred while \output is active
  [][][][]  
@@ -1579,13 +1558,12 @@ Overfull \hbox (26.38728pt too wide) has occurred while \output is active
 
 [14
 
- <./Images/no_compression.png> <./Images/compression.png>]
-<Images/friction.png, id=537, 430.60875pt x 277.035pt>
-File: Images/friction.png Graphic file (type png)
-
-<use Images/friction.png>
-Package pdftex.def Info: Images/friction.png used on input line 194.
-(pdftex.def)             Requested size: 142.26378pt x 91.52751pt.
+ <./Images/3100_cell.png> <./Images/7100_cell.png>]
+<kk.png, id=581, 592.2125pt x 441.65pt>
+File: kk.png Graphic file (type png)
+ <use kk.png>
+Package pdftex.def Info: kk.png used on input line 191.
+(pdftex.def)             Requested size: 227.62204pt x 169.74936pt.
 
 Overfull \hbox (26.38728pt too wide) has occurred while \output is active
  [][][][]  
@@ -1593,7 +1571,267 @@ Overfull \hbox (26.38728pt too wide) has occurred while \output is active
 
 [15
 
+ <./kk.png>] <Images/hexagone.png, id=610, 677.53125pt x 339.2675pt>
+File: Images/hexagone.png Graphic file (type png)
+
+<use Images/hexagone.png>
+Package pdftex.def Info: Images/hexagone.png used on input line 210.
+(pdftex.def)             Requested size: 113.81102pt x 56.98619pt.
+
+Overfull \hbox (26.38728pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[16
+
+ <./Images/hexagone.png>]
+<Images/front_1.png, id=640, 392.46625pt x 392.46625pt>
+File: Images/front_1.png Graphic file (type png)
+
+<use Images/front_1.png>
+Package pdftex.def Info: Images/front_1.png used on input line 230.
+(pdftex.def)             Requested size: 71.13188pt x 71.13193pt.
+
+<Images/front_2.png, id=641, 392.46625pt x 392.46625pt>
+File: Images/front_2.png Graphic file (type png)
+
+<use Images/front_2.png>
+Package pdftex.def Info: Images/front_2.png used on input line 230.
+(pdftex.def)             Requested size: 71.13188pt x 71.13193pt.
+
+<Images/front_3.png, id=642, 392.46625pt x 392.46625pt>
+File: Images/front_3.png Graphic file (type png)
+
+<use Images/front_3.png>
+Package pdftex.def Info: Images/front_3.png used on input line 230.
+(pdftex.def)             Requested size: 71.13188pt x 71.13193pt.
+
+<Images/front_4.png, id=643, 392.46625pt x 392.46625pt>
+File: Images/front_4.png Graphic file (type png)
+
+<use Images/front_4.png>
+Package pdftex.def Info: Images/front_4.png used on input line 230.
+(pdftex.def)             Requested size: 71.13188pt x 71.13193pt.
+
+<Images/front_5.png, id=644, 392.46625pt x 392.46625pt>
+File: Images/front_5.png Graphic file (type png)
+
+<use Images/front_5.png>
+Package pdftex.def Info: Images/front_5.png used on input line 230.
+(pdftex.def)             Requested size: 71.13188pt x 71.13193pt.
+
+<Images/front_6.png, id=645, 392.46625pt x 392.46625pt>
+File: Images/front_6.png Graphic file (type png)
+
+<use Images/front_6.png>
+Package pdftex.def Info: Images/front_6.png used on input line 230.
+(pdftex.def)             Requested size: 71.13188pt x 71.13193pt.
+
+Overfull \vbox (2.74715pt too high) detected at line 230
+ []
+
+
+Overfull \hbox (26.38728pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[17
+
+ <./Images/front_1.png> <./Images/front_2.png> <./Images/front_3.png> <./Images
+/front_4.png> <./Images/front_5.png> <./Images/front_6.png>]
+<Images/layer.png, id=679, 541.02126pt x 340.27126pt>
+File: Images/layer.png Graphic file (type png)
+ <use Images/layer.png>
+Package pdftex.def Info: Images/layer.png used on input line 240.
+(pdftex.def)             Requested size: 170.71652pt x 107.36772pt.
+
+Overfull \hbox (26.38728pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[18
+
+ <./Images/layer.png>]
+<Images/geogebra_1.png, id=708, 465.74pt x 467.7475pt>
+File: Images/geogebra_1.png Graphic file (type png)
+
+<use Images/geogebra_1.png>
+Package pdftex.def Info: Images/geogebra_1.png used on input line 257.
+(pdftex.def)             Requested size: 142.26378pt x 142.87332pt.
+LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 25
+7.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlptmcm.fd
+File: omlptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ptmcm.
+)
+LaTeX Font Info:    Try loading font information for OMX+psycm on input line 25
+7.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxpsycm.fd
+File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 257.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 257.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 257.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 257.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 257.
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10.95> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 257.
+LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
+(Font)              scaled to size 9.85492pt on input line 257.
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 257.
+LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
+(Font)              scaled to size 7.19995pt on input line 257.
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <6> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 257.
+LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
+(Font)              scaled to size 5.39996pt on input line 257.
+
+Overfull \hbox (26.38728pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[19
+
+ <./Images/geogebra_1.png>]
+<Images/geogebra_2.png, id=744, 737.75626pt x 608.2725pt>
+File: Images/geogebra_2.png Graphic file (type png)
+
+<use Images/geogebra_2.png>
+Package pdftex.def Info: Images/geogebra_2.png used on input line 271.
+(pdftex.def)             Requested size: 170.71652pt x 140.75363pt.
+
+Overfull \hbox (3.47377pt too wide) in paragraph at lines 271--271
+[][]  
+ []
+
+
+Overfull \hbox (26.38728pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[20
+
+ <./Images/geogebra_2.png>]
+<Images/cir_1.png, id=773, 392.46625pt x 196.735pt>
+File: Images/cir_1.png Graphic file (type png)
+ <use Images/cir_1.png>
+Package pdftex.def Info: Images/cir_1.png used on input line 287.
+(pdftex.def)             Requested size: 99.58464pt x 49.91908pt.
+
+<Images/cir_2.png, id=774, 392.46625pt x 196.735pt>
+File: Images/cir_2.png Graphic file (type png)
+ <use Images/cir_2.png>
+Package pdftex.def Info: Images/cir_2.png used on input line 287.
+(pdftex.def)             Requested size: 99.58464pt x 49.91908pt.
+
+<Images/cir_3.png, id=775, 392.46625pt x 196.735pt>
+File: Images/cir_3.png Graphic file (type png)
+ <use Images/cir_3.png>
+Package pdftex.def Info: Images/cir_3.png used on input line 287.
+(pdftex.def)             Requested size: 99.58464pt x 49.91908pt.
+
+<Images/cir_4.png, id=776, 392.46625pt x 196.735pt>
+File: Images/cir_4.png Graphic file (type png)
+ <use Images/cir_4.png>
+Package pdftex.def Info: Images/cir_4.png used on input line 287.
+(pdftex.def)             Requested size: 99.58464pt x 49.91908pt.
+
+<Images/cir_5.png, id=777, 392.46625pt x 196.735pt>
+File: Images/cir_5.png Graphic file (type png)
+ <use Images/cir_5.png>
+Package pdftex.def Info: Images/cir_5.png used on input line 287.
+(pdftex.def)             Requested size: 99.58464pt x 49.91908pt.
+
+<Images/cir_6.png, id=778, 392.46625pt x 196.735pt>
+File: Images/cir_6.png Graphic file (type png)
+ <use Images/cir_6.png>
+Package pdftex.def Info: Images/cir_6.png used on input line 287.
+(pdftex.def)             Requested size: 99.58464pt x 49.91908pt.
+
+Overfull \hbox (26.38728pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[21
+
+ <./Images/cir_1.png> <./Images/cir_2.png> <./Images/cir_3.png> <./Images/cir_4
+.png> <./Images/cir_5.png> <./Images/cir_6.png>]
+<Images/compression_kmplot.png, id=812, 574.145pt x 379.4175pt>
+File: Images/compression_kmplot.png Graphic file (type png)
+
+<use Images/compression_kmplot.png>
+Package pdftex.def Info: Images/compression_kmplot.png used on input line 310.
+(pdftex.def)             Requested size: 85.35826pt x 56.40648pt.
+
+Overfull \hbox (26.38728pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[22
+
+ <./Images/compression_kmplot.png>]
+<Images/no_compression.png, id=841, 392.46625pt x 196.735pt>
+File: Images/no_compression.png Graphic file (type png)
+
+<use Images/no_compression.png>
+Package pdftex.def Info: Images/no_compression.png used on input line 320.
+(pdftex.def)             Requested size: 170.71652pt x 85.57903pt.
+
+<Images/compression.png, id=842, 392.46625pt x 196.735pt>
+File: Images/compression.png Graphic file (type png)
+
+<use Images/compression.png>
+Package pdftex.def Info: Images/compression.png used on input line 320.
+(pdftex.def)             Requested size: 170.71652pt x 85.57903pt.
+
+Overfull \hbox (26.38728pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[23
+
+ <./Images/no_compression.png> <./Images/compression.png>]
+<Images/friction.png, id=873, 430.60875pt x 277.035pt>
+File: Images/friction.png Graphic file (type png)
+
+<use Images/friction.png>
+Package pdftex.def Info: Images/friction.png used on input line 336.
+(pdftex.def)             Requested size: 142.26378pt x 91.52751pt.
+
+Overfull \hbox (26.38728pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[24
+
  <./Images/friction.png>]
+Overfull \hbox (26.38728pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[25
+
+]
+Overfull \hbox (26.38728pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[26
+
+]
 \tf@nav=\write7
 \openout7 = `Diapo_TPE_blanc.nav'.
 
@@ -1603,47 +1841,34 @@ Overfull \hbox (26.38728pt too wide) has occurred while \output is active
 \tf@snm=\write9
 \openout9 = `Diapo_TPE_blanc.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 201.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 201.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 355.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 355.
  (./Diapo_TPE_blanc.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 201.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 201.
-
-
-Package rerunfilecheck Warning: File `Diapo_TPE_blanc.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Diapo_TPE_blanc.out':
-(rerunfilecheck)             Before: 12B63EFDD977537D46D4E58D123FF9A1;970
-(rerunfilecheck)             After:  65B09B940F8E61FBB474E83248ABAEEC;910.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 201.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 355.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 355.
+Package rerunfilecheck Info: File `Diapo_TPE_blanc.out' has not changed.
+(rerunfilecheck)             Checksum: 465285FE580B9AD616E24A6D5793A8E7;1729.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 355.
  ) 
 Here is how much of TeX's memory you used:
- 18582 strings out of 494965
- 349099 string characters out of 6181077
- 427253 words of memory out of 5000000
- 21323 multiletter control sequences out of 15000+600000
+ 18673 strings out of 494991
+ 351809 string characters out of 6180055
+ 428338 words of memory out of 5000000
+ 21302 multiletter control sequences out of 15000+600000
  36301 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 48i,17n,62p,395b,789s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Navigation16} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.5} has been referenced but does not exist,
- replaced by a fixed one
-
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/hel
-vetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pf
-b>
-Output written on Diapo_TPE_blanc.pdf (15 pages, 242467 bytes).
+ 48i,17n,62p,395b,872s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/h
+elvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.
+pfb>
+Output written on Diapo_TPE_blanc.pdf (26 pages, 2005239 bytes).
 PDF statistics:
- 601 PDF objects out of 1000 (max. 8388607)
- 522 compressed objects within 6 object streams
- 46 named destinations out of 1000 (max. 500000)
- 297 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 996 PDF objects out of 1000 (max. 8388607)
+ 875 compressed objects within 9 object streams
+ 77 named destinations out of 1000 (max. 500000)
+ 487 words of extra memory for PDF output out of 10000 (max. 10000000)
 

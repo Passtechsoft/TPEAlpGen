@@ -26,35 +26,177 @@
 
 % Sommaire
 \begin{frame}{Sommaire}
-\small \tableofcontents
+  \begin{multicols}{2}
+    \small \tableofcontents
+  \end{multicols}
 \end{frame}
 
 \section{Les phénomènes géormophologiques}
-\subsection{La subduction}
+\subsection{La subduction et l'obduction}
 \begin{frame}
+  \begin{figure}
+    \begin{center}
+      \includegraphics[width=6cm]{Images/subduction.png}
+      \includegraphics[width=6cm]{Images/obduction.png}
+      \caption{A gauche le subduction et à droite l'obduction.}
+    \end{center}
+  \end{figure}
 \end{frame}
 
-\subsection{L'obduction}
+\section{Les altérations}
+\subsection{Les altérations physiques}
 \begin{frame}
+  \begin{center}
+    \begin{figure}
+      \includegraphics[width=4.5cm]{Images/Diapos/Alteration/Physique/cryoclastie.jpg}
+      \caption{Cryoclastie}
+    \end{figure}
+  \end{center}
+  \begin{center}
+    \begin{figure}
+      \includegraphics[width=7.4cm]{Images/Diapos/Alteration/Physique/haloclastie3.jpg}
+      \caption{Haloclastie}
+    \end{figure}
+  \end{center}
+\end{frame}
+
+\subsection{Les altérations biologiques}
+\begin{frame}
+  \begin{center}
+    \begin{figure}
+      \includegraphics[width=8cm]{Images/Diapos/Alteration/Biologique/biology-unit-3-cell-energy-cellular-respiration-notes-3-638.jpg}
+      \caption{Schéma de la respiration cellulaire.}
+    \end{figure}
+  \end{center}
+\end{frame}
+
+\subsection{Les altérations chimiques}
+\begin{frame}
+  \begin{center}
+    \begin{figure}
+      \includegraphics[width=7cm]{Images/Diapos/Alteration/Chimiques/hydrolyse.png}
+      \caption{Hydratation de molécules de sodium et de potassium.}
+    \end{figure}
+  \end{center}
+  \begin{center}
+    \begin{figure}
+      \includegraphics[width=5cm]{Images/Diapos/Alteration/Chimiques/hydrolyse.jpeg}
+    \end{figure}
+  \end{center}
 \end{frame}
 
 \section{L'érosion}
-\subsection{L'altération mécanique}
+\subsection{L'érosion éolienne}
 \begin{frame}
+  \begin{figure}[h]
+    \includegraphics[width=5cm]{Images/Diapos/Erosion/Eolienne/Vent.jpg}
+    \includegraphics[width=5cm]{Images/Diapos/Erosion/Eolienne/Vent2.jpg}
+  \end{figure}
 \end{frame}
 
-\subsection{L'altération physico-chimique}
+\subsection{Le ruissellement et l'érosion fluviale}
 \begin{frame}
+  \begin{figure}
+    \includegraphics[width=5cm]{Images/Diapos/Erosion/Fluviale/bad_lands.jpg}
+    \includegraphics[width=6cm]{Images/Diapos/Erosion/Fluviale/n_base.jpg}
+    \caption{Ruissellement et érosion verticale}
+  \end{figure}
+  \begin{center}
+    \begin{figure}
+      \includegraphics[width=2cm]{Images/Diapos/Erosion/Fluviale/solixfluxion.jpg}
+      \caption{Solifluxion}
+    \end{figure}
+  \end{center}
+\end{frame}
+
+\subsection{L'érosion karstique}
+\begin{frame}
+  \begin{center}
+    \begin{figure}[h]
+      \includegraphics[width=5.35cm]{Images/Diapos/Erosion/Karstique/dolines.jpg}
+      \includegraphics[width=4cm]{Images/Diapos/Erosion/Karstique/erosion-karstique-fig04.jpg}
+      \caption{Dolines et grotte souterraine dus à l'érosion karstique.}
+    \end{figure}
+  \end{center}
+\end{frame}
+
+\subsection{L'érosion glaciaire}
+\begin{frame}
+  \begin{center}
+    \begin{figure}
+      \includegraphics[width=8cm]{Images/Diapos/Erosion/Glaciaire/Erosion_glaciaire_Bourque4B.png}
+      \caption{Schéma de l'érosion glaciaire}
+    \end{figure}
+  \end{center}
+\end{frame}
+
+\subsection{L'érosion marine}
+\begin{frame}
+  \begin{center}
+    \begin{figure}
+      \includegraphics[width=5cm]{Images/Diapos/Erosion/marine/A_vent_B_mer.jpg}
+      \caption{Grains de sable exposés (A) au vent (B) aux embruns.}
+      \includegraphics[width=4cm]{Images/Diapos/Erosion/marine/taffoni.jpg}
+      \includegraphics[width=4.5cm]{Images/Diapos/Erosion/marine/upi.jpg}
+      \caption{A gauche Taffoni et à droite encoche d'érosion marine.}
+    \end{figure}
+  \end{center}
 \end{frame}
 
 \section{Le système cellulaire}
+\begin{frame}
+  \begin{figure}
+    \begin{center}
+      \includegraphics[width=8cm]{simulation_physique.png}
+      \caption{Simulation physique d'une subduction à l'aide de matières molles.}
+    \end{center}
+  \end{figure}
+\end{frame}
+
+\subsection{Approche simplifiée pour le jeu vidéo}
+\begin{frame}
+    Approximation avec des algorithmes mathématique sans nécessités physiques~:
+  \begin{itemize}
+      \item La fonction du bruit de Perlin~;
+      \item Biomes avec les polygones de Voronoi~;
+      \item interpolation avec la courbe de Bézier~;
+      \item Calcul des chemins d'érosion par l’enchaînement~;
+      \item Possibilité d'édition par l'utilisateur.
+  \end{itemize}
+\end{frame}
+
+\subsection{Le système cellulaire}
+\begin{frame}
+  \begin{center}
+    \begin{figure}
+      \includegraphics[width=10cm]{Images/3100_cell.png}
+      \caption{Simulation par automate cellulaire après 3100 itérations.}
+    \end{figure}
+    \begin{figure}
+      \includegraphics[width=10cm]{Images/7100_cell.png}
+      \caption{Simulation par automate cellulaire après 7100 itérations.}
+    \end{figure}
+  \end{center}
+\end{frame}
+
+\subsection{Simulation par voxels}
+\begin{frame}
+  \begin{center}
+    \begin{itemize}
+      \item Simulation par voxels
+      \item Approche cellulaire de la simulation
+    \end{itemize}
+    \includegraphics[width=8cm]{kk.png}
+  \end{center}
+\end{frame}
+
 \subsection{Les cellules}
 \begin{frame}
-  Cellule : le plus petit élément de la simulation incompressible, représenté par une sphère de diamètre 1. \smallbreak
+  Cellule : le plus petit élément incompressible de la simulation, représenté par une sphère de diamètre 1. \smallbreak
   Propriétés mutables :
   \begin{itemize}
-   \item vélocité ;
-   \item position ;
+   \item vélocité~;
+   \item position~;
    \item cellules adjacentes.
   \end{itemize}
   Propriétés immuables :
@@ -69,8 +211,8 @@
 
 \subsection{La propagation par fronts}
 \begin{frame}
-  Propagation par front, l’ancien front créer le nouveau. Le premier front ne contient que la cellule en collision.
-  Chaque cellule du front interagissent avec les cellules après le front.
+  Propagation par front, l’ancien front crée le nouveau. Le premier front ne contient que la cellule en collision.
+  Chaque cellule du front interagit avec les cellules qui précèdent le front.
   \begin{figure}
     \begin{center}
       \includegraphics[width=2.5cm]{Images/front_1.png}
@@ -83,7 +225,7 @@
       \includegraphics[width=2.5cm]{Images/front_6.png}
     \end{center}
 
-    \caption{Bleu : liens entre cellules, Violet : cellules inactive, Noir : cellule de collision, Jaune : cellules appartenant au front.}
+    \caption{Bleu : liens entre cellules, Violet : cellules inactives, Noir : cellule de collision, Jaune : cellules appartenant au front.}
   \end{figure}
 \end{frame}
 
@@ -151,7 +293,7 @@
   \begin{center}
     $\sigma = E \times \varepsilon$
   \end{center}
-  $\sigma = $ La force appliqué sur le matériau (en Pa). $E = $ Le module de Young pour le matériau étudié (en Pa). $\varepsilon = $ Coefficient de déformation (en $\%$). \smallbreak
+  $\sigma = $ La contrainte appliquée sur le matériau (en Pa). $E = $ Le module de Young pour le matériau étudié (en Pa). $\varepsilon = $ Coefficient de déformation (en $\%$). \smallbreak
   Module de Young :
   \begin{itemize}
     \item Granite : 60 GPa ;
@@ -193,9 +335,21 @@
   Où $T = $ force tangentielle appliquée à la cellule, $N = $ la pression entre les cellules et $f_0 = $ le coefficient d'adhérence.
 \end{frame}
 
+\section{Les Améliorations possibles}
+\begin{frame}
+  Améliorations :
+  \begin{itemize}
+    \item implémenter l'érosion ;
+    \item utilisation de la loi de Hooke et du module de Young~;
+    \item utilisation d'un modèle avec friction grâce a la loi de Coulomb~;
+    \item implémentation de l'inertie des cellules en fonction de leur masse.
+  \end{itemize}
+\end{frame}
 
-
-
+\section{Conclusion}
+\begin{frame}
+ 
+\end{frame}
 
 
 \end{document}

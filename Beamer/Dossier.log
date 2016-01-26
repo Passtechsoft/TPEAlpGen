@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.5)  12 JAN 2016 19:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2016.1.17)  25 JAN 2016 17:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Dossier.tex
 (./Dossier.tex
 LaTeX2e <2014/05/01>
-Babel <3.9l> and hyphenation patterns for 2 languages loaded.
+Babel <3.9l> and hyphenation patterns for 4 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -481,63 +481,88 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 15.
 
+Underfull \hbox (badness 10000) in paragraph at lines 22--23
+
+ []
+
+
 Overfull \hbox (0.71648pt too wide) in paragraph at lines 24--29
 []\OT1/ptm/m/n/10 La probl[]ematique est 'Com-ment simuler num[]eriquement la g
-[]eomorphologie alpine'
+[]eomorphologie alpine' 
  []
 
 
-Overfull \hbox (38.60574pt too wide) in paragraph at lines 24--29
-\OT1/ptm/m/n/10 'Com-ment simuler': Le but du TPE est de re-pro-duire des ph[]e
-nom[]enes na-turels. 'num[]eriquement'
+Underfull \hbox (badness 10000) in paragraph at lines 24--29
+
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 30--31
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--33
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
+
+ []
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 38.
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
+
+ []
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 Overfull \hbox (6.94705pt too wide) in paragraph at lines 42--43
 []\OT1/ptm/m/n/10 Toutes cel-lules sont dis-pos[]ees sur une grille pour for-me
 r un grand bloque ind[]ependant
  []
 
 
-Overfull \hbox (32.07652pt too wide) in paragraph at lines 44--46
-[]\OT1/ptm/m/n/10 En th[]eorie deux cel-lules dont la dis-tance est inf[]erieur
- aux deux rayons et qui n'appartiennent
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
+
  []
 
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<screen_calque1.png, id=8, 467.7475pt x 295.1025pt>
-File: screen_calque1.png Graphic file (type png)
- <use screen_calque1.png>
-Package pdftex.def Info: screen_calque1.png used on input line 65.
-(pdftex.def)             Requested size: 227.62204pt x 143.60634pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 78.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 47.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 78.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 47.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 78.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 47.
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 68--78
 
-[2 <./screen_calque1.png>] (./Dossier.aux) ) 
+ []
+
+[3] [4] [5] (./Dossier.aux) ) 
 Here is how much of TeX's memory you used:
- 2295 strings out of 495020
- 31229 string characters out of 6181324
- 90459 words of memory out of 5000000
- 5464 multiletter control sequences out of 15000+600000
- 30141 words of font info for 66 fonts, out of 8000000 for 9000
+ 2300 strings out of 494991
+ 31218 string characters out of 6180055
+ 99555 words of memory out of 5000000
+ 5474 multiletter control sequences out of 15000+600000
+ 36486 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 37i,6n,23p,650b,195s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/font
-s/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Dossier.pdf (2 pages, 50481 bytes).
+ 37i,13n,23p,1875b,195s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/bas
+e/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
+ri8a.pfb>
+Output written on Dossier.pdf (5 pages, 79293 bytes).
 PDF statistics:
- 35 PDF objects out of 1000 (max. 8388607)
- 23 compressed objects within 1 object stream
+ 49 PDF objects out of 1000 (max. 8388607)
+ 34 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

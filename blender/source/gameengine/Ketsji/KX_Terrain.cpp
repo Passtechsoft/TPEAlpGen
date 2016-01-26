@@ -5,10 +5,12 @@ extern "C" {
 	#include "BLI_kdtree.h"
 }
 
+// #define USE_RAND
+
 KX_Terrain::KX_Terrain()
 	:m_tree(NULL),
-	m_sizeX(10),
-	m_sizeY(10),
+	m_sizeX(8),
+	m_sizeY(8),
 	m_interval(1.0f),
 	m_time(0.0f)
 {
@@ -19,10 +21,24 @@ KX_Terrain::KX_Terrain()
 		// Le décalage en x de la première cellule : alternance 0 et m_interval / 2.
 		float gapx = (y % 2) ? (m_interval / 2.0f) : 0.0f;
 		for (unsigned int x = 0; x < maxx; ++x) {
+			/* L'ajout de bruit dans la position des cellules permet une certaine stabilité
+			 * car le CIR ne fonctionne pas avec un angle parfais de 0 ou pi/2.
+			 */
 			const float randmax = 0.2f;
-			float randx = (float)rand() / (float) (RAND_MAX / randmax);
+			float randx = 
+#ifdef USE_RAND
+				(float)rand() / (float) (RAND_MAX / randmax);
+#else
+				0.0f;
+#endif
+			float randy = 
+#ifdef USE_RAND
+				(float)rand() / (float) (RAND_MAX / randmax);
+#else
+				0.0f;
+#endif
 			MT_Vector3 position(x * m_interval + gapx + randx,
-								y * m_interval, 
+								y * m_interval + randy, 
 								0.0f);
 			KX_Cell *cell = new KX_Cell(position);
 			m_cells.push_back(cell);
@@ -38,7 +54,7 @@ KX_Terrain::KX_Terrain()
 // 		(unsigned int)m_cells.size() - 5
 	};
 
-	MT_Vector3 direction(.0f, 1.0f, 0.0f);
+	MT_Vector3 direction(.0f, 0.1f, 0.0f);
 	MT_Vector3 velocities[colliders] = {
 		direction * scale,
 // 		direction * scale,
@@ -105,20 +121,27 @@ void KX_Terrain::NextFront()
 		 * reconstruire l'arbre et rechercher les cellules adjacentes.
 		 */
 		if (m_currentCollider >= m_colliders.size()) {
-#ifdef STOP_ON_FIRST_FRAME
-			if (m_time > 0.0f) {
-				fedisableexcept(FE_INVALID | FE_OVERFLOW);
-				return;
-			}
-#endif
-			// On remet à la première cellule.
-			m_currentCollider = 0;
-			// On incremnte le temps.
-			m_time += 1.0f;
-
 			// Reconstruction de l'arbre.
 			RebuildTree();
 
+#ifdef STOP_ON_FIRST_FRAME
+			if (m_time > 1.0f) {
+				fedisableexcept(FE_INVALID | FE_OVERFLOW);
+				return;
+			}
+			else {
+				for (KX_CellList::iterator it = m_cells.begin(), end = m_cells.end(); it != end; ++it) {
+					KX_Cell *cell = *it;
+					// Aplication de la vélocité sur la position de la cellule.
+					cell->Translate(m_time);
+					// Reservation des calques.
+					cell->ResizeVelocityLayers(m_colliders.size());
+					// Recherche de toutes les cellules adjacentes à celle ci.
+					cell->FindAdjacents(m_tree, m_cells);
+				}
+			}
+			std::cout << "=================== NEXT FRAME ====================" << std::endl;
+#else
 			for (KX_CellList::iterator it = m_cells.begin(), end = m_cells.end(); it != end; ++it) {
 				KX_Cell *cell = *it;
 				// Aplication de la vélocité sur la position de la cellule.
@@ -128,6 +151,12 @@ void KX_Terrain::NextFront()
 				// Recherche de toutes les cellules adjacentes à celle ci.
 				cell->FindAdjacents(m_tree, m_cells);
 			}
+#endif
+
+			// On remet à la première cellule.
+			m_currentCollider = 0;
+			// On incremnte le temps.
+			m_time += 1.0f;
 		}
 
 		// Toutes les cellules sont remit dans l'état non calculé.
