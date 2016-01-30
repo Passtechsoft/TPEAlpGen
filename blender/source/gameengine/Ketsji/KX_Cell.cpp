@@ -132,6 +132,7 @@ void KX_Cell::PropagateVelocity(unsigned int layer)
 
 			if (factor > 1.0f) {
 				std::cout << "non-normalized factor : " << factor << ", om : " << om << ", r1 : " << r1 << ", r2 : " << r2 << std::endl;
+				factor = 1.0f;
 			}
 			/*if (factor < 0.0f) {
 				std::cout << "negative factor : " << factor << std::endl;
@@ -167,15 +168,23 @@ void KX_Cell::PropagateVelocity(unsigned int layer)
 		KX_Cell *cell = adjacentActiveCellList[i];
 		float factor = cellFactorList[i];
 		MT_Vector3 direction = cellDirectionList[i];
+		MT_Vector3 dirnorm = direction.normalized();
 
 #ifdef USE_DISTANCE
 		float distance = direction.length();
 
-		float comp = (1.0f + pow((distance - radius), 2));
-		std::cout << comp << ", " << distance << std::endl;
-		MT_Vector3 velocity = direction.normalized() * originalVelocity.length() /** factor*/ * comp;
+		float diff = radius - distance;
+		float comp = 0.0f;
+		if (diff < 0.0f) {
+			comp = -std::pow(-diff, 3.5f);
+		}
+		else {
+			comp = std::pow(diff, 3.5f);
+		}
+// 		std::cout << comp << ", " << distance << std::endl;
+		MT_Vector3 velocity = dirnorm * originalVelocity.length() * factor + dirnorm * comp;
 #else
-		MT_Vector3 velocity = direction.normalized() * factor;
+		MT_Vector3 velocity = dirnorm * factor;
 #endif
 
 		cell->AddVelocity(velocity, layer);

@@ -1,4 +1,5 @@
 #include "KX_Terrain.h"
+#include <cmath>
 #include <fenv.h>
 
 extern "C" {
@@ -9,11 +10,12 @@ extern "C" {
 
 KX_Terrain::KX_Terrain()
 	:m_tree(NULL),
-	m_sizeX(8),
-	m_sizeY(8),
+	m_sizeX(300),
+	m_sizeY(300),
 	m_interval(1.0f),
 	m_time(0.0f)
 {
+	float yinterval = std::sin(MT_PI / 3.0f);
 	// Initialisation des cellules en nid d'abeilles.
 	for (unsigned int y = 0; y < m_sizeY; ++y) {
 		// Ne nombre de cellules en x : alternance de m_size et m_size - 1.
@@ -38,7 +40,7 @@ KX_Terrain::KX_Terrain()
 				0.0f;
 #endif
 			MT_Vector3 position(x * m_interval + gapx + randx,
-								y * m_interval + randy, 
+								y * m_interval * yinterval + randy, 
 								0.0f);
 			KX_Cell *cell = new KX_Cell(position);
 			m_cells.push_back(cell);
@@ -54,7 +56,7 @@ KX_Terrain::KX_Terrain()
 // 		(unsigned int)m_cells.size() - 5
 	};
 
-	MT_Vector3 direction(.0f, 0.1f, 0.0f);
+	MT_Vector3 direction(0.2f, 0.5f, 0.0f);
 	MT_Vector3 velocities[colliders] = {
 		direction * scale,
 // 		direction * scale,
@@ -62,7 +64,7 @@ KX_Terrain::KX_Terrain()
 		direction * -scale
 	};
 
-	for (unsigned int i = 0; i < m_sizeX; ++i) {
+	for (unsigned int i = 0; i < 1; /*m_sizeX*/ ++i) {
 		KX_ColliderInfo info;
 		info.cell = m_cells[/*indices[i]*/i];
 		info.velocity = direction * scale; //velocities[i];
