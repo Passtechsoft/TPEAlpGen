@@ -14,47 +14,47 @@
 \contentsline {paragraph}{Torrents}{7}
 \contentsline {subsubsection}{\numberline {3.3.3}L'\IeC {\'e}rosion karstique}{7}
 \contentsline {subsubsection}{\numberline {3.3.4}L'\IeC {\'e}rosion glaciaire}{8}
-\contentsline {subsubsection}{\numberline {3.3.5}L'\IeC {\'e}rosion marine}{8}
+\contentsline {subsubsection}{\numberline {3.3.5}L'\IeC {\'e}rosion marine}{9}
 \contentsline {subsection}{\numberline {3.4}Le transport}{9}
-\contentsline {subsubsection}{\numberline {3.4.1}Le glissement de masse}{9}
-\contentsline {subsubsection}{\numberline {3.4.2}Les \IeC {\'e}coulements gravitaires}{9}
-\contentsline {subsubsection}{\numberline {3.4.3}L'\IeC {\'e}coulement d'un fluide}{9}
-\contentsline {subsubsection}{\numberline {3.4.4}Le transport des s\IeC {\'e}diments}{10}
+\contentsline {subsubsection}{\numberline {3.4.1}Le glissement de masse}{10}
+\contentsline {subsubsection}{\numberline {3.4.2}Les \IeC {\'e}coulements gravitaires}{10}
+\contentsline {subsubsection}{\numberline {3.4.3}L'\IeC {\'e}coulement d'un fluide}{10}
+\contentsline {subsubsection}{\numberline {3.4.4}Le transport des s\IeC {\'e}diments}{11}
 \contentsline {subsubsection}{\numberline {3.4.5}Le diagramme de Hjulstr\IeC {\"o}m}{11}
 \contentsline {subsection}{\numberline {3.5}Le d\IeC {\'e}p\IeC {\^o}t des s\IeC {\'e}diments}{11}
-\contentsline {subsection}{\numberline {3.6}Quelques rappels sur la g\IeC {\'e}ologie}{11}
-\contentsline {subsubsection}{\numberline {3.6.1}La tectonique des plaques}{11}
+\contentsline {subsection}{\numberline {3.6}Quelques rappels sur la g\IeC {\'e}ologie}{12}
+\contentsline {subsubsection}{\numberline {3.6.1}La tectonique des plaques}{12}
 \contentsline {subsection}{\numberline {3.7}La subduction}{12}
-\contentsline {subsubsection}{\numberline {3.7.1}L'histoire de la cha\IeC {\^\i }ne alpine}{12}
+\contentsline {subsubsection}{\numberline {3.7.1}L'histoire de la cha\IeC {\^\i }ne alpine}{13}
 \contentsline {subsection}{\numberline {3.8}Principes de l'\IeC {\'e}rosion}{13}
 \contentsline {subsubsection}{\numberline {3.8.1}Dynamique des roches}{13}
 \contentsline {paragraph}{Le temps}{13}
-\contentsline {paragraph}{La temp\IeC {\'e}rature}{13}
-\contentsline {paragraph}{La pression}{13}
+\contentsline {paragraph}{La temp\IeC {\'e}rature}{14}
+\contentsline {paragraph}{La pression}{14}
 \contentsline {section}{\numberline {4}La simulation}{14}
 \contentsline {subsection}{\numberline {4.1}Mod\IeC {\'e}liser un paysage g\IeC {\'e}ologique}{14}
 \contentsline {subsubsection}{\numberline {4.1.1}Les simulations physiques}{14}
 \contentsline {paragraph}{Simulation par p\IeC {\^a}tes}{14}
-\contentsline {paragraph}{La place de la physique dans la simulation}{14}
+\contentsline {paragraph}{La place de la physique dans la simulation}{15}
 \contentsline {subsubsection}{\numberline {4.1.2}La simulation num\IeC {\'e}rique par automate cellulaire}{15}
 \contentsline {paragraph}{Simulation par voxels}{15}
-\contentsline {subsubsection}{\numberline {4.1.3}Approche cellulaire de la simulation}{15}
-\contentsline {subsection}{\numberline {4.2}Les Cellules}{16}
-\contentsline {subsubsection}{\numberline {4.2.1}D\IeC {\'e}finition d'une cellule}{16}
+\contentsline {subsubsection}{\numberline {4.1.3}Approche cellulaire de la simulation}{16}
+\contentsline {subsection}{\numberline {4.2}Les Cellules}{17}
+\contentsline {subsubsection}{\numberline {4.2.1}D\IeC {\'e}finition d'une cellule}{17}
 \contentsline {subsubsection}{\numberline {4.2.2}Disposition des cellules}{17}
-\contentsline {subsection}{\numberline {4.3}Interactions entre cellules}{18}
-\contentsline {subsubsection}{\numberline {4.3.1}Recherche des cellules adjacentes}{18}
+\contentsline {subsection}{\numberline {4.3}Interactions entre cellules}{19}
+\contentsline {subsubsection}{\numberline {4.3.1}Recherche des cellules adjacentes}{19}
 \contentsline {subsubsection}{\numberline {4.3.2}Cellules en collisions}{19}
 \contentsline {subsubsection}{\numberline {4.3.3}Propagation par front de cellules}{19}
 \contentsline {subsection}{\numberline {4.4}Calques de v\IeC {\'e}locit\IeC {\'e}}{21}
-\contentsline {subsubsection}{\numberline {4.4.1}Centre instantan\IeC {\'e} de rotation}{21}
+\contentsline {subsubsection}{\numberline {4.4.1}Centre instantan\IeC {\'e} de rotation}{22}
 \contentsline {subsubsection}{\numberline {4.4.2}Compression et traction entre cellules}{24}
 \contentsline {paragraph}{Loi de Hook}{24}
-\contentsline {paragraph}{Approximation du comportement de la compression et traction.}{24}
-\contentsline {subsubsection}{\numberline {4.4.3}Friction entre cellules}{25}
-\contentsline {subsection}{\numberline {4.5}Les limites de la simulation}{26}
-\contentsline {subsubsection}{\numberline {4.5.1}Les limites du r\IeC {\'e}alisme}{26}
-\contentsline {subsubsection}{\numberline {4.5.2}Les limites de temps de calcul}{26}
-\contentsline {subsubsection}{\numberline {4.5.3}Les limites de m\IeC {\'e}moires}{27}
-\contentsline {subsection}{\numberline {4.6}Piste d'am\IeC {\'e}liorations}{27}
-\contentsline {subsection}{\numberline {4.7}Conclusion}{27}
+\contentsline {paragraph}{Approximation du comportement de la compression et traction.}{25}
+\contentsline {subsubsection}{\numberline {4.4.3}Friction entre cellules}{26}
+\contentsline {subsection}{\numberline {4.5}Les limites de la simulation}{27}
+\contentsline {subsubsection}{\numberline {4.5.1}Les limites du r\IeC {\'e}alisme}{27}
+\contentsline {subsubsection}{\numberline {4.5.2}Les limites de temps de calcul}{27}
+\contentsline {subsubsection}{\numberline {4.5.3}Les limites de m\IeC {\'e}moires}{28}
+\contentsline {subsection}{\numberline {4.6}Piste d'am\IeC {\'e}liorations}{28}
+\contentsline {subsection}{\numberline {4.7}Conclusion}{28}
