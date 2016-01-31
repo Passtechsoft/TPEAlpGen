@@ -215,8 +215,8 @@ Il ne peut déplacer que des éléments fins (les limons sont entraînés à par
 
 \subsubsection{L'érosion fluviale et le ruissellement}
 
-\paragraph{Le ruissellement.}
-
+\paragraph{Le ruissellement}
+\medbreak
 Le ruissellement se déclenche si les précipitations sont supérieures à la capacité d'infiltration du sol. C'est le cas général des terrains imperméables. 
 Après une forte pluie, les eaux empruntent les fissures du sol (à la surface), les élargissent progressivement en chenaux parallèles qui, par la suite, fusionnent avec l'écoulement des arêtes.
 
@@ -225,8 +225,8 @@ Après une forte pluie, les eaux empruntent les fissures du sol (à la surface),
 \end{center}
 \captionof{figure}{Les « Bad Lands » (ici, en PACA) : exemple d'érosion due au ruissellement}
 
-\paragraph{Les torrents.}
-
+\paragraph{Les torrents}
+\medbreak
 Les torrents sont situés en amont des montagnes.
 Ils sont décomposables en 3 parties~:
 \begin{itemize}
@@ -467,7 +467,7 @@ Pour rester cohérents avec notre problématique et notre objectif, nous avons c
 \subsubsection{Les simulations physiques}
 
 \paragraph{Simulation par pâtes}
-
+\medbreak
 Il est fréquent chez les chercheurs géologues de remplacer les couches par divers ingrédients plus ou moins courants~: de la pâte à modeler, du sable mélangé avec de l'huile ou tout autre pâte ductile colorée.
 Ces différentes couches sont soigneusement empilées et leurs propriétés sont choisies avec soin de sorte à faire l'analogie avec les couches géologiques d'un paysage réel.
 Ces simulations, bien que limitées, arrivent à simuler des contraintes de déformation très précises, pour avoir un aperçu visuel d'une démonstration en géologie (ex~: tectonique des plaques, démonstration par l'expérience de l'existence de certains types de plissements) ou pour démontrer l'existence de certains comportements et propriétés dans un système géologiques.
@@ -482,8 +482,8 @@ D'autre simulation du même genre mettent en valeur certains types de plis, plis
 \end{center}
 \captionof{figure}{A droite~: Photo de simulation physique par couches de pâtes. A gauche~: Photo de simulation par pâtes des indes.}
 
-\paragraph{La place de la physique dans la simulation.}
-
+\paragraph{La place de la physique dans la simulation}
+\medbreak
 Dans ce contexte, la géologie a par ailleurs beaucoup appris de la physique, qui l'a amené à conduire d'autres types d'expériences pour trouver les propriétés de certaines roches soumises à des conditions de pressions et de températures intenses, ou bien les réactions chimiques opérant lors de l'érosion de roches calcaires par un milieu riche en $CO_2$.
 
 \subsubsection{La simulation numérique par automate cellulaire}
@@ -505,7 +505,7 @@ Cette simulation était assez convaincante visuellement, mais fondamentalement t
 \captionof{figure}{Images d'une simulation par automates cellulaire bidimensionnelle à 7100 itérations.}
 
 \paragraph{Simulation par voxels}
-
+\medbreak
 La simulation par voxels, particulièrement utile pour l'érosion, consiste à créer un terrain exclusivement composé de « cubes », de points alignés sur un quadrillage en deux ou trois dimensions de coordonnées discrètes.
 Habituellement, les données de traitement numérique de rendu utilisent des points, reliés entre eux par des traits formant des triangles qui sont ensuite utilisés pour rendre les formes en perspectives.
 Mais les voxels créent des terrains uniquement composés de cubes, les boxels, représentation 3D des voxels de sorte qu'ils remplissent l'espace autour d'eux de la largeur d'une unité du système discret.
@@ -819,8 +819,8 @@ Ainsi nous évitons un cas trop « parfait ».}
 
 \subsubsection{Compression et traction entre cellules}
 
-\paragraph{Loi de Hook.}
-
+\paragraph{Loi de Hook}
+\medbreak
 Maintenant que nous avons la formule pour la répartition de la vélocité entre les cellules, nous devons gérer les cas de compression et de traction.
 Les cellules adjacentes doivent toujours viser une distance parfaite équivalente à $1$.
 En théorie, la compression et la traction doivent être régies par la loi de Hook complémentée du module de Young. Cette loi met en relation le coefficient de déformation (en \%), la contrainte appliquée sur le matériau (en Pa) et la caractéristique du matériau trouvé dans le module de Young (en Pa).
@@ -836,8 +836,8 @@ Le module de Young contient de nombreuses valeur de $E$ pour la majorité des ma
 \end{itemize}
 
 
-\paragraph{Approximation du comportement de la compression et traction.}
-
+\paragraph{Approximation du comportement de la compression et traction}
+\medbreak
 Cette formule nécessite de connaître la contrainte entre les deux cellules, or notre modèle de simulation se base uniquement sur la vélocité des cellules.
 Nous devons donc utiliser une approximation, premièrement il faut définir le comportement de cette approximation.
 Quand la distance entre deux cellules est supérieur à $1$ nous sommes en traction et nous devons alors ajouter une vélocité opposée à au vecteur entre les deux cellules.
