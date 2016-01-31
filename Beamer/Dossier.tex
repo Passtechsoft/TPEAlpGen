@@ -488,12 +488,12 @@ Dans ce contexte, la géologie a par ailleurs beaucoup appris de la physique, qu
 
 \subsubsection{La simulation numérique par automate cellulaire}
 
-Nous avons épluchés plusieurs thèses traitant de la simulation de phénomènes géologiques grâce aux ordinateurs.
-Nous n'avons malheureusement pas trouvés le code source de ces logiciels et ce malgré une requête infructueuse auprès d'un des scientifiques concernés (qui ne nous a pas répondus) et avoir fait les recherches internet nécessaires.
-Une en particulier a retenu notre attention entre les simulation des mouvements de l’asthénosphère et des systèmes de simulation d'érosion qui ne résolvaient pas notre problème premier.
-Cette simulation simulait une subduction grâce à des automates cellulaires, et ces automates grâce à un algorithme se réagençaient à chaque pas de la simulation, évoluant et se plissant.
-C'est notamment de là que nous viens l'idée d'avoir utilisé des cellules indépendantes.
-Cette simulation était assez convaincante visuellement, mais fondamentalement très biaisée car le mouvement des cellules de la première plaque était artificiellement forcé vers la bas pour un meilleur rendu visuel, de sorte que l'apparence primait généralement sur le réalisme physique de la simulation.
+Nous avons épluchés plusieurs thèses traitant de la simulation de phénomènes géologiques grâce aux ordinateurs.\\
+Nous n'aurons malheureusement pas trouvé le code source de ces logiciels (ce qui nous aurais permis de les intégrer à notre moteur). De plus, nous avons émis une requête auprès d'un des scientifique ayant basé sa thèse sur une simulation comme la nôtre, mais celui-ci ne nous a pas répondus.\\
+Une thèse en particulier a retenu notre attention : elle portait sur la simulation des mouvements de l’asthénosphère et des systèmes de simulation d'érosion.\\
+Cette simulation permettait de représenter une subduction grâce à des automates cellulaires. Ces automates étaient représentés grâce à un algorithme se réagençant à chaque pas de la simulation.\\
+C'est notamment de là que nous viens l'idée d'avoir utilisé des cellules indépendantes.\\
+Cette simulation était assez convaincante visuellement, mais fondamentalement très biaisée car le mouvement des cellules de la première plaque était artificiellement forcé vers le bas pour un meilleur rendu visuel, de sorte que l'apparence primait généralement sur le réalisme physique de la simulation.
 
 \begin{center}
   \includegraphics[width=8cm]{Images/3100_cell.png}
@@ -506,13 +506,14 @@ Cette simulation était assez convaincante visuellement, mais fondamentalement t
 
 \paragraph{Simulation par voxels}
 \medbreak
-La simulation par voxels, particulièrement utile pour l'érosion, consiste à créer un terrain exclusivement composé de « cubes », de points alignés sur un quadrillage en deux ou trois dimensions de coordonnées discrètes.
-Habituellement, les données de traitement numérique de rendu utilisent des points, reliés entre eux par des traits formant des triangles qui sont ensuite utilisés pour rendre les formes en perspectives.
-Mais les voxels créent des terrains uniquement composés de cubes, les boxels, représentation 3D des voxels de sorte qu'ils remplissent l'espace autour d'eux de la largeur d'une unité du système discret.
-L'avantage de ce système, pas évident au premier abord est que l'ordinateur ayant du mal avec les nombres à virgule (et pas seulement du point de vue physique, car il devient bien plus rapide pour effectuer des opérations simples comme rechercher une cellule adjacente dans le maillage, en supprimer, optimiser l'affichage en fonction de la présence ou non de cellules autour de nous, ou encore de rechercher supprimer des éléments.
+La simulation par voxels, particulièrement utile pour l'érosion, consiste à créer un terrain exclusivement composé de « cubes », de points alignés sur un quadrillage en deux ou trois dimensions de coordonnées discrètes.\\
+Habituellement, les données de traitement numérique de rendu utilisent des points, reliés entre eux par des traits formant des triangles, qui sont ensuite utilisés pour rendre les formes en perspectives.\\
+Les voxels, eux, créent des terrains uniquement composés de cubes, les boxels (voir Glossaire) de sorte qu'ils remplissent l'espace autour d'eux de la largeur d'une unité du système discret.\\
+Ce système est avantageux quand on regarde le matériel : le processeur d'un ordinateur ayant du mal avec les nombres à virgule, les voxels lui simplifient grandement la tâche.\\
+En effet, il devient bien plus rapide d'effectuer des opérations simples comme rechercher une cellule adjacente dans le maillage, en supprimer ou encore d'optimiser l'affichage en fonction de la présence ou non de cellules adjacentes.\\
 De plus, ce système offre l'avantage de permettre de changer assez facilement la résolution des boxels.
-En effet, on peut les simplifier à l'affichage (et les calculs en général) les concernant en les rendant plus gros, ce qui allège la tâche de la carte graphique, et l'opération inverse, moyennant un algorithme d'interpolation assez simple permet d'augmenter sans des efforts d'algorithmique importants la résolution système.
-De plus, de même que dans les images en deux dimensions la plus petite unité considérée est le pixel, le boxel est son équivalent en 3D, ce qui implique que les algorithmes de compression classiques des images 2D (type png, jpeg, gif) moyennant des modifications mineurs peuvent s'appliquer sur des portions ou la totalité d'un terrain ainsi généré, permettant une économie de mémoire énorme.
+En effet, on peut les simplifier à l'affichage en les rendant plus gros, ce qui allège la tâche de la carte graphique.\\
+De plus, de la même façon que dans les images en deux dimensions la plus petite unité considérée est le pixel, le boxel est son équivalent en 3D, ce qui implique que les algorithmes de compression classiques des images 2D (type png, jpeg, gif) peuvent s'appliquer sur des portions ou la totalité d'un terrain ainsi généré (moyennant des modifications mineurs), ce qui permet une économie de mémoire énorme.\\
 C'est pour toutes ces raisons qu'un modèle d'érosion intelligent basé sur un automate cellulaire 3D permettrait de simuler avec une grande précision un paysage de type alpin, tout en économisant beaucoup de mémoire (moyennant quelques optimisations).
 
 \subsection{Les Cellules}
