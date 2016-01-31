@@ -586,10 +586,10 @@ Maintenant toutes les cellules sont à $1$ de distance entre elles, c'est pour c
 
 \subsubsection{Recherche des cellules adjacentes}
 
-Pour commencer toutes cellule doit connaître toutes ses cellules adjacentes pour pouvoir interagir avec elles.
-Pour cela nous avons utilisés un arbre KD pour optimiser la recherche des cellules, en effet l'arbre KD permet de réaliser une recherche des points inclut dans une sphère plus rapidement qu'une simple recherche linéaire.
-Pour ce faire au début de chaque nouvelle étape compète de simulation, l'arbre KD est détruit puis remplacé par un nouveau vide, ensuite nous ajoutons toutes les positions des cellules dans l'ordre (en effet le numéro d'ajout et le seul moyen de retrouver la cellules par rapport à sa position) puis nous exécutons le tri des positions dans l'arbre KD.
-Après avoir instancié l'arbre chaque cellules peut rechercher ses cellules adjacentes dans un rayon égale à la norme d'un vecteur (1~; 1) (la distance originelle entre les cellules) puis enregistre ces cellules dans une liste utilisé jusqu'à la recréation de l'arbre KD, donc du déplacement des cellules.
+Pour commencer, toute cellule doit connaître toutes ses cellules adjacentes pour pouvoir interagir avec elles.\\
+Pour cela nous avons utilisé un arbre KD pour optimiser la recherche des cellules. En effet l'arbre KD permet de réaliser une recherche des points inclus dans une sphère plus rapidement qu'une simple recherche linéaire.\\
+Pour ce faire au début de chaque nouvelle étape compète de simulation, l'arbre KD est détruit puis remplacé par un nouveau vide. Ensuite, nous ajoutons toutes les positions des cellules dans l'ordre (en effet le numéro d'ajout et le seul moyen de retrouver la cellules par rapport à sa position) puis nous exécutons le tri des positions dans l'arbre KD.\\
+Après avoir instancié l'arbre, chaque cellule peut rechercher ses cellules adjacentes dans un rayon égal à la norme d'un vecteur (1~; 1) (la distance originelle entre les cellules) puis enregistrer ces cellules dans une liste utilisé jusqu'à la re-création de l'arbre KD, donc du déplacement des cellules.
 
 \begin{center}
   \includegraphics[width=12cm]{Images/kd_tree.jpg}
@@ -599,30 +599,34 @@ Après avoir instancié l'arbre chaque cellules peut rechercher ses cellules adj
 
 \subsubsection{Cellules en collisions}
 
-Les cellules ne peuvent avoir d'interactions autre que la collision avec des cellules appartenant à une plaque tectonique différentes.
-Prenons l'exemple de deux plaques qui se rencontrent, il y a alors une collision (subduction ou obduction dans certains cas).
-Chaque cellule étant positionnée sur la surface de contact entre ces deux plaques est donc considérée en collision avec la cellule correspondante dans la plaque tectonique opposée.
-Pour obtenir cette cellule en question, nous nous aidons de l'arbre KD qui nous donne une liste de cellules toutes adjacentes.
-Dans cette liste nous ne retenons que les cellules ayant une plaque tectonique différente de celle de la cellule étudié.
-Enfin ces cellules dites en collision n'interagiront qu'avec le centre instantané de rotation (d'écrit plus bas), laissant chacune de leur plaque tectonique respective déformer leurs cellules indépendamment.
+Les cellules ne peuvent avoir d'interactions autre que la collision avec des cellules appartenant à une plaque tectonique différentes.\\
+Prenons l'exemple de deux plaques qui se rencontrent, il y a alors une collision (puis subduction ou obduction dans certains cas).\\
+Chaque cellule étant positionnée sur la surface de contact entre ces deux plaques est donc considérée en collision avec la cellule correspondante dans la plaque tectonique opposée.\\
+Pour obtenir cette cellule en question, nous nous aidons de l'arbre KD qui nous donne une liste de cellules toutes adjacentes.\\
+Dans cette liste nous ne retenons que les cellules ayant une plaque tectonique différente de celle de la cellule étudié.\\
+Enfin ces cellules dites en collision n'interagiront qu'avec le centre instantané de rotation (décrit plus bas), laissant chacune de leur plaque tectonique respective déformer leurs cellules indépendamment.
 
 \subsubsection{Propagation par front de cellules}
 
-Pour propager la vélocité plusieurs méthodes ont été envisagé, la première entant la plus simple, se composé simplement d'un itération linéaire pour toutes les cellules existantes.
-Ainsi chacune d'elle devra propager sa propre vélocité à ses cellules adjacentes.
-Mais cette méthode est totalement erronée, car si nous faisons l'itération de toutes les autres cellules avant la cellule en collision, celle ci n'aura d'effet que sur ses seuls cellules adjacentes et non sur toute la plaque.
-Pour remédier à ce problème nous avons du aborder une approche par fronts partant de la cellules en collision et s'étendant sur toute la plaque formant ainsi une onde.
-Deux méthodes s'offraient à nous. La première est de trouver toutes les cellules dans un intervalle de rayons par rapport à la cellule en collision, la deuxième méthode récursive quant à elle crée un front d'origine avec seulement la cellules en collision et chaque front créer le suivant en ajoutant les cellules adjacentes n'ayant jamais participé au front.
-Chacune de ces méthodes ont leurs avantages et inconvénients.
-La première ne fonctionne que avec une plaque rectangulaire, en effet si la plaque est coudé les cellules de l'autre côté du coude seront déjà dans le front avant celles dans le coude, si la cellule en collision se trouve sur une des extrémités.
-Ce problème n'est plus avec la deuxième méthode, mais celle ci a pour désavantage de ne pas former un front circulaire, mais basé sur la disposition des cellules, donnant ainsi un front hexagonal pour une disposition en nid-d'abeille.
-Pesant le pour et le contre et en tenant compte du temps de calculs (notre implémentation d'arbre KD ne permettait pas une recherche par intervalle de rayons ce qui nous oblige à faire deux recherches par rayon et de supprimer le doublons) nous avons choisi la méthode récursive.
-Pour ce faire les cellules possèdent maintenant deux nouvelles propriétés mutable~: une pour savoir si la cellule à déjà fait partie du front (cela signifie aussi que la cellule a déjà propagée sa vélocité) : $a_C$ et l'autre pour savoir si la cellule fait actuellement partie du front : $b_C$.
-Ces deux variables sont initialisées à faux au début de chaque étape complète de simulation.
-Pour chaque cellules en collision nous créons un nouveau front ne contenant que celle ci, toutes les cellules contenus dans le front sont considérées comme déjà calculées et ne vont plus faire partie du front, donc elles voient $b_C$ et $a_C$ mis à vrai durant la propagation de vélocité sur leurs cellules adjacentes.
-Ensuite chaque cellules dans le front itère sur toutes ses cellules adjacentes et les ajoute si leurs deux propriétés sont faussent (elle n'ont pas et ne font pas partie du front).
-Chaque cellule remplissant ces conditions est alors ajoutée dans le front et vois $b_C$ mis a vrai car elle fait désormais partie du front.
-Ainsi nous créons nouveau front grâce à l'ancien sans cellules en doublons.
+Pour propager la vélocité plusieurs méthodes ont été envisagé, la première entant la plus simple, se compose simplement d'une itération linéaire pour toutes les cellules existantes.\\
+Ainsi chacune d'elle devra propager sa propre vélocité à ses cellules adjacentes.\\
+Mais cette méthode est totalement erronée, car si nous faisons l'itération de toutes les autres cellules avant la cellule en collision, celle ci n'aura d'effet que sur ses seuls cellules adjacentes, et non sur toute la plaque.\\
+Pour remédier à ce problème nous avons dû aborder une approche par fronts partant de la cellules en collision et s'étendant sur toute la plaque (formant ainsi une onde.\\
+Deux méthodes s'offraient à nous :
+\begin{itemize}
+\item La première est de trouver toutes les cellules dans un intervalle de rayons par rapport à la cellule en collision ;
+\item La deuxième méthode, récursive, consiste à créer un front d'origine avec seulement la cellules en collision et chaque front créé ainsi le suivant en ajoutant les cellules adjacentes n'ayant jamais participé au front.
+\end{itemize}
+Chacune de ces méthodes ont leurs avantages et inconvénients.\\
+La première ne fonctionne que avec une plaque rectangulaire, en effet si la plaque est coudé les cellules de l'autre côté du coude seront déjà dans le front avant celles dans le coude, si la cellule en collision se trouve sur une des extrémités.\\
+Ce problème n'est plus avec la deuxième méthode, mais celle ci a pour désavantage de ne pas former un front circulaire, mais basé sur la disposition des cellules, donnant ainsi un front hexagonal pour une disposition en nid-d'abeille.\\
+Pesant le pour et le contre et en tenant compte du temps de calculs (notre implémentation d'arbre KD ne permettait pas une recherche par intervalle de rayons ce qui nous oblige à faire deux recherches par rayon et de supprimer le doublons) nous avons choisi la méthode récursive.\\
+Pour ce faire les cellules possèdent maintenant deux nouvelles propriétés mutable~: une pour savoir si la cellule à déjà fait partie du front (cela signifie aussi que la cellule a déjà propagée sa vélocité) :\\ $a_C$ et l'autre pour savoir si la cellule fait actuellement partie du front : $b_C$.\\
+Ces deux variables sont initialisées à faux au début de chaque étape complète de simulation.\\
+Pour chaque cellules en collision nous créons un nouveau front ne contenant que celle ci, toutes les cellules contenus dans le front sont considérées comme déjà calculées et ne vont plus faire partie du front, donc elles voient $b_C$ et $a_C$ mis à vrai durant la propagation de vélocité sur leurs cellules adjacentes.\\
+Ensuite chaque cellules dans le front itère sur toutes ses cellules adjacentes et les ajoute si leurs deux propriétés sont faussent (elle n'ont pas et ne font pas partie du front).\\
+Chaque cellule remplissant ces conditions est alors ajoutée dans le front et vois $b_C$ mis a vrai car elle fait désormais partie du front.\\
+Ainsi nous créons nouveau front grâce à l'ancien sans cellules en doublons.\\
 Dès que le front ne contient plus aucune cellules, cela signifie que nous avons finit avec la cellule en collision actuelle et pouvons passer à la prochaine cellule en collision ou recommencer un étape complète de simulation. \\
 
 \medbreak
@@ -688,17 +692,17 @@ Puis à la fin de l'étape complète de simulation tous les vecteurs sont ajout�
 \subsubsection{Centre instantané de rotation}
 
 Comme nous l'avons expliqué, chaque cellule dans le front doit appliquer une vélocité aux cellules qui feront partie du front l'itération suivante.
-Mais quelle doit être la direction de cette vélocité et sa norme~?
+Mais quelle doit être la direction de cette vélocité et sa norme~?\\
 Prenant le cas de deux cellules $C_1$ et $C_2$.
 $C_1$ fait partie du front et $C_2$ une de ses adjacentes non calculées, $C_1$ reçoit une vélocité $\vv{u}$, $C_2$ devra recevoir une vélocité $\vv{v}$ et $\vv{w}$ représente le vecteur de $C_1$ vers $C_2$.
-L'estimation de la direction de la vélocité dans un modèle sans friction est des plus simple, elle équivaut au vecteur allant de la cellule $C_1$ vers $C_2$ : $\vv{w}$, mais l'estimation de la norme de ce vecteur est quant à elle bien plus compliquée.
+L'estimation de la direction de la vélocité dans un modèle sans friction est des plus simple, elle équivaut au vecteur allant de la cellule $C_1$ vers $C_2$ : $\vv{w}$, mais l'estimation de la norme de ce vecteur est quant à elle bien plus compliquée.\\
 La fonction calculant cette norme doit apporter les résultats suivants~:
-lorsque le vecteur $\vv{w}$ est colinéaire à $\vv{u}$ (les deux cellules sont alignées sur la vélocité) la cellule $C_2$ doit recevoir toute la vélocité $\vv{v} = \vv{u}$ et, au contraire, si $\vv{w}$ et $\vv{u}$ forment un angle $\frac{\pi}{2}$ alors la cellule $C_2$ ne doit recevoir aucune vélocité, $\vv{v} = \vv{0}$, car elle et disposé latéralement à la cellule $C_1$ et n'étant pas dans un modèle avec friction, elle ne bouge pas.
+lorsque le vecteur $\vv{w}$ est colinéaire à $\vv{u}$ (les deux cellules sont alignées sur la vélocité) la cellule $C_2$ doit recevoir toute la vélocité $\vv{v} = \vv{u}$ et, au contraire, si $\vv{w}$ et $\vv{u}$ forment un angle $\frac{\pi}{2}$ alors la cellule $C_2$ ne doit recevoir aucune vélocité, $\vv{v} = \vv{0}$, car elle et disposé latéralement à la cellule $C_1$ et n'étant pas dans un modèle avec friction, elle ne bouge pas.\\
 La loi répondant à ces deux cas est le « Centre instantané de rotation d'un solide ».
-Cette loi permet de mettre en relation la vélocité à deux points de contacts sur deux plan d'un solide grâce à une rotation.
+Cette loi permet de mettre en relation la vélocité à deux points de contacts sur deux plan d'un solide grâce à une rotation.\\
 Prenons l'exemple d'une échelle (le modèle est sans friction, sans gravité et uniquement sur un plan) posée avec un angle faible $\alpha$ sur un mur perpendiculaire au sol, elle forme deux points de contacts $P_1$ et $P_2$, $P_1$ en haut de l'échelle contre le mur et $P_2$ en bas de l'échelle contre le sol.
-Si nous appuyons sur le haut de l'échelle dans le direction du mur celle-ci va avoir tendance à glisser en direction du sol.
-En instantané nous pouvons faire l'approximation de ce mouvement par un rotation dont le centre serait l'intersection des deux droites perpendiculaires au sol et au mur passant respectivement par les points $P_1$ et $P_2$.
+Si nous appuyons sur le haut de l'échelle dans le direction du mur celle-ci va avoir tendance à glisser en direction du sol.\\
+En instantané nous pouvons faire l'approximation de ce mouvement par un rotation dont le centre serait l'intersection des deux droites perpendiculaires au sol et au mur passant respectivement par les points $P_1$ et $P_2$.\\
 Nous nommerons $\vv{u}$ la vélocité de l'échelle à $P_1$, $\vv{v}$ la vélocité à $P_2$ lors du glissement, $C$ le centre de rotation, $d$ la distance entre $C$ et $P_1$, $f$ la distance entre $C$ et $P_2$ et enfin $\alpha$ l'angle de rotation.
 
 \begin{center}
@@ -790,8 +794,8 @@ L'implémentation de cette loi doit traiter quelques cas particuliers pour évit
 \end{center}
 \bigbreak
 
-Cette formule convient parfaitement pour une interaction avec une seule cellule, mais dans la plupart des cas il y en a plus, en effet au début de la simulation une cellule du front peut avoir au maximum quatre cellules adjacentes non calculées.
-Nous ne pouvons alors pas utiliser la même formule car la somme de la norme des vélocités appliquées aux cellules pourrait être supérieur à $||\vv{u}||$, cela signifierai une création de vélocité.
+Cette formule convient parfaitement pour une interaction avec une seule cellule, mais dans la plupart des cas il y en a plus. En effet au début de la simulation une cellule du front peut avoir au maximum quatre cellules adjacentes non calculées.
+Nous ne pouvons alors pas utiliser la même formule car la somme de la norme des vélocités appliquées aux cellules pourrait être supérieur à $||\vv{u}||$, cela signifierait une création de vélocité.
 Pour palier à ce problème toutes les vélocités sont divisées par le nombre de cellules adjacentes non calculées.
 
 \begin{center}
@@ -817,9 +821,9 @@ Ainsi nous évitons un cas trop « parfait ».}
 
 \paragraph{Loi de Hook.}
 
-Maintenant que nous avons la formule pour la répartition de la vélocité entre les cellules, nous devons gérer les cas de compressions et tractions.
+Maintenant que nous avons la formule pour la répartition de la vélocité entre les cellules, nous devons gérer les cas de compression et de traction.
 Les cellules adjacentes doivent toujours viser une distance parfaite équivalente à $1$.
-En théorie, la compression et traction doit être régie par la loi de Hook complémentée du module de Young. Cette loi met en relation le coefficient de déformation (en \%), la contrainte appliquée sur le matériau (en Pa) et la caractéristique du matériau trouvé dans le module de Young (en Pa).
+En théorie, la compression et la traction doivent être régies par la loi de Hook complémentée du module de Young. Cette loi met en relation le coefficient de déformation (en \%), la contrainte appliquée sur le matériau (en Pa) et la caractéristique du matériau trouvé dans le module de Young (en Pa).
 La formule de cette loi se présente sous la forme de~:
 \begin{center}
   \boxed{\sigma = E \times \epsilon}
@@ -834,11 +838,11 @@ Le module de Young contient de nombreuses valeur de $E$ pour la majorité des ma
 
 \paragraph{Approximation du comportement de la compression et traction.}
 
-Cette formule nécessite de connaître la contrainte entre les deux cellules, or notre modèle de simulation ce base uniquement sur la vélocité des cellules.
+Cette formule nécessite de connaître la contrainte entre les deux cellules, or notre modèle de simulation se base uniquement sur la vélocité des cellules.
 Nous devons donc utiliser une approximation, premièrement il faut définir le comportement de cette approximation.
 Quand la distance entre deux cellules est supérieur à $1$ nous sommes en traction et nous devons alors ajouter une vélocité opposée à au vecteur entre les deux cellules.
 Sinon si la distance est inférieur à $1$, nous devons ajouter une vélocité colinéaire au vecteur entre les deux cellules pour la compression.
-Pour augmenter la norme de la vélocité, une fonction carré convient parfaitement et peut aussi être multipliée par un facteur pour être plus accentuée, mais cette fonction ne traite que la compression car elle est toujours positive.
+Pour augmenter la norme de la vélocité, une fonction carré convient parfaitement et peut aussi être multipliée par un facteur pour être plus accentué, mais cette fonction ne traite que de la compression car elle est toujours positive.
 Nous devons donc utiliser l'opposé d'un carré quand $x$ est négatif.
 \medbreak
 \begin{center}
@@ -859,11 +863,11 @@ Où $d'$ est la différence entre la distance voulu $1$ et la distance entre les
 \captionof{figure}{Deux échantillons de simulation avec compression, les cellules en collisions (en noir) poussent d'abord toutes les autres cellules après elles.} 
 
 \subsubsection{Friction entre cellules}
-Les cellules doivent exercer entre elles une friction pour éviter de glisser.
-Notre modèle actuelle se rapproche plus d'un ensemble de billes, ou chaque billes essaierait de maintenir un distance dites parfaite entre ses billes adjacentes.
-Mais si ce maintient entre deux cellules ne peut ce faire, alors plus aucune relation n'existe entre elles.
-Certes cet situation est désirée lors d'une fissure dans une plaque tectonique (toutes les liens inter-cellulaire se cassent le long de la faille), mais désavantageux dans une simple simulation de compression par un front de collision, car celle ci ressemblera tout simplement à un simulation de grains de sables.
-La friction est alors utilisé ici comme une force correctrice du centre instantané de rotation, car en effet la traction ne peut compenser une faible valeur calculée avec le CIR.
+Les cellules doivent exercer entre elles une friction pour éviter de glisser.\\
+Notre modèle actuel se rapproche plus d'un ensemble de billes, où chaque billes essaierait de maintenir une distance égale entre ses billes adjacentes (cohésion de la roche).
+Si cette équidistance devait casser, les relations entre ces billes devraient êtres supprimées (si la roche se fissure).\\
+Cette situation est désirée lors d'une fissure dans une plaque tectonique (tous les liens inter-cellulaire se cassent le long de la faille), mais désavantageux dans une simple simulation de compression par un front de collision, car celle ci ressemblera tout simplement à un simulation de grains de sables.\\
+La friction est alors utilisée ici comme une force correctrice du centre instantané de rotation, car en effet la traction ne peut compenser une faible valeur calculée avec le CIR.
 La plus simple des lois à mettre en place pour la friction est la loi de Coulomb. \\
 Cette loi nous donne deux états~: en friction ou en détachement (glissement), libre à nous de mettre les bons facteurs (inférieur à 1) derrière ces deux états.
 Pour trouver dans quelle état deux cellules $C_1$ et $C_2$ se trouvent nous devons appliquer la formule suivante~:
@@ -897,8 +901,8 @@ Cette loi peut être représentée par un cône de friction pour simplifier cell
 \end{center}
 
 Malheureusement comme notre modèle de simulation est essentiellement cinématique (se basse essentiellement sur la vélocité), nous ne pouvons donc pas fournir une force et alors utiliser la loi de Coulomb.
-Cette loi restera inutilisé dans la simulation, mais nous savons qu'à un moment donné nous en auront besoins, ou une de ses approximations.
-De plus toutes les cellules auront besoin d'une pression par défaut, en effet si il n'y a pas de pression $N = 0$ et $T_0 = 0$.
+Cette loi restera inutilisé dans la simulation, mais nous savons qu'à un moment donné nous en auront besoin.
+De plus, toutes les cellules auront besoin d'une pression par défaut~: en effet si il n'y a pas de pression $N = 0$ et $T_0 = 0$.
 Pour éviter ce problème nous pourrons spécifier une pression par défaut entre les cellules à l'initialisation de la simulation, mais cela signifiera que deux cellules ne se repousseront pas même si il y a une pression entre elles. 
 
 \subsection{Les limites de la simulation}
