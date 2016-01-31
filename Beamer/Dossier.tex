@@ -38,7 +38,7 @@
 % \setcounter{tocdepth}{4}
 
 %opening
-\title{Comment simuler numériquement la géomorphologie alpine.}
+\title{Comment simuler numériquement la géomorphologie alpine ?}
 \author{Manceau Thibaut, Gros Alexis, Porteries Tristan}
 
 \begin{document}
@@ -54,20 +54,23 @@
 \section{Glossaire}
 
 \begin{itemize}
+
   \item Géomorphologie~: Science de l'étude des causes de l'apparence des formes qu'étudie la géologie ;
-  \item Orogénèse~: Désigne tous les mécanismes relatifs à la surrection d'un massif montagneux ;
-  \item Voxel~: Point dans un environnement 3D discret ;
-  \item Boxel~: Matérialisation d'un voxel en tant que cube ;
-  \item Viscosité~: Plus un fluide est visqueux, plus il s'écoulera lentement ;
-  \item Toute roche peut être considérée comme un fluide très visqueux si l'on considère une grande échelle de temps ;
   \item Moho~: Limite entre la lithosphère et l'asthénosphère ;
+  \item Orogénèse~: Désigne tous les mécanismes relatifs à la surrection d'un massif montagneux ;
+  \item Viscosité~: Plus un fluide est visqueux, plus il s'écoulera lentement ;
+  Toute roche peut être considérée comme un fluide très visqueux si l'on considère une grande échelle de temps ;
+  
+  // A MODIFIER EN SECTION ET SS SECTION
+  \item Boxel~: Matérialisation d'un voxel en tant que cube ;
   \item Étape complète de simulation~: Étape comprenant la résolution de toutes les collisions et cellules.
+  \item Voxel~: Point dans un environnement 3D discret ;
 \end{itemize}
 
 \section{Introduction}
 
 Cela fait à peine 50 ans que la communauté scientifique a adopté la tectonique des plaques, et malgré de nombreuses recherches, la géologie, discipline encore relativement fragmentaire, est une science assez jeune comparée à la physique et aux mathématiques et qui connaît encore de nombreux points sombres, ignorant toujours la structure profonde de notre manteau.
-Cependant, nous (Alexis Gros, Tristan Porteries et Thibaut Manceau) pensons qu'il serait intéressant de faire l'état de l'art en ce qui concerne la simulation d'un paysage géomorphologique de façon réaliste..
+Cependant, nous (Alexis Gros, Tristan Porteries et Thibaut Manceau) pensons qu'il serait intéressant de faire l'état de l'art en ce qui concerne la simulation d'un paysage géomorphologique de façon réaliste.
 En effet, cette simulation pourrait grandement aider à l'obtention de nouvelles connaissances sur la géomorphologie, sans compter tous les autres débouchés où elle pourrait remplacer des générateurs de terrains souvent trop peu réalistes.
 Vous serez ainsi informés dans le présent document de la synthèse de nos recherches sur ce sujet aussi vaste que passionnant, nous ayant donné l'occasion de balayer de nombreux champs de la sciences tels que la chimie moléculaire, la mécanique des fluides ou encore le magnétisme.
 
@@ -79,8 +82,8 @@ Ce que nous appelons « relief » correspond à l'ensemble des formes créés pa
 Ces processus sont regroupés sous le nom de « Morphogenèse ».
 Nous pouvons les séparer en deux parties~:
 \begin{itemize}
-  \item les facteurs endogènes (qui correspondent à la formation du paysage~: la tectonique des plaques)~;
-  \item les facteurs exogènes (qui correspondent à la destruction du paysage~: érosion, climat...)
+  \item les facteurs endogènes, qui correspondent à la formation du paysage (par exemple, la tectonique des plaques)~;
+  \item les facteurs exogènes, qui correspondent à la destruction du paysage~: l'érosion...)
 \end{itemize}
 L'homme est également considéré comme un facteur géomorphologique, mais il est à la fois endogène et exogène. \\
 
@@ -89,12 +92,12 @@ Quatre étapes principales composent ces processus~:
   \item l'altération ;
   \item l'érosion ;
   \item le transport ;
-  \item la sédimentation.
+  \item la sédimentation
 \end{itemize}
 Les débris de roche résultant de phénomènes exogènes sont nommés des altérites. \\
-L'altération correspond à tout ce qui modifie les propriétés des roches, ce qui conduit à une destruction partielle ou totale de celles-ci.
-L'érosion correspond au processus de dégradation et de transformation du relief qui est causé par tout agent externe.
-Le transport est l'acheminement des altérites par des agents de transport (souvent les mêmes que les agents externes qui réalisent l'érosion).
+L'altération correspond à tout ce qui modifie les propriétés des roches, ce qui conduit à une destruction partielle ou totale de celles-ci. \\
+L'érosion correspond au processus de dégradation et de transformation du relief qui est causé par tout agent externe. \\
+Le transport est l'acheminement des altérites par des agents de transport (souvent les mêmes que les agents externes qui réalisent l'érosion). \\
 La sédimentation correspond au dépôt des altérites. \\
 
 Les échelles d'espace ne sont pas les mêmes~: l'altération chimique s'étudie a plus petite échelle que l'altération physique~; mais ces deux catégories restent assez ciblées.
@@ -122,7 +125,7 @@ L'altération physique est l'ensemble des altérations qui agissent physiquement
   \begin{center}
     \includegraphics[width=8cm]{Images/Erosion/desquamation.jpg}
   \end{center}
-  \captionof{figure}{Faille en «pelure d'oignon» typique d'un enlèvement de matière en desquamation}
+  \captionof{figure}{Faille en "pelure d'oignon" typique d'un enlèvement de matière en desquamation}
   \medbreak
   
   \item l'hydroclastie~: C'est un processus de fracturation lié aux changements de la teneur en eau de la roche. L'eau provoque également un gonflement de l'argile et augmente la pression hydrostatique.
@@ -216,7 +219,7 @@ Après une forte pluie, les eaux empruntent les fissures du sol (à la surface),
 \begin{center}
   \includegraphics[width=8cm]{Images/Erosion/bad_lands.jpg}
 \end{center}
-\captionof{figure}{Les « Bad Lands » : exemple d'érosion due au ruissellement}
+\captionof{figure}{Les "Bad Lands" (ici, en PACA) : exemple d'érosion due au ruissellement}
 
 \paragraph{Torrents}
 
@@ -381,10 +384,10 @@ Où $v$ représente la vitesse de sédimentation, $\mu$ la viscosité du fluide,
 
 \subsubsection{La tectonique des plaques}
 
-Imaginée par Wagner au $19$ siècle redécouverte dans les années 50 pour n'être unanimement accepté que dix ans plus tard, la théorie des plaques signe le véritable commencement de la géologie en tant que science, changeant totalement notre vision de la terre et de ses cycles. \\
-La tectonique des plaques propose que l'écorce terrestre est formée d'un certain nombre de plaques qui se déplacent les unes par rapport aux autres à la faveur des mouvements internes du manteau terrestre (qui reste encore de nos jours bien mystérieux, notamment en ce qui concerne les points chauds).
-La mécanique de la terre, qui est à la source de tous ces effets géomorphologiques visibles est en fait le résultat d'un long refroidissement qui commença il y a 4,6 milliards d'années et qui se poursuit encore aujourd'hui a cause de la désintégration des matériaux radioactifs qui ralentissent considérablement la durée de refroidissement de la terre.
-Cette mécanique de refroidissement y met en place des mécanismes réguliers, notamment ceux de la fermeture et l'ouverture des océans, causes majeure de la plupart des mouvements à la surface de la terre, et par la même occasion principal vecteur du refroidissement du manteau via les dorsales océaniques. \\
+Imaginée par Wagner au $19$ siècle, redécouverte dans les années 50 pour n'être qu'unanimement acceptée que dix ans plus tard, la théorie des plaques signe le véritable commencement de la géologie en tant que science, changeant totalement notre vision de la terre et de ses cycles. \\
+La tectonique des plaques propose que l'écorce terrestre soit formée d'un certain nombre de plaques qui se déplacent les unes par rapport aux autres à la faveur des mouvements internes du manteau terrestre qui reste, encore de nos jours, bien mystérieux (notamment en ce qui concerne les points chauds). \\
+La mécanique de la terre, qui est à la source de tous ces effets géomorphologiques visibles, est en fait le résultat d'un long refroidissement qui commença il y a 4,6 milliards d'années et qui se poursuit encore aujourd'hui. Toutefois, la désintégration des matériaux radioactifs ralentissent considérablement la durée de refroidissement de la terre. \\
+Cette mécanique de refroidissement met en place des mécanismes réguliers, notamment ceux de la fermeture et de l'ouverture des océans, causes majeures de la plupart des mouvements à la surface de la terre, et par la même occasion principal vecteur du refroidissement du manteau via les dorsales océaniques. \\
 
 \subsection{La subduction}
 
