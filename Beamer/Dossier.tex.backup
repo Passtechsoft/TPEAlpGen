@@ -655,7 +655,8 @@ Ou $n_t$ est le nombre de cellules total dans la simulation, $n_c$ le nombre de 
   \includegraphics[width=4cm]{Images/front_5.png}
   \includegraphics[width=4cm]{Images/front_6.png}
 \end{center}
-\captionof{figure}{}
+\captionof{figure}{Échantillons de six photos dans le temps montrant l'expansion du front aux cellules non calculées.
+En noir la cellule en collision, en jaune les cellules du front et en violet les autres cellules.}
 
 \subsection{Calques de vélocité}
 
@@ -666,7 +667,7 @@ Puis à la fin de l'étape complète de simulation tous les vecteurs sont ajout�
 \begin{center}
   \includegraphics[width=8cm]{Images/calque.png}
 \end{center}
-\captionof{figure}{}
+\captionof{figure}{Photo de la représentation graphique des calques de vélocité, les premiers calques sont en rouge et les derniers en jaune. Nous pouvons observer pour chaque cellule sa vélocité calculée pour un calque particulier.}
 
 \subsubsection{Centre instantané de rotation}
 
@@ -899,7 +900,7 @@ Nous allons voir plus bas que notre objectif initial était loin d'être réalis
 Comme nous l'avons de nombreuses fois montré, notre simulation se base uniquement sur des approximations.
 La répartition de la vélocité n'est pas exacte et nous utilisons une grande approximation pour la compression.
 L'ensemble forme ainsi une pile d'approximation marchant en cohésion.
-Tout le long de la création de la simulation nous avions remarqué de nombreuses fois 
+Tout le long de la création de la simulation nous avions remarqué de nombreuses fois des « explosion de cellules », celle ci était alors éjecté de la plaque à une très grand distance.
 
 \subsubsection{Les limites de temps de calcul}
 
