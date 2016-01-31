@@ -454,7 +454,7 @@ Il y a beaucoup de moyens de simuler certains comportements dynamiques en géolo
 
 \subsubsection{Les simulations physiques}
 
-\paragraph{Simulation par pâtes}
+\paragraph{Simulation par pâtes.}
 
 Il est fréquent chez les chercheurs géologues de remplacer les couches par divers ingrédients plus ou moins courants~: de la pâte à modeler, du sable mélangé avec de l'huile ou tout autre pâte ductile colorée.
 Ces différentes couches sont soigneusement empilées et leurs propriétés sont choisies avec soin de sorte à faire analogie avec les couches géologiques d'un paysage réel.
@@ -469,7 +469,7 @@ D'autre simulation du même genre mettent en valeur certains types de plis, plis
 \end{center}
 \captionof{figure}{Photo de simulation physique par couches de pâtes.}
 
-\paragraph{La place de la physique dans la simulation}
+\paragraph{La place de la physique dans la simulation.}
 
 Dans ce contexte, la géologie a par ailleurs beaucoup appris de la physique, qui l'a amené à conduire d'autres types d'expériences pour trouver les propriétés de certaines roches soumises à des conditions de pressions et de températures intenses, ou bien les réactions chimiques opérant lors de l'érosion de roches calcaires par un milieu riche en $CO_2$.
 
@@ -483,7 +483,7 @@ C'est notamment de là que nous viens l'idée d'avoir utilisé des cellules ind�
 Cette simulation était assez convaincante visuellement, mais fondamentalement très biaisée car le mouvement des cellules de la première plaque était artificiellement forcé vers la bas pour un meilleur rendu visuel, de sorte que l'apparence primait généralement sur le réalisme physique de la simulation.
 De plus, le modèle d'érosion dit en « pile de sable » utilisé par son moteur n'était pas réaliste et servait surtout à éviter que les cellules ne se chevauchent.
 
-\paragraph{Simulation par voxels}
+\paragraph{Simulation par voxels.}
 
 La simulation par voxels, particulièrement utile pour l'érosion, consiste à créer un terrain exclusivement composé de « cubes », de points alignés sur un quadrillage en deux ou trois dimensions de coordonnées discrètes.
 Habituellement, les données de traitement numérique de rendu utilisent des points, reliés entre eux par des traits formant des triangles qui sont ensuite utilisés pour rendre les formes en perspectives.
@@ -808,7 +808,7 @@ Ainsi nous évitons un cas trop « parfait ».}
 
 \subsubsection{Compression et traction entre cellules}
 
-\paragraph{Loi de Hook}
+\paragraph{Loi de Hook.}
 
 Maintenant que nous avons la formule pour la répartition de la vélocité entre les cellules, nous devons gérer les cas de compressions et tractions.
 Les cellules adjacentes doivent toujours viser une distance parfaite équivalente à $1$.
@@ -933,7 +933,7 @@ Comme nous pouvons le voir la complexité asymptotique (la relation entre le nom
 Donc pour une cellule le temps de calcul moyen est d'environ $0.01629$ ms/cellule, ainsi nous pouvons estimer que nos 10 milliards de cellules prendrons $16289999999$ms, ce qui fait 4525 heures et environs 189 jours.
 Or nous n'avons pas qu'un cellule en collision, nous avons tout un côté de la plaque en collision soit $10000$ cellules en collision.
 Cela augmente considérablement le temps de calcule pour arriver à 1890000 jours soit 5178 ans.
-Nous pouvons en venir a la question suivante : simuler la géomorphologie numériquement ne serait elle pas aussi long que d'observer ces phénomènes géomorphologiques.
+Nous pouvons en venir a la question suivante : simuler la géomorphologie numériquement ne serait il pas aussi long que d'observer ces phénomènes géomorphologiques.
 
 \subsubsection{Les limites de mémoires}
 \subsection{Piste d'améliorations}
