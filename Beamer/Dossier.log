@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.9.13)  31 JAN 2016 16:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.9.13)  31 JAN 2016 16:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1418,7 +1418,7 @@ File: Images/subduction.png Graphic file (type png)
 Package pdftex.def Info: Images/subduction.png used on input line 404.
 (pdftex.def)             Requested size: 227.62204pt x 126.45784pt.
  [14 <./Images/subduction.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 433--435
+Underfull \hbox (badness 10000) in paragraph at lines 434--436
 
  []
 
@@ -1426,185 +1426,181 @@ Underfull \hbox (badness 10000) in paragraph at lines 433--435
 File: Images/simulation_physique.png Graphic file (type png)
 
 <use Images/simulation_physique.png>
-Package pdftex.def Info: Images/simulation_physique.png used on input line 477.
+Package pdftex.def Info: Images/simulation_physique.png used on input line 481.
 
 (pdftex.def)             Requested size: 227.62204pt x 139.23015pt.
- [16] [17 <./Images/simulation_physique.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 508--514
-
- []
-
-[18] [19] <Images/hexagone.png, id=92, 420.57124pt x 420.57124pt>
+ [16 <./Images/simulation_physique.png>]
+[17] [18] <Images/hexagone.png, id=88, 420.57124pt x 420.57124pt>
 File: Images/hexagone.png Graphic file (type png)
 
 <use Images/hexagone.png>
-Package pdftex.def Info: Images/hexagone.png used on input line 583.
+Package pdftex.def Info: Images/hexagone.png used on input line 572.
 (pdftex.def)             Requested size: 170.71652pt x 170.71547pt.
- <Images/kd_tree.jpg, id=93, 818.05624pt x 285.065pt>
+ <Images/kd_tree.jpg, id=89, 818.05624pt x 285.065pt>
 File: Images/kd_tree.jpg Graphic file (type jpg)
 
 <use Images/kd_tree.jpg>
-Package pdftex.def Info: Images/kd_tree.jpg used on input line 597.
+Package pdftex.def Info: Images/kd_tree.jpg used on input line 586.
 (pdftex.def)             Requested size: 341.43306pt x 118.97832pt.
- [20 <./Images/hexagone.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 613--629
+ [19 <./Images/hexagone.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 602--618
 
  []
 
-[21 <./Images/kd_tree.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 664--665
+[20 <./Images/kd_tree.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 653--654
 
  []
 
-<Images/front_1.png, id=101, 420.57124pt x 420.57124pt>
+<Images/front_1.png, id=98, 420.57124pt x 420.57124pt>
 File: Images/front_1.png Graphic file (type png)
 
 <use Images/front_1.png>
-Package pdftex.def Info: Images/front_1.png used on input line 667.
+Package pdftex.def Info: Images/front_1.png used on input line 656.
 (pdftex.def)             Requested size: 113.81102pt x 113.81244pt.
 
-<Images/front_2.png, id=102, 420.57124pt x 420.57124pt>
+<Images/front_2.png, id=99, 420.57124pt x 420.57124pt>
 File: Images/front_2.png Graphic file (type png)
 
 <use Images/front_2.png>
-Package pdftex.def Info: Images/front_2.png used on input line 668.
+Package pdftex.def Info: Images/front_2.png used on input line 657.
 (pdftex.def)             Requested size: 113.81102pt x 113.81244pt.
 
-<Images/front_3.png, id=103, 420.57124pt x 420.57124pt>
+<Images/front_3.png, id=100, 420.57124pt x 420.57124pt>
 File: Images/front_3.png Graphic file (type png)
 
 <use Images/front_3.png>
-Package pdftex.def Info: Images/front_3.png used on input line 669.
+Package pdftex.def Info: Images/front_3.png used on input line 658.
 (pdftex.def)             Requested size: 113.81102pt x 113.81244pt.
- [22]
-<Images/front_4.png, id=107, 420.57124pt x 420.57124pt>
+ [21]
+<Images/front_4.png, id=104, 420.57124pt x 420.57124pt>
 File: Images/front_4.png Graphic file (type png)
 
 <use Images/front_4.png>
-Package pdftex.def Info: Images/front_4.png used on input line 672.
+Package pdftex.def Info: Images/front_4.png used on input line 661.
 (pdftex.def)             Requested size: 113.81102pt x 113.81244pt.
 
-<Images/front_5.png, id=108, 420.57124pt x 420.57124pt>
+<Images/front_5.png, id=105, 420.57124pt x 420.57124pt>
 File: Images/front_5.png Graphic file (type png)
 
 <use Images/front_5.png>
-Package pdftex.def Info: Images/front_5.png used on input line 673.
+Package pdftex.def Info: Images/front_5.png used on input line 662.
 (pdftex.def)             Requested size: 113.81102pt x 113.81244pt.
 
-<Images/front_6.png, id=109, 420.57124pt x 420.57124pt>
+<Images/front_6.png, id=106, 420.57124pt x 420.57124pt>
 File: Images/front_6.png Graphic file (type png)
 
 <use Images/front_6.png>
-Package pdftex.def Info: Images/front_6.png used on input line 674.
+Package pdftex.def Info: Images/front_6.png used on input line 663.
 (pdftex.def)             Requested size: 113.81102pt x 113.81244pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 681--684
+Underfull \hbox (badness 10000) in paragraph at lines 670--673
 
  []
 
-<Images/calque.png, id=110, 541.02126pt x 340.27126pt>
+<Images/calque.png, id=107, 541.02126pt x 340.27126pt>
 File: Images/calque.png Graphic file (type png)
  <use Images/calque.png>
-Package pdftex.def Info: Images/calque.png used on input line 686.
+Package pdftex.def Info: Images/calque.png used on input line 675.
 (pdftex.def)             Requested size: 227.62204pt x 143.16217pt.
 
-[23 <./Images/front_1.png> <./Images/front_2.png> <./Images/front_3.png> <./Ima
+[22 <./Images/front_1.png> <./Images/front_2.png> <./Images/front_3.png> <./Ima
 ges/front_4.png> <./Images/front_5.png> <./Images/front_6.png> <./Images/calque
 .png>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 722.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 711.
 
-Underfull \hbox (badness 10000) in paragraph at lines 738--739
+Underfull \hbox (badness 10000) in paragraph at lines 727--728
 
  []
 
-[24] <Images/cir_1.png, id=125, 392.46625pt x 196.735pt>
+[23] <Images/cir_1.png, id=122, 392.46625pt x 196.735pt>
 File: Images/cir_1.png Graphic file (type png)
 
 <use Images/cir_1.png>
-Package pdftex.def Info: Images/cir_1.png used on input line 807.
+Package pdftex.def Info: Images/cir_1.png used on input line 796.
 (pdftex.def)             Requested size: 113.81102pt x 57.04868pt.
- <Images/cir_2.png, id=126, 392.46625pt x 196.735pt>
+ <Images/cir_2.png, id=123, 392.46625pt x 196.735pt>
 File: Images/cir_2.png Graphic file (type png)
 
 <use Images/cir_2.png>
-Package pdftex.def Info: Images/cir_2.png used on input line 808.
+Package pdftex.def Info: Images/cir_2.png used on input line 797.
 (pdftex.def)             Requested size: 113.81102pt x 57.04868pt.
- <Images/cir_3.png, id=127, 392.46625pt x 196.735pt>
+ <Images/cir_3.png, id=124, 392.46625pt x 196.735pt>
 File: Images/cir_3.png Graphic file (type png)
 
 <use Images/cir_3.png>
-Package pdftex.def Info: Images/cir_3.png used on input line 809.
+Package pdftex.def Info: Images/cir_3.png used on input line 798.
 (pdftex.def)             Requested size: 113.81102pt x 57.04868pt.
 File: Images/cir_3.png Graphic file (type png)
  <use Images/cir_3.png>
-Package pdftex.def Info: Images/cir_3.png used on input line 810.
+Package pdftex.def Info: Images/cir_3.png used on input line 799.
 (pdftex.def)             Requested size: 113.81102pt x 57.04868pt.
 
-<Images/cir_4.png, id=128, 392.46625pt x 196.735pt>
+<Images/cir_4.png, id=125, 392.46625pt x 196.735pt>
 File: Images/cir_4.png Graphic file (type png)
  <use Images/cir_4.png>
-Package pdftex.def Info: Images/cir_4.png used on input line 811.
+Package pdftex.def Info: Images/cir_4.png used on input line 800.
 (pdftex.def)             Requested size: 113.81102pt x 57.04868pt.
 
-<Images/cir_5.png, id=129, 392.46625pt x 196.735pt>
+<Images/cir_5.png, id=126, 392.46625pt x 196.735pt>
 File: Images/cir_5.png Graphic file (type png)
  <use Images/cir_5.png>
-Package pdftex.def Info: Images/cir_5.png used on input line 812.
+Package pdftex.def Info: Images/cir_5.png used on input line 801.
 (pdftex.def)             Requested size: 113.81102pt x 57.04868pt.
 
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 850--851
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 839--840
 
  []
 
-[26 <./Images/cir_1.png> <./Images/cir_2.png> <./Images/cir_3.png> <./Images/ci
+[25 <./Images/cir_1.png> <./Images/cir_2.png> <./Images/cir_3.png> <./Images/ci
 r_4.png> <./Images/cir_5.png>]
-<Images/normal_1.png, id=143, 420.57124pt x 420.57124pt>
+<Images/normal_1.png, id=140, 420.57124pt x 420.57124pt>
 File: Images/normal_1.png Graphic file (type png)
 
 <use Images/normal_1.png>
-Package pdftex.def Info: Images/normal_1.png used on input line 853.
+Package pdftex.def Info: Images/normal_1.png used on input line 842.
 (pdftex.def)             Requested size: 142.26378pt x 142.26074pt.
 
-<Images/normal_2.png, id=144, 420.57124pt x 420.57124pt>
+<Images/normal_2.png, id=141, 420.57124pt x 420.57124pt>
 File: Images/normal_2.png Graphic file (type png)
 
 <use Images/normal_2.png>
-Package pdftex.def Info: Images/normal_2.png used on input line 854.
+Package pdftex.def Info: Images/normal_2.png used on input line 843.
 (pdftex.def)             Requested size: 142.26378pt x 142.26074pt.
 
-<Images/compression_1.png, id=145, 420.57124pt x 420.57124pt>
+<Images/compression_1.png, id=142, 420.57124pt x 420.57124pt>
 File: Images/compression_1.png Graphic file (type png)
 
 <use Images/compression_1.png>
-Package pdftex.def Info: Images/compression_1.png used on input line 858.
+Package pdftex.def Info: Images/compression_1.png used on input line 847.
 (pdftex.def)             Requested size: 142.26378pt x 142.26074pt.
 
-<Images/compression_2.png, id=146, 420.57124pt x 420.57124pt>
+<Images/compression_2.png, id=143, 420.57124pt x 420.57124pt>
 File: Images/compression_2.png Graphic file (type png)
 
 <use Images/compression_2.png>
-Package pdftex.def Info: Images/compression_2.png used on input line 859.
+Package pdftex.def Info: Images/compression_2.png used on input line 848.
 (pdftex.def)             Requested size: 142.26378pt x 142.26074pt.
- [27 <./Images/normal_1.png> <./Images/normal_2.png> <./Images/compression_1.pn
+ [26 <./Images/normal_1.png> <./Images/normal_2.png> <./Images/compression_1.pn
 g> <./Images/compression_2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 881--882
+Underfull \hbox (badness 10000) in paragraph at lines 870--871
 
  []
 
-[28]
-Overfull \hbox (11.71341pt too wide) in paragraph at lines 941--946
+[27]
+Overfull \hbox (11.71341pt too wide) in paragraph at lines 930--935
 []\OT1/ptm/m/n/10.95 Comme nous pou-vons le voir la com-plexit[]e asymp-to-tiqu
 e (la re-la-tion entre le nombre d'op[]eration,
  []
 
-[29] (./Dossier.aux) ) 
+[28] (./Dossier.aux) ) 
 Here is how much of TeX's memory you used:
- 25325 strings out of 493105
- 610089 string characters out of 6137072
+ 25326 strings out of 493105
+ 610097 string characters out of 6137072
  751832 words of memory out of 5000000
- 28251 multiletter control sequences out of 15000+600000
+ 28252 multiletter control sequences out of 15000+600000
  51408 words of font info for 116 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,17n,103p,723b,1881s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1617,10 +1613,10 @@ e/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
 mes/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/esvect/vect10.pfb>
-Output written on Dossier.pdf (29 pages, 10212216 bytes).
+Output written on Dossier.pdf (28 pages, 10199816 bytes).
 PDF statistics:
- 191 PDF objects out of 1000 (max. 8388607)
- 97 compressed objects within 1 object stream
+ 188 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  178 words of extra memory for PDF output out of 10000 (max. 10000000)
 
