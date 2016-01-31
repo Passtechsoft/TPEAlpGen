@@ -1,4 +1,0 @@
-\select@language {french}
-\contentsline {section}{\numberline {1}Choix de l'\IeC {\'e}quipe}{1}
-\contentsline {section}{\numberline {2}Choix de la probl\IeC {\'e}matique}{1}
-\contentsline {section}{\numberline {3}R\IeC {\'e}sum\IeC {\'e} du carnet de bord}{2}

@@ -45,7 +45,11 @@
 
 \maketitle
 
+\clearpage
+
 \tableofcontents
+
+\clearpage
 
 \section{Glossaire}
 
@@ -415,14 +419,12 @@ Le début de l'histoire de la chaîne alpine commence peu après -256 Ma. A cett
   Le glacier du Rhône tout particulièrement, assez titanesque creuse un immense sillon qui laissera place notamment au Lac Leman.
 \end{itemize}
 
-\subsection{Principes de l'érosion}
-
-\subsubsection{Dynamique des roches}
+\subsection{Dynamique des roches}
 	
 Il faut savoir à propos des roches en géologie que les physiciens ont grandement fait avancer la géologie moderne à leur sujet, car la connaissance de la dynamique des roches face à un contexte donné éclaire sur la formation et l'évolution des grands systèmes orogéniques comme des déformations à petite échelle.
 Car les roches, bien qu'usuellement cassantes et rigides, peuvent devenir plus ductiles sous certaines conditions. \\
 
-\paragraph{Le temps}
+\subsubsection{Le temps}
 
 En effet, le temps est l'élément fondamental de la géologie car les roches les plus dures, soumises à une force puissante dans le même sens pendant plusieurs dizaines de milliers d'années se déformera comme de la pâte à modeler (pâte souvent utilisée dans les modélisations géologiques à petite échelle).
 Car sur les échelles immenses des temps géologiques, n'importe quel matériaux se comportera comme s'il était mou, allant jusqu'à former des tourbillons de matière suite à un grand cisaillement en profondeur.
@@ -432,13 +434,13 @@ En effet, la lithosphère océanique est plus dense que la croûte continentale 
 Il est avéré qu'à cause de ce principe, la durée de vie des océans est limitée aux environs de 270 millions d'années.
 Les océans suivent donc un cycle de naissance, vie et de mort qui est directement à la source de la plupart des mécanismes orogéniques. 
 
-\paragraph{La température}
+\subsubsection{La température}
 
 Plus il fait chaud, plus une roche est fluide.
 C'est le cas à toutes les températures, ainsi, l'aspect « pâte à modeler » des roches est accentué en profondeur par la chaleur qui les rend plus malléables.
 Cela se ressens également sur les séismes~: il existe une limite assez floue mais bien réelle qui sépare les séismes cassants, qui se déplacent brusquement à intervalle régulier, des séismes coulissant, où les roches supportent leur déformation progressive en coulissant entre elles comme des fluides très visqueux.
 
-\paragraph{La pression}
+\subsubsection{La pression}
 
 Un facteur auquel nous pensons rarement en premier mais qui est en réalité tout aussi important que les autres.
 La pression des grandes profondeurs empêche les roches de devenir liquides trop rapidement au fur et à mesure qu'elles s'enfoncent.
@@ -665,7 +667,7 @@ Ou $n_t$ est le nombre de cellules total dans la simulation, $n_c$ le nombre de 
 \captionof{figure}{Échantillons de six photos dans le temps montrant l'expansion du front aux cellules non calculées.
 En noir la cellule en collision, en jaune les cellules du front et en violet les autres cellules.}
 
-\subsection{Calques de vélocité}
+\subsubsection{Calques de vélocité}
 
 Pour éviter des interférences entre les différentes propagations de vélocité des cellules en collision, nous utilisons des calques uniques contenant une vélocité par cellules, chacun de ces calques sont liés à une cellule en collision.
 Au début de l'étape complète de simulation chaque cellule réserve dans ses variables une liste de vecteur pour chaque cellules en collision puis pour chaque propagation de vélocité des cellules en collision, les cellules affectées ne travaillent que sur le vecteur correspondant au numéro de la cellule en collision.
