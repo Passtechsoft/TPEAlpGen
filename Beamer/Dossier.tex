@@ -459,19 +459,22 @@ A l'inverse, une brusque remontée de roche des profondeurs, comme c'est le cas 
 
 \subsection{Modéliser un paysage géologique}
 
-Il y a beaucoup de moyens de simuler certains comportements dynamiques en géologiques. Beaucoup font appel à l'expérience physique, et quelques uns, plus ou moins récents (nous avons déterrés des thèses remontant jusqu'aux années 90) font usage exclusif du numérique. Bien que pour les besoins de notre simulation et pour rester cohérents avec notre objectif de montrer dynamiquement et selon plusieurs angles un système géomorphologique nous avons choisis cette seconde voie, il est important de faire justice aux autre expériences, tant numériques que physiques qui nous ont inspirées dans la réalisation de notre simulation.
+Il y a beaucoup de moyens de simuler certains comportements dynamiques en géologiques.
+Beaucoup font appel à l'expérience physique, et quelques uns, plus ou moins récents (nous avons déterrés des thèses remontant jusqu'aux années 90) font usage exclusif du numérique.
+Bien que pour les besoins de notre simulation et pour rester cohérents avec notre objectif de montrer dynamiquement un système géomorphologique nous avons choisis cette seconde voie.
+Il est important de faire justice aux autre expériences, tant numériques que physiques qui nous ont inspirées dans la réalisation de notre simulation.
 
 \subsubsection{Les simulations physiques}
 
 \paragraph{Simulation par pâtes.}
 
-Il est fréquent chez les chercheurs géologues de remplacer les couches par divers ingrédients plus ou moins courants~: de la pâte à modeler, du sable mélangé avec de l'huile ou tout autre pâte ductile colorée.
-Ces différentes couches sont soigneusement empilées et leurs propriétés sont choisies avec soin de sorte à faire analogie avec les couches géologiques d'un paysage réel.
+Il est fréquent chez les chercheurs géologues de remplacer les couches par divers ingrédients plus ou moins courants~: de la pâte à modeler, du sable mélangé avec de l'huile ou tout autre pâtes ductiles colorées.
+Ces différentes couches sont soigneusement empilées et leurs propriétés sont choisies avec soin de sorte à faire l'analogie avec les couches géologiques d'un paysage réel.
 Ces simulations, bien que limités, arrivent à simuler des contraintes de déformation très précises, pour avoir un aperçu visuel d'une démonstration en géologie (ex~: tectonique des plaques, démonstration par l'expérience de l'existence de certains types de plissements) ou pour démontrer l'existence de certains comportements et propriétés dans un système géologiques.
 La plupart des simulations, encore aujourd'hui, et ce par souci de rapidité et de réalisme, modélisent des phénomènes très précis (pour réduire la complexité de la mise en œuvre, conformément à la méthode scientifique) en utilisant des propriétés physiques.
 Ils simulent souvent les phénomènes de compression et donc de plissement par différentes couches successives de pâte à modeler de consistance et de propriétés différentes pour simuler les phénomènes observés dans la nature.
 La collision de la plaque indienne avec la plaque euro-asiatique a ainsi reçu une illustration réaliste grâce à un pressoir en métal (représentant l'inde) s'enfonçant dans de la pâte à modeler (représentant l'Asie).
-D'autre simulation du même genre mettent en valeur certains types de plis, plis couchés, plis droits et autre. Cependant, ces différentes simulations, bien que très parlantes, prouvent rarement des conjectures car elles sont difficilement reproductibles et nécessitent surtout beaucoup de suppositions qui détachent leur mises en œuvre de la réalité souvent très complexe du terrain.
+D'autre simulation du même genre mettent en valeur certains types de plis, plis couchés, plis droits et autre. Cependant, ces différentes simulations, bien que très parlantes, prouvent rarement des conjectures car elles sont difficilement reproductibles et nécessitent surtout beaucoup de suppositions qui détachent leur mises en œuvre de la réalité.
 
 \begin{center}
   \includegraphics[width=8cm]{Images/simulation_physique.png}
@@ -487,12 +490,11 @@ Dans ce contexte, la géologie a par ailleurs beaucoup appris de la physique, qu
 Nous avons épluchés plusieurs thèses traitant de la simulation de phénomènes géologiques grâce aux ordinateurs.
 Nous n'avons malheureusement pas trouvés le code source de ces logiciels et ce malgré une requête infructueuse auprès d'un des scientifiques concernés (qui ne nous a pas répondus) et avoir fait les recherches internet nécessaires.
 Une en particulier a retenu notre attention entre les simulation des mouvements de l’asthénosphère et des systèmes de simulation d'érosion qui ne résolvaient pas notre problème premier.
-Cette simulation simulait une subduction grâce à des automates cellulaires, et ces automates grâce à un algorithme se réagençaient à chaque pas de la simulation, évoluant, se plissant.
+Cette simulation simulait une subduction grâce à des automates cellulaires, et ces automates grâce à un algorithme se réagençaient à chaque pas de la simulation, évoluant et se plissant.
 C'est notamment de là que nous viens l'idée d'avoir utilisé des cellules indépendantes.
 Cette simulation était assez convaincante visuellement, mais fondamentalement très biaisée car le mouvement des cellules de la première plaque était artificiellement forcé vers la bas pour un meilleur rendu visuel, de sorte que l'apparence primait généralement sur le réalisme physique de la simulation.
-De plus, le modèle d'érosion dit en « pile de sable » utilisé par son moteur n'était pas réaliste et servait surtout à éviter que les cellules ne se chevauchent.
 
-\paragraph{Simulation par voxels.}
+\paragraph{Simulation par voxels}
 
 La simulation par voxels, particulièrement utile pour l'érosion, consiste à créer un terrain exclusivement composé de « cubes », de points alignés sur un quadrillage en deux ou trois dimensions de coordonnées discrètes.
 Habituellement, les données de traitement numérique de rendu utilisent des points, reliés entre eux par des traits formant des triangles qui sont ensuite utilisés pour rendre les formes en perspectives.
@@ -502,22 +504,6 @@ De plus, ce système offre l'avantage de permettre de changer assez facilement l
 En effet, on peut les simplifier à l'affichage (et les calculs en général) les concernant en les rendant plus gros, ce qui allège la tâche de la carte graphique, et l'opération inverse, moyennant un algorithme d'interpolation assez simple permet d'augmenter sans des efforts d'algorithmique importants la résolution système.
 De plus, de même que dans les images en deux dimensions la plus petite unité considérée est le pixel, le boxel est son équivalent en 3D, ce qui implique que les algorithmes de compression classiques des images 2D (type png, jpeg, gif) moyennant des modifications mineurs peuvent s'appliquer sur des portions ou la totalité d'un terrain ainsi généré, permettant une économie de mémoire énorme.
 C'est pour toutes ces raisons qu'un modèle d'érosion intelligent basé sur un automate cellulaire 3D permettrait de simuler avec une grande précision un paysage de type alpin, tout en économisant beaucoup de mémoire (moyennant quelques optimisations).
-
-\subsubsection{Approche cellulaire de la simulation}
-
-Ainsi, un quadrillage régulier, comme les pixels dans une image permet de trouver beaucoup plus facilement via des tableaux de nombres les voxels adjacents et ainsi leur attribuer une vélocité, les faire apparaître ou disparaître au grès du moteur de rendu.
-En l'occurrence, nous aurions pu par exemple appliquer un système d'automate cellulaire (des cellules, en l'occurrence des voxels) qui réagissent avec des règles relativement simples avec leurs voisines, mais qui, en nombre suffisant, peuvent en arriver via leur cycle de mort/apparition a recréer des dynamiques complexe (notamment décrire l'évolution de systèmes chaotiques). \\
-Il était aussi possible, si nous avions décidés de centrer notre problématique sur le jeu vidéo, de se contenter d'améliorer des méthodes d'approximation existantes, et qui permettent, sinon d'avoir des terrains très logiques, tout du moins d'offrir une illusion très convaincante de réalisme qui ne nuirait jamais au plaisir du jeu.
-Dans ce cas, nous aurions eu l'usage d'algorithmes comme le bruit de perlin (avec sa variante fractale pour générer les reliefs), le fonctionnement en polygones convexes simplifiés simulant des « biomes » ou « biotopes » naturels, générés grâce à l'algorithme des polygones de voronoi, avant de nous contenter pour finir d'une version très sommaire de simulation d'érosion créée grâce à la détermination des points les plus bas, qui seront creusés et torturés, préfigurant le tracé des aquifères.
-Ce projet, bien que passionnant, n'était pas assez original et faisait surtout fi de la cohérence géologique qui encore aujourd'hui ne peut être réellement obtenue que par des cartes faites 3D faites « main », en plus d'interdire la simulation de l'évolution d'un système.
-C'est pourquoi nous avons choisis d'utiliser la simulation par cellule. \\
-
-Notre problématique était de « Simuler numériquement un terrain géologique de type alpin ».
-Nous avons créés une première implémentation (assez sommaire, mais nous n'avions pas le temps d'en faire toute une thèse) de notre mécanisme de collision entre cellules, qui actuellement se rapproche plus de la simulation de la relation entre les éléments d'un fluide visqueux.
-Notre TPE s'est révélé être avant tout numérique, car Tristan et moi même avons passés beaucoup de temps à programmer les mécanismes de notre programme de simulation au fur et à mesure de son application, et Thibaut a pris le temps de créer notre site web pour faire le compte rendu de notre TPE (ce qui par ailleurs nous fut très utile, car nous avions accès à tous nos comptes rendus de façon transparente et nous pouvions les modifier comme sur n'importe quel éditeur), tout en nous donnant de précieuse informations sur la viscosité des roches.
-Les mathématiques, à l'intérieur de nos algorithmes ont été primordiales, nous permettant de donner vie aux principe physiques à simuler grâce à des formules telles que~: le module de viscosité de Young, la formule de la conservation de la vélocité, formule de la gravité simplifiée de Newton, ajouter à cela des formules de sinus et de diminution de l'intensité par la distance qui se rapprochait beaucoup de la réalité, même si malheureusement nous n'avons pas pu implémenter tous ces mécanismes autant que nous l'aurions voulu.
-Nous avons surtout énormément progressés dans le domaine de la géologie, discipline qui nous était presque totalement inconnue jusqu'à peu, et là résidait par ailleurs une partie de notre intérêt pour ce projet, la curiosité.
-Car, de plus, privés de SVT nous savions que si nous ne nous y intéressions pas de nous même, la géologie nous resterait à jamais comme floue.
 
 \subsection{Les Cellules}
 \subsubsection{Définition d'une cellule}
@@ -535,6 +521,8 @@ Et comme caractéristiques mutables~:
   \item sa position~: la position de la cellule dans un ensemble non discret ;
   \item sa vélocité~: le vecteur vitesse de la cellule équivalent au déplacement qu'effectuera cette cellule à la fin d'une étape complète de simulation.
 \end{itemize}
+
+Si nous prenons toutes les cellules de surfaces et formons des triangles entre elles, nous pourrons alors obtenir une visualisation graphique de la surface du terrain se déformant.
 
 \subsubsection{Disposition des cellules}
 
@@ -582,7 +570,7 @@ Maintenant toutes les cellules sont à $1$ de distance entre elles, c'est pour c
 \begin{center}
   \includegraphics[width=6cm]{Images/hexagone.png}
 \end{center}
-\captionof{figure}{}
+\captionof{figure}{Image de la disposition des cellules à l'initialisation de la simulation.}
 
 \subsection{Interactions entre cellules}
 
@@ -942,7 +930,7 @@ Comme nous pouvons le voir la complexité asymptotique (la relation entre le nom
 Donc pour une cellule le temps de calcul moyen est d'environ $0.01629$ ms/cellule, ainsi nous pouvons estimer que nos 10 milliards de cellules prendrons $16289999999$ms, ce qui fait 4525 heures et environs 189 jours.
 Or nous n'avons pas qu'un cellule en collision, nous avons tout un côté de la plaque en collision soit $10000$ cellules en collision.
 Cela augmente considérablement le temps de calcule pour arriver à 1890000 jours soit 5178 ans.
-Nous pouvons en venir a la question suivante : simuler la géomorphologie numériquement ne serait il pas aussi long que d'observer ces phénomènes géomorphologiques.
+Nous pouvons en venir à la question suivante : simuler la géomorphologie numériquement ne serait il pas aussi long que d'observer ces phénomènes géomorphologiques.
 
 \subsection{Conclusion}
 
