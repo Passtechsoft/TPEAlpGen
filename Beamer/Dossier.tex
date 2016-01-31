@@ -38,7 +38,7 @@
 % \setcounter{tocdepth}{4}
 
 %opening
-\title{Comment simuler numériquement la géomorphologie alpine ?}
+\title{Comment simuler numériquement la géomorphologie alpine~?}
 \author{Manceau Thibaut, Gros Alexis, Porteries Tristan}
 
 \begin{document}
@@ -53,18 +53,22 @@
 
 \section{Glossaire}
 
-\begin{itemize}
+\subsection{Glossaire géomorphologique}
 
+\begin{itemize}
   \item Géomorphologie~: Science de l'étude des causes de l'apparence des formes qu'étudie la géologie ;
   \item Moho~: Limite entre la lithosphère et l'asthénosphère ;
   \item Orogénèse~: Désigne tous les mécanismes relatifs à la surrection d'un massif montagneux ;
-  \item Viscosité~: Plus un fluide est visqueux, plus il s'écoulera lentement ;
-  Toute roche peut être considérée comme un fluide très visqueux si l'on considère une grande échelle de temps ;
-  
-  // A MODIFIER EN SECTION ET SS SECTION
+  \item Viscosité~: Plus un fluide est visqueux, plus il s'écoulera lentement.
+  Toute roche peut être considérée comme un fluide très visqueux si l'on considère une grande échelle de temps.
+\end{itemize}
+
+\subsection{Glossaire informatique}
+
+\begin{itemize}
   \item Boxel~: Matérialisation d'un voxel en tant que cube ;
-  \item Étape complète de simulation~: Étape comprenant la résolution de toutes les collisions et cellules.
-  \item Voxel~: Point dans un environnement 3D discret ;
+  \item Étape complète de simulation~: Étape comprenant la résolution de toutes les collisions et cellules ;
+  \item Voxel~: Point dans un environnement 3D discret.
 \end{itemize}
 
 \section{Introduction}
@@ -83,7 +87,7 @@ Ces processus sont regroupés sous le nom de « Morphogenèse ».
 Nous pouvons les séparer en deux parties~:
 \begin{itemize}
   \item les facteurs endogènes, qui correspondent à la formation du paysage (par exemple, la tectonique des plaques)~;
-  \item les facteurs exogènes, qui correspondent à la destruction du paysage~: l'érosion...)
+  \item les facteurs exogènes, qui correspondent à la destruction du paysage~: l'érosion\ldots
 \end{itemize}
 L'homme est également considéré comme un facteur géomorphologique, mais il est à la fois endogène et exogène. \\
 
@@ -129,7 +133,7 @@ L'altération physique est l'ensemble des altérations qui agissent physiquement
   \medbreak
   
   \item l'hydroclastie~: C'est un processus de fracturation lié aux changements de la teneur en eau de la roche. L'eau provoque également un gonflement de l'argile et augmente la pression hydrostatique.
-  Lorsque l'eau s'évapore, elle provoque une fracturation par dessiccation (qui correspond au phénomène de desquamation, mais avec des formes s'organisant en réseau de fentes).  
+  Lorsque l'eau s'évapore, elle provoque une fracturation par dessiccation (qui correspond au phénomène de desquamation, mais avec des formes s'organisant en réseau de fentes) ;
   \item l'haloclastie~: Elle est due aux cristaux de sel laissés par de l'eau qui s'est évaporée. Ces cristaux de sels vont alors creuser la roche, et ainsi potentiellement la fragmenter.
 
   \medbreak
@@ -211,7 +215,7 @@ Il ne peut déplacer que des éléments fins (les limons sont entraînés à par
 
 \subsubsection{L'érosion fluviale et le ruissellement}
 
-\paragraph{Ruissellement}
+\paragraph{Le ruissellement.}
 
 Le ruissellement se déclenche si les précipitations sont supérieures à la capacité d'infiltration du sol. C'est le cas général des terrains imperméables. 
 Après une forte pluie, les eaux empruntent les fissures du sol (à la surface), les élargissent progressivement en chenaux parallèles qui, par la suite, fusionnent avec l'écoulement des arêtes.
@@ -221,7 +225,7 @@ Après une forte pluie, les eaux empruntent les fissures du sol (à la surface),
 \end{center}
 \captionof{figure}{Les « Bad Lands » (ici, en PACA) : exemple d'érosion due au ruissellement}
 
-\paragraph{Torrents}
+\paragraph{Les torrents.}
 
 Les torrents sont situés en amont des montagnes.
 Ils sont décomposables en 3 parties~:
@@ -244,8 +248,8 @@ Nous distinguons deux types de morphologie karstique~:
   \item La morphologie souterraine, aussi appelée endokarst.
   Elle est constituée de nombreuses failles et diaclases (pierres fendues mais ne s'écartant pas).
   Nous distinguons deux parties~: la partie active, où s'écoulent les rivières souterraines et la partie fossile, sans eau.
-  Nous retrouvons de nombreux attributs qui lui sont propres, comme la présence de stalactites (caractérisées par un canal central où s'écoule l'eau), de stalagmites (pleines), de draperies...
-  Toutes ces concrétions résultent du dégazage du $CO_2$, qui provoque la précipitation de $CaCO_3$.
+  Nous retrouvons de nombreux attributs qui lui sont propres, comme la présence de stalactites (caractérisées par un canal central où s'écoule l'eau), de stalagmites (pleines), de draperies\ldots
+  Toutes ces concrétions résultent du dégazage du $CO_2$, qui provoque la précipitation de $CaCO_3$ ;
 
   \item La morphologie aérienne, aussi appelée exokarst.
   Nous pouvons citer les dollines, de grandes dépressions qui proviennent de l'agrandissement de failles dues à l'infiltration de l'eau~; les canyons, où encore les rivières sèches (toute l'eau ayant été absorbée par le sol).
@@ -403,21 +407,21 @@ Une subduction survient généralement quand une plaque océanique vieillissante
 
 Le début de l'histoire de la chaîne alpine commence peu après -256 Ma. A cette époque, le paléoocéan Thétys occupait la majorité de la surface terrestre, et les contraintes du manteau terrestre amorçèrent un soulèvement d'une zone de la plaque alpine, préfigurant une dorsale océanique.
 \begin{itemize}
-  \item - 200 Ma, trias~: Ouverture de l'océan alpin.
-  La dorsale est pleinement ouverte et déverse son  magma dans l'océan alpin, ce qui a pour effet de l'élargir.
-  A son apogée, l'océan Alpin fut large de 300 à 1000 km, et profond de 3500 à 4000 m. 
-  \item - 140 Ma, crétacé inférieur~: début de la compression de l'océan alpin suite à des contraintes externes telles que le rapprochement de la plaque Africaine.
-  \item Fin du crétacé inférieur, subduction du coté de la plaque africaine.
-  \item Nouvelle océanisation dans « la zone valaisaine » (nouvelle dorsale typique des océans en fin de vie)
-  \item Crétacé supérieur~: Fin de l'océan alpin, qui est considérablement réduit, et commencement de la mer alpine, reliée à l'océan atlantique en formation. Océan valaisin totalement refermé.
-  \item (-65 Ma, paléocène) Sous l'effet des contraintes, émersion de la plate-forme continentale au delà de la « zone valaisaine ".
+  \item - 200 Ma, trias~: Ouverture de l'océan alpin ;
+  La dorsale est pleinement ouverte et déverse son  magma dans l'océan alpin, ce qui a pour effet de l'élargir ;
+  A son apogée, l'océan Alpin fut large de 300 à 1000 km, et profond de 3500 à 4000 m ;
+  \item - 140 Ma, crétacé inférieur~: début de la compression de l'océan alpin suite à des contraintes externes telles que le rapprochement de la plaque Africaine ;
+  \item Fin du crétacé inférieur, subduction du coté de la plaque africaine ;
+  \item Nouvelle océanisation dans « la zone valaisaine » (nouvelle dorsale typique des océans en fin de vie) ;
+  \item Crétacé supérieur~: Fin de l'océan alpin, qui est considérablement réduit, et commencement de la mer alpine, reliée à l'océan atlantique en formation. Océan valaisin totalement refermé ;
+  \item (-65 Ma, paléocène) Sous l'effet des contraintes, émersion de la plate-forme continentale au delà de la « zone valaisaine ».
   Début de la formation des alpes avec la poursuite de la compression.
-  La zone du massif du mont blanc passe sous la zone d'obduction majoritaire pour ressurgir plus tard à sa place actuelle.
-  \item Oligocène~: Écaillage important des couches.
-  \item - 23 Ma~: Néogène, création du jura au devant des alpes par effet collatéral de compression.
-  Soulèvement du massif du Mt Blanc, ce qui pousse la partie calcaire des Alpes à glisser par gravité.
+  La zone du massif du mont blanc passe sous la zone d'obduction majoritaire pour ressurgir plus tard à sa place actuelle ;
+  \item Oligocène~: Écaillage important des couches ;
+  \item - 23 Ma~: Néogène, création du jura au devant des alpes par effet collatéral de compression ;
+  Soulèvement du massif du Mt Blanc, ce qui pousse la partie calcaire des Alpes à glisser par gravité ;
   \item Pliocène~: Séparation de la partie calcaire des alpes et pré-alpes (Jura, Chartreuse, Vercors) du reste, désormais essentiellement granitique, par glissement de la partie supérieur calcaire qui s'éloigne de la zone de surrection du Mont blanc.
-  C'est à ce moment qu'est atteint le pic d'intensité dans la formation des alpes.
+  C'est à ce moment qu'est atteint le pic d'intensité dans la formation des alpes ;
   \item Plus récemment, dans la dernière centaine de millier d'années passée, les nombreuses ères glacières successives ont totalement refaçonnés le massif des alpes, et c'est cette époque qui reste malgré son âge assez faible la plus décisive dans le façonnage des massifs alpins.
   Le glacier du Rhône tout particulièrement, assez titanesque creuse un immense sillon qui laissera place notamment au Lac Leman.
 \end{itemize}
@@ -432,7 +436,7 @@ Car les roches, bien qu'usuellement cassantes et rigides, peuvent devenir plus d
 En effet, le temps est l'élément fondamental de la géologie car les roches les plus dures, soumises à une force puissante dans le même sens pendant plusieurs dizaines de milliers d'années se déformera comme de la pâte à modeler (pâte souvent utilisée dans les modélisations géologiques à petite échelle).
 Car sur les échelles immenses des temps géologiques, n'importe quel matériaux se comportera comme s'il était mou, allant jusqu'à former des tourbillons de matière suite à un grand cisaillement en profondeur.
 Une montagne, sous certaines conditions, peut se transformer en colline en seulement quelques millions d'années.
-Par ailleurs, il est important de savoir que la cause de la subduction est en fait la principale conséquence de la «mort des océans".
+Par ailleurs, il est important de savoir que la cause de la subduction est en fait la principale conséquence de la « mort des océans ».
 En effet, la lithosphère océanique est plus dense que la croûte continentale et se refroidis, donc s'alourdit lentement au fil des millénaires.
 Il est avéré qu'à cause de ce principe, la durée de vie des océans est limitée aux environs de 270 millions d'années.
 Les océans suivent donc un cycle de naissance, vie et de mort qui est directement à la source de la plupart des mécanismes orogéniques. 
@@ -938,8 +942,6 @@ Or nous n'avons pas qu'un cellule en collision, nous avons tout un côté de la 
 Cela augmente considérablement le temps de calcule pour arriver à 1890000 jours soit 5178 ans.
 Nous pouvons en venir a la question suivante : simuler la géomorphologie numériquement ne serait il pas aussi long que d'observer ces phénomènes géomorphologiques.
 
-\subsubsection{Les limites de mémoires}
-\subsection{Piste d'améliorations}
 \subsection{Conclusion}
 
 Ce TPE aura été pour nous l'occasion de nous réunir sur un projet commun qui, en connectant nos différents centres d’intérêts, nous aura appris beaucoup de nouvelles choses en ce qui concerne la géologie, la géomorphologie et l'histoire des roches et la terre en général. \\
