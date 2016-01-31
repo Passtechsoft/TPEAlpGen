@@ -518,12 +518,12 @@ C'est pour toutes ces raisons qu'un modèle d'érosion intelligent basé sur un 
 \subsection{Les Cellules}
 \subsubsection{Définition d'une cellule}
 
-Premièrement nous devons définir le plus petit élément de cette simulation.
-Dans ce rôle on y trouvera ce que nous appellerons les cellules, une cellule est un morceau de terrain sphérique ou cubique d'environs 10 mètres, cette taille peut varier mais n'a aucune importance dans la simulation car nous pouvons dire que tout est relatif.
-Elle est le seul élément incompressible mais les liens entre les cellules sont quant à eux compressible.
+Premièrement, nous devons définir le plus petit élément de cette simulation. On appellera cet élément une cellule.\\
+Une cellule est un morceau de terrain sphérique ou cubique d'environs 10 mètres. Cette taille peut varier mais n'a aucune importance dans la simulation car nous pouvons dire que tout est relatif.\\
+Elle est le seul élément incompressible mais les liens entre les cellules sont compressibles.
 Une cellule a pour caractéristiques immuables~:
 \begin{itemize}
-  \item son type de roche~: des caractéristiques propres au type de roche seront utilisées pour les calcules de compressions et frictions~;
+  \item son type de roche~: des caractéristiques propres au type de roche seront utilisées pour les calculs de compression et de friction~;
   \item sa plaque tectonique~: le seul moyen pour la différencier des autres cellules lors d'une collision de plaques.
 \end{itemize}
 Et comme caractéristiques mutables~:
@@ -536,10 +536,10 @@ Si nous prenons toutes les cellules de surfaces et formons des triangles entre e
 
 \subsubsection{Disposition des cellules}
 
-Les cellules étant le plus petit élément composant le terrain, leur organisation importe tout particulièrement au début de la simulation.
-Plusieurs dispositions ont été essayé avant d'arriver à celle utilisé actuellement.
-Pour simplifier la programmation, les cellules ne sont disposées que sur un plan pour permettre l'utilisation d'un modèle deux dimensions bien plus simple à écrire et à déboguer, même si dans le code de la simulation nous utilisons tout de même des vecteurs en trois dimensions, nous gardons des vélocités strictement en deux dimensions. \\
-Après avoir choisi un modèle cellulaire planaire, le choix de l'organisation des cellules sur ce plan doit se faire.
+Les cellules étant le plus petit élément composant le terrain, leur organisation importe tout particulièrement au début de la simulation.\\
+Plusieurs dispositions ont été essayé avant d'arriver à celle utilisée actuellement.\\
+Pour simplifier la programmation, les cellules ne sont disposées que sur un plan pour permettre l'utilisation d'un modèle deux dimensions, qui se révèle bien plus simple à écrire et à déboguer. Ainsi, nous gardons des vélocités strictement en deux dimensions. Toutefois, nous utiliserons des vecteurs en trois dimensions (pour permettre une évolution sans avoir à réécrire le code).  \\
+Après avoir choisi un modèle cellulaire planaire, nous devions choisir comment organiser ces cellules les unes par rapport aux autres.\\
 Toutes les modèles de disposition ont plusieurs points communs~: lors de la création des cellules, la disposition devra créer jusqu'à $n_x$ cellules en abscisse et $n_y$ en ordonnée.
 La première disposition choisie fut une grille carré, avec une grille nous faisons simplement une itération $x$ à $x_n$ et imbriqué à l'intérieur une autre itération de $y$ à $y_n$.
 
@@ -553,8 +553,9 @@ La première disposition choisie fut une grille carré, avec une grille nous fai
 \end{algorithmic}
 \medbreak
 
-L'avantage de cette méthode est sa simplicité, mais l'inconvénient d'une disposition en grille carré est l'équidistance entre cellules. En effet sur une grille carré les cellules sont à $1$ ou à $\sqrt{2}$ de distance, et comme nous devons toujours prendre le rayon le plus grand, $\sqrt{2}$, cela peut donc induire à des liens en doubles lors d'une compression.\\
-La deuxième technique proposée fut la disposition en nid-d'abeille ou hexagonale.
+L'avantage de cette méthode était sa simplicité, mais l'inconvénient d'une disposition en grille carré est l'équidistance entre cellules.\\
+En effet, sur une grille carré les cellules sont à $1$ ou à $\sqrt{2}$ de distance, et comme nous devons toujours prendre le rayon le plus grand, $\sqrt{2}$, cela peut donc induire à des liens en doubles lors d'une compression.\\
+La deuxième technique proposée fut la disposition en nid-d'abeille ou hexagonale.\\
 Contrairement à une grille, les cellules sont toutes équidistantes dans une disposition hexagonale, mais leur disposition au début de la simulation nécessite un code légèrement plus complexe.
 Ce code doit garder une boucle normale pour les abscisses mais doit alterner entre $y_n$ et $y_n - 1$ pour les ordonnées quand $x$ est pair.
 
@@ -575,7 +576,7 @@ Ce code doit garder une boucle normale pour les abscisses mais doit alterner ent
 \end{algorithmic}
 \medbreak
 Où $d$ représente le décalage des cellules en ordonnée (cette valeur alterne entre $0$ et $\frac{1}{2}$), $y_{max}$ le nombre de cellules en ordonnée (alterne entre $y_n$ et $y_n - 1$) et où $n \pmod 2$ donne faux quand n est pair et vrai si impair. \\
-Maintenant toutes les cellules sont à $1$ de distance entre elles, c'est pour cela que nous devons espacer les abscisses de $\displaystyle{\sin \frac{\pi}{3}}$, cette valeur est tout simplement la hauteur d'un triangle équilatéral de $1$ de côté.
+Maintenant que toutes les cellules sont à $1$ de distance entre elles, nous devons espacer les abscisses de $\displaystyle{\sin \frac{\pi}{3}}$, cette valeur étant tout simplement la hauteur d'un triangle équilatéral de $1$ de côté.
 
 \begin{center}
   \includegraphics[width=6cm]{Images/hexagone.png}
@@ -838,11 +839,11 @@ Le module de Young contient de nombreuses valeur de $E$ pour la majorité des ma
 
 \paragraph{Approximation du comportement de la compression et traction.}
 
-Cette formule nécessite de connaître la contrainte entre les deux cellules, or notre modèle de simulation se base uniquement sur la vélocité des cellules.
-Nous devons donc utiliser une approximation, premièrement il faut définir le comportement de cette approximation.
-Quand la distance entre deux cellules est supérieur à $1$ nous sommes en traction et nous devons alors ajouter une vélocité opposée à au vecteur entre les deux cellules.
-Sinon si la distance est inférieur à $1$, nous devons ajouter une vélocité colinéaire au vecteur entre les deux cellules pour la compression.
-Pour augmenter la norme de la vélocité, une fonction carré convient parfaitement et peut aussi être multipliée par un facteur pour être plus accentué, mais cette fonction ne traite que de la compression car elle est toujours positive.
+Cette formule nécessite de connaître la contrainte entre les deux cellules, or notre modèle de simulation se base uniquement sur la vélocité des cellules.\\
+Nous devons donc utiliser une approximation, premièrement il faut définir le comportement de cette approximation.\\
+Quand la distance entre deux cellules est supérieur à $1$ nous sommes en traction et nous devons alors ajouter une vélocité opposée à au vecteur entre les deux cellules.\\
+Sinon si la distance est inférieur à $1$, nous devons ajouter une vélocité colinéaire au vecteur entre les deux cellules pour la compression.\\
+Pour augmenter la norme de la vélocité, une fonction carré convient parfaitement et peut aussi être multipliée par un facteur pour être plus accentué, mais cette fonction ne traite que de la compression car elle est toujours positive.\\
 Nous devons donc utiliser l'opposé d'un carré quand $x$ est négatif.
 \medbreak
 \begin{center}
@@ -867,9 +868,9 @@ Les cellules doivent exercer entre elles une friction pour éviter de glisser.\\
 Notre modèle actuel se rapproche plus d'un ensemble de billes, où chaque billes essaierait de maintenir une distance égale entre ses billes adjacentes (cohésion de la roche).
 Si cette équidistance devait casser, les relations entre ces billes devraient êtres supprimées (si la roche se fissure).\\
 Cette situation est désirée lors d'une fissure dans une plaque tectonique (tous les liens inter-cellulaire se cassent le long de la faille), mais désavantageux dans une simple simulation de compression par un front de collision, car celle ci ressemblera tout simplement à un simulation de grains de sables.\\
-La friction est alors utilisée ici comme une force correctrice du centre instantané de rotation, car en effet la traction ne peut compenser une faible valeur calculée avec le CIR.
+La friction est alors utilisée ici comme une force correctrice du centre instantané de rotation, car en effet la traction ne peut compenser une faible valeur calculée avec le CIR.\\
 La plus simple des lois à mettre en place pour la friction est la loi de Coulomb. \\
-Cette loi nous donne deux états~: en friction ou en détachement (glissement), libre à nous de mettre les bons facteurs (inférieur à 1) derrière ces deux états.
+Cette loi nous donne deux états~: en friction ou en détachement (glissement), libre à nous de mettre les bons facteurs (inférieur à 1) derrière ces deux états.\\
 Pour trouver dans quelle état deux cellules $C_1$ et $C_2$ se trouvent nous devons appliquer la formule suivante~:
 \begin{center}
   \boxed{T_0 = f_0 \times N}
