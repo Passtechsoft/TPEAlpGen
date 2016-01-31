@@ -69,7 +69,7 @@ void KX_Cell::AddInFront(KX_CellList& cells)
 }
 
 #define USE_DIRECTION
-#define USE_DISTANCE
+// #define USE_DISTANCE
 
 void KX_Cell::PropagateVelocity(unsigned int layer)
 {

@@ -749,6 +749,17 @@ Nous devons donc utiliser l'opposé d'un carré quand $x$ est négatif.
 \end{center}
 Où $d'$ est la différence entre la distance voulu $1$ et la distance entre les deux cellules. \\
 
+\begin{center}
+  \includegraphics[width=5cm]{Images/normal_1.png}
+  \includegraphics[width=5cm]{Images/normal_2.png}
+\end{center}
+\captionof{figure}{Deux échantillons de simulation sans compression, les cellules en collisions (en noir) rentrent dans la plaque.}
+\begin{center}
+  \includegraphics[width=5cm]{Images/compression_1.png}
+  \includegraphics[width=5cm]{Images/compression_2.png}
+\end{center}
+\captionof{figure}{Deux échantillons de simulation avec compression, les cellules en collisions (en noir) poussent d'abord toutes les autres cellules après elles.} 
+
 \subsubsection{Friction entre cellules}
 Les cellules doivent exercer entre elles une friction pour éviter de glisser.
 Notre modèle actuelle se rapproche plus d'un ensemble de billes, ou chaque billes essaierait de maintenir un distance dites parfaite entre ses billes adjacentes.
@@ -794,7 +805,13 @@ Pour éviter ce problème nous pourrons spécifier une pression par défaut entr
 
 \subsection{Les limites de la simulation}
 
-Notre objectif initiale était de simuler la compression dans les alpes pour
+Notre objectif initial était de simuler la géomorphologie des alpes sur une parcelle de 100km de côté et de 10km de profondeur.
+Si nous gardons comme taille 10m par cellules, la simulation se porte alors à~:
+\begin{center}
+  $100 \times 10^2 \times 100 \times 10^2 \times 10 \times 10^2 = 1 \times 10^{11}$ cellules
+\end{center}
+Nous devons donc utiliser 10 milliards de cellule pour simuler les alpes.
+Nous allons voir plus bas que notre objectif initial était loin d'être réalisable.
 
 \subsubsection{Les limites du réalisme}
 
@@ -819,7 +836,7 @@ Comme nous l'avons de nombreuses fois montré, notre simulation se base uniqueme
 \end{center}
 
 Comme nous pouvons le voir la complexité asymptotique (la relation entre le nombre d'opération, donc implicitement du temps, et le nombre d'éléments dans un algorithme) est linéaire $O(n)$.
-Donc pour une cellule le temps de calcul moyen est de environ $0.01629$ ms/cellule, ainsi nous pouvons estimer que nos 100 milliards de cellules prendrons $1628888889$ms, ce qui fait 452 minutes, .
+Donc pour une cellule le temps de calcul moyen est de environ $0.01629$ ms/cellule, ainsi nous pouvons estimer que nos 100 milliards de cellules prendrons $16289999999$ms, ce qui fait 4525 heures et enivrons 189 jours.
 
 \subsubsection{Les limites de mémoires}
 \subsection{Piste d'améliorations}

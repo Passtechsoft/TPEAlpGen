@@ -10,8 +10,8 @@ extern "C" {
 
 KX_Terrain::KX_Terrain()
 	:m_tree(NULL),
-	m_sizeX(300),
-	m_sizeY(300),
+	m_sizeX(10),
+	m_sizeY(10),
 	m_interval(1.0f),
 	m_time(0.0f)
 {
@@ -56,7 +56,7 @@ KX_Terrain::KX_Terrain()
 // 		(unsigned int)m_cells.size() - 5
 	};
 
-	MT_Vector3 direction(0.2f, 0.5f, 0.0f);
+	MT_Vector3 direction(0.f, 0.5f, 0.0f);
 	MT_Vector3 velocities[colliders] = {
 		direction * scale,
 // 		direction * scale,
@@ -64,7 +64,7 @@ KX_Terrain::KX_Terrain()
 		direction * -scale
 	};
 
-	for (unsigned int i = 0; i < 1; /*m_sizeX*/ ++i) {
+	for (unsigned int i = 0; i < m_sizeX; ++i) {
 		KX_ColliderInfo info;
 		info.cell = m_cells[/*indices[i]*/i];
 		info.velocity = direction * scale; //velocities[i];
