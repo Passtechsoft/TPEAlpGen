@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.9.13)  1 FEB 2016 12:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.9.13)  1 FEB 2016 12:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1394,7 +1394,7 @@ File: Images/subduction_2.png Graphic file (type png)
 
 <use Images/subduction_2.png>
 Package pdftex.def Info: Images/subduction_2.png used on input line 405.
-(pdftex.def)             Requested size: 227.62204pt x 82.40443pt.
+(pdftex.def)             Requested size: 341.43306pt x 123.60869pt.
  [14 <./Images/subduction_2.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 435--436
 
@@ -1609,7 +1609,7 @@ mf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
 tmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/esvect/vect10.pfb>
-Output written on Dossier.pdf (29 pages, 10389009 bytes).
+Output written on Dossier.pdf (29 pages, 10389021 bytes).
 PDF statistics:
  193 PDF objects out of 1000 (max. 8388607)
  97 compressed objects within 1 object stream

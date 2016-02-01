@@ -36,7 +36,7 @@
 \contentsline {subsection}{\numberline {4.1}Mod\IeC {\'e}liser un paysage g\IeC {\'e}ologique}{16}
 \contentsline {subsubsection}{\numberline {4.1.1}Les simulations physiques}{16}
 \contentsline {paragraph}{Simulation par p\IeC {\^a}tes}{16}
-\contentsline {paragraph}{La place de la physique dans la simulation}{16}
+\contentsline {paragraph}{La place de la physique dans la simulation}{17}
 \contentsline {subsubsection}{\numberline {4.1.2}La simulation num\IeC {\'e}rique par automate cellulaire}{17}
 \contentsline {paragraph}{Simulation par voxels}{17}
 \contentsline {subsection}{\numberline {4.2}Les Cellules}{18}
