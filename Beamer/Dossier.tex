@@ -16,6 +16,7 @@
 \usepackage{pgfplots}
 \usepackage{capt-of}
 \usepackage{esvect}
+\usepackage[T1]{fontenc}
 
 \usetikzlibrary{arrows}
 \pagestyle{empty}
@@ -39,11 +40,13 @@
 
 %opening
 \title{Comment simuler numériquement la géomorphologie alpine~?}
-\author{Manceau Thibaut, Gros Alexis, Porteries Tristan}
+\author{Thibaut Manceau, Alexis Gros, Tristan Porteries}
 
 \begin{document}
 
+\begin{Huge}
 \maketitle
+\end{Huge}
 
 \clearpage
 
@@ -56,27 +59,31 @@
 \subsection{Glossaire géomorphologique}
 
 \begin{itemize}
-  \item Géomorphologie~: Science de l'étude des causes de l'apparence des formes qu'étudie la géologie ;
+  \item Géomorphologie~: Partie de la géologie se centrant sur l'étude des formes ;
   \item Moho~: Limite entre la lithosphère et l'asthénosphère ;
   \item Orogénèse~: Désigne tous les mécanismes relatifs à la surrection d'un massif montagneux ;
-  \item Viscosité~: Plus un fluide est visqueux, plus il s'écoulera lentement.
-  Toute roche peut être considérée comme un fluide très visqueux si l'on considère une grande échelle de temps.
+  \item Viscosité~: Capacité d'un fluide à s'écouler.
 \end{itemize}
 
 \subsection{Glossaire informatique}
 
 \begin{itemize}
   \item Boxel~: Matérialisation d'un voxel en tant que cube ;
-  \item Étape complète de simulation~: Étape comprenant la résolution de toutes les collisions et cellules ;
+  \item Étape complète de simulation~: Étape comprenant la résolution de toutes les collisions entre les cellules ;
   \item Voxel~: Point dans un environnement 3D discret.
 \end{itemize}
 
 \section{Introduction}
 
-Cela fait à peine 50 ans que la communauté scientifique a adopté la tectonique des plaques, et malgré de nombreuses recherches, la géologie, discipline encore relativement fragmentaire, est une science assez jeune comparée à la physique et aux mathématiques et qui connaît encore de nombreux points sombres, ignorant toujours la structure profonde de notre manteau. \\
-Cependant, nous (Alexis Gros, Tristan Porteries et Thibaut Manceau) pensons qu'il serait intéressant de faire l'état de l'art en ce qui concerne la simulation d'un paysage géomorphologique de façon réaliste.
+Cela fait à peine 50 ans que la communauté scientifique a adopté la tectonique des plaques, et malgré de nombreuses recherches, la géologie, discipline encore relativement fragmentaire, est une science assez jeune comparée à la physique et aux mathématiques et qui connaît encore de nombreux points sombres, ignorant toujours la structure profonde du manteau. \\
+Cependant, nous (Alexis Gros, Tristan Porteries et Thibaut Manceau) pensons qu'il serait intéressant de décrire une simulation de paysage géomorphologique de façon réaliste.
 En effet, cette simulation pourrait grandement aider à l'obtention de nouvelles connaissances sur la géomorphologie, sans compter tous les autres débouchés où elle pourrait remplacer des générateurs de terrains souvent trop peu réalistes. \\
-Vous serez ainsi informés dans le présent document de la synthèse de nos recherches sur ce sujet aussi vaste que passionnant, nous ayant donné l'occasion de balayer de nombreux champs de la sciences tels que la chimie moléculaire, la mécanique des fluides ou encore le magnétisme.
+Vous serez ainsi informés dans ce présent document de nos recherches qui ont étés portés sur les Alpes. Nous avons choisi ce massif montagneux car il combine tous les phénomènes géomorphologiques les plus pertinents.\\
+Nos travaux ont étés répartis en deux grands axes de développement :\\
+\begin{itemize}
+  \item un listage des phénomènes géomorphologiques ;
+  \item le fonctionnement d'une simulation représentant ces phénomènes.
+\end{itemize}
 
 \section{Les principes géomorphologiques}
 
@@ -86,8 +93,8 @@ Ce que nous appelons « relief » correspond à l'ensemble des formes créés pa
 Ces processus sont regroupés sous le nom de « Morphogenèse ».
 Nous pouvons les séparer en deux parties~:
 \begin{itemize}
-  \item les facteurs endogènes, qui correspondent à la formation du paysage (par exemple, la tectonique des plaques)~;
-  \item les facteurs exogènes, qui correspondent à la destruction du paysage~: l'érosion\ldots
+  \item les facteurs endogènes, qui correspondent à la formation d'un paysage (par exemple, la tectonique des plaques)~;
+  \item les facteurs exogènes, qui correspondent à la destruction d'un paysage~: l'érosion\ldots
 \end{itemize}
 L'homme est également considéré comme un facteur géomorphologique, mais il est à la fois endogène et exogène. \\
 
@@ -98,13 +105,16 @@ Quatre étapes principales composent ces processus~:
   \item le transport ;
   \item la sédimentation.
 \end{itemize}
+
+\medbreak
+
 Les débris de roche résultant de phénomènes exogènes sont nommés des altérites. \\
 L'altération correspond à tout ce qui modifie les propriétés des roches, ce qui conduit à une destruction partielle ou totale de celles-ci. \\
 L'érosion correspond au processus de dégradation et de transformation du relief qui est causé par tout agent externe. \\
 Le transport est l'acheminement des altérites par des agents de transport (souvent les mêmes que les agents externes qui réalisent l'érosion). \\
 La sédimentation correspond au dépôt des altérites. \\
 
-Les échelles d'espace ne sont pas les mêmes~: l'altération chimique s'étudie a plus petite échelle que l'altération physique~; mais ces deux catégories restent assez ciblées.
+Les échelles d'espace ne sont pas les mêmes~: l'altération chimique s'étudie à plus petite échelle que l'altération physique~; mais ces deux catégories restent assez ciblées.
 L'érosion, le transport et la sédimentation se constatent, pour leur part, à l'échelle du paysage. \\
 
 \subsection{L'altération}
@@ -113,7 +123,7 @@ L'érosion, le transport et la sédimentation se constatent, pour leur part, à 
 L'altération physique est l'ensemble des altérations qui agissent physiquement sur divers matériaux entre eux~:
 \begin{itemize}
   \item la cryoclastie~: Lorsqu'une roche poreuse se remplit d'eau et que cette eau gèle, son volume augmente d'environ 10\%, ce qui provoque des fissures.
-  Nous appelons le facteur déterminant la « Gélivité », et elle dépend de la porosité et du taux de fissure de la roche~;
+  Nous appelons le facteur déterminant la « Gélivité » d'une roche, et elle dépend de la porosité et du taux de fissure de celle-ci~;
 
   \medbreak
   \begin{center}
@@ -123,18 +133,18 @@ L'altération physique est l'ensemble des altérations qui agissent physiquement
   \medbreak
 
   \item la thermoclastie~: Processus de fracturation lié aux changements importants et fréquents de variation de température~;
-  \item la desquamation~: C'est un enlèvement de lames de roche en pelure d'oignon~;
+  \item la desquamation~: Un enlèvement de lames de roche en pelure d'oignon~;
 
   \medbreak
   \begin{center}
     \includegraphics[width=8cm]{Images/Erosion/desquamation.jpg}
   \end{center}
-  \captionof{figure}{Faille en « pelure d'oignon » typique d'un enlèvement de matière en desquamation}
+  \captionof{figure}{Faille en « pelure d'oignon » typique d'un enlèvement en desquamation}
   \medbreak
   
-  \item l'hydroclastie~: C'est un processus de fracturation lié aux changements de la teneur en eau de la roche. L'eau provoque également un gonflement de l'argile et augmente la pression hydrostatique.
+  \item l'hydroclastie~: Processus de fracturation lié aux changements de la teneur en eau de la roche. L'eau provoque, par exemple, un gonflement de l'argile et augmente la pression hydrostatique.
   Lorsque l'eau s'évapore, elle provoque une fracturation par dessiccation (qui correspond au phénomène de desquamation, mais avec des formes s'organisant en réseau de fentes) ;
-  \item l'haloclastie~: Elle est due aux cristaux de sel laissés par de l'eau qui s'est évaporée. Ces cristaux de sels vont alors creuser la roche, et ainsi potentiellement la fragmenter.
+  \item l'haloclastie~: Elle est due aux cristaux de sel laissés par de l'eau qui s'est évaporée. Ces cristaux de sels vont creuser la roche, et ainsi potentiellement la fragmenter.
 
   \medbreak
   \begin{center}
@@ -148,8 +158,8 @@ L'altération physique est l'ensemble des altérations qui agissent physiquement
 \subsubsection{L'altération biologique}
 
 L'altération biologique comprend tout les phénomènes imputables aux êtres vivants. \\
-La respiration cellulaire~: qu'elle soit complète ou incomplète, elle entraîne une production de $CO_2$ et d'eau qui influenceront le sol.
-Par exemple, la combinaison d'eau avec le $CO_2$ forme de l'eau carbonée qui va solubiliser la calcite.
+L'altération prédominante est la respiration cellulaire.
+Qu'elle soit complète ou incomplète, elle entraîne une production de $CO_2$ et d'eau qui influenceront le sol.
 
 \begin{center}
   \includegraphics[width=12cm]{Images/Erosion/Respiration_cellulaire.png}
@@ -158,32 +168,26 @@ Par exemple, la combinaison d'eau avec le $CO_2$ forme de l'eau carbonée qui va
 
 \subsubsection{L'altération chimique}
 \begin{itemize}
-  \item mise en solution~: C'est basiquement la réaction d'une roche avec de l'acide ou de l'eau, qui va désagréger celle-ci.
+  \item mise en solution~: basiquement, la réaction d'une roche avec de l'acide ou de l'eau qui va désagréger celle-ci.
   Par exemple, la réaction de l'eau avec la calcite~:
   \medbreak
   \begin{center}
     \boxed{H_2O + CaCO_3 \Longrightarrow Ca^+ + 2H + CO_3^-} % #inco
   \end{center}
   \medbreak
-  \item hydratation et déshydratation, ce qui signifie souvent~: minéral + eau = nouveau minéral hydraté; la déshydratation étant le processus inverse.
+  \item hydratation et déshydratation~: résumables par minéral + eau = nouveau minéral hydraté; la déshydratation étant le processus inverse.
   Les réactions les plus importantes sont~:
   \begin{itemize}
-    \item la déshydratation du gypse pour produire de l'anhydrite~:
-    \medbreak
-    \begin{center}
-      \boxed{CaSO_4 + 2H_2O \Longrightarrow CaSO_4 + 2H_2O}
-    \end{center}
-    \medbreak
     \item l'hydratation de l'hématite pour produire de la limonite~:
     \medbreak
     \begin{center}
-      \boxed{Fe2O_3 + 3H_2O \Longrightarrow 2Fe(OH)_3} % #inco
+      \boxed{Fe_2O_3 + nH_2O \Longrightarrow Fe_2O_3\bullet nH_2O} % #inco
     \end{center}
     \medbreak
     \item l'hydratation de la kaolinite pour produire de la gibbsite ;
   \end{itemize}
 
-  \item hydrolyse~: C'est un processus au cours duquel un cation (ion positif) d'un minéral va remplacer un cation $H^+$ d'une solution acide.
+  \item hydrolyse~: processus au cours duquel un cation (ion positif) d'un minéral va remplacer un cation $H^+$ d'une solution acide.
   Cette réaction a pour conséquence de détruire le minéral (mise en solution complète) ou de le convertir en une nouvelle espèce (que l'on appellera alors un néo-matériau) ;
   \medbreak
   \begin{center}
@@ -191,7 +195,7 @@ Par exemple, la combinaison d'eau avec le $CO_2$ forme de l'eau carbonée qui va
   \end{center}
   \captionof{figure}{Phénomène d'hydrolyse appliqué à une roche (on le voit à la couleur différente de la roche)}
   \medbreak
-  \item oxydation~: C'est la combinaison de métaux (comme le fer et le manganèse) avec l'eau qui provoque une modification de la structure cristalline du minéral ;
+  \item oxydation~: la combinaison de métaux (comme le fer et le manganèse) avec l'eau qui provoque une modification de la structure cristalline du minéral ;
   \item dissolution~: désagrègement des molécules en anions et cations par un solvant et dispersion dans l'eau.
 \end{itemize}
 
@@ -228,7 +232,7 @@ Après une forte pluie, les eaux empruntent les fissures du sol (à la surface),
 \paragraph{Les torrents}
 \medbreak
 Les torrents sont situés en amont des montagnes.
-Ils sont décomposables en 3 parties~:
+Ils sont décomposables en trois parties~:
 \begin{itemize}
   \item un bassin de réception, où l'eau emporte les différentes roches ;
   \item un chenal d'écoulement, qui est souvent étroit, à forte pente et à fort courant ;
@@ -248,7 +252,7 @@ Nous distinguons deux types de morphologie karstique~:
   \item La morphologie souterraine, aussi appelée endokarst.
   Elle est constituée de nombreuses failles et diaclases (pierres fendues mais ne s'écartant pas).
   Nous distinguons deux parties~: la partie active, où s'écoulent les rivières souterraines et la partie fossile, sans eau.
-  Nous retrouvons de nombreux attributs qui lui sont propres, comme la présence de stalactites (caractérisées par un canal central où s'écoule l'eau), de stalagmites (pleines), de draperies\ldots
+  De nombreux attributs lui sont propres, comme la présence de stalactites (caractérisées par un canal central où s'écoule l'eau), de stalagmites (pleines), de draperies\ldots
   Toutes ces concrétions résultent du dégazage du $CO_2$, qui provoque la précipitation de $CaCO_3$ ;
 
   \item La morphologie aérienne, aussi appelée exokarst.
@@ -588,10 +592,10 @@ Maintenant que toutes les cellules sont à $1$ de distance entre elles, nous dev
 
 \subsubsection{Recherche des cellules adjacentes}
 
-Pour commencer, toute cellule doit connaître toutes ses cellules adjacentes pour pouvoir interagir avec elles.
-Pour cela nous avons utilisé un arbre KD pour optimiser la recherche des cellules. En effet l'arbre KD permet de réaliser une recherche des points inclus dans une sphère plus rapidement qu'une simple recherche linéaire. \\
-Pour ce faire au début de chaque nouvelle étape compète de simulation, l'arbre KD est détruit puis remplacé par un nouveau vide. Ensuite, nous ajoutons toutes les positions des cellules dans l'ordre (en effet le numéro d'ajout et le seul moyen de retrouver la cellules par rapport à sa position) puis nous exécutons le tri des positions dans l'arbre KD.
-Après avoir instancié l'arbre, chaque cellule peut rechercher ses cellules adjacentes dans un rayon égal à la norme d'un vecteur (1~; 1) (la distance originelle entre les cellules) puis enregistrer ces cellules dans une liste utilisé jusqu'à la re-création de l'arbre KD, donc du déplacement des cellules.
+Pour commencer, toute cellule doit connaître toutes ses cellules adjacentes afin de pouvoir interagir avec celles-ci.
+Pour cela nous avons utilisé un arbre KD, qui nous permet d'optimiser la recherche des cellules. En effet, l'arbre KD permet de réaliser une recherche des points inclus dans une sphère plus rapidement qu'une simple recherche linéaire. \\
+Pour ce faire, au début de chaque nouvelle étape compète de simulation, l'arbre KD est détruit puis remplacé par un nouveau vide. Ensuite, nous ajoutons toutes les positions des cellules dans l'ordre (le numéro d'ajout étant le seul moyen de retrouver la cellules par rapport à sa position), puis nous exécutons le tri des positions dans l'arbre KD.
+Après avoir instancié l'arbre, chaque cellule peut rechercher ses cellules adjacentes dans un rayon égal à la norme d'un vecteur (1~; 1) (la distance originelle entre les cellules) puis enregistrer ces cellules dans une liste utilisée jusqu'à la re-création de l'arbre KD, donc après une itération.
 
 \begin{center}
   \includegraphics[width=12cm]{Images/kd_tree.jpg}
@@ -601,36 +605,37 @@ Après avoir instancié l'arbre, chaque cellule peut rechercher ses cellules adj
 
 \subsubsection{Cellules en collisions}
 
-Les cellules ne peuvent avoir d'interactions autre que la collision avec des cellules appartenant à une plaque tectonique différentes.\\
-Prenons l'exemple de deux plaques qui se rencontrent, il y a alors une collision (puis subduction ou obduction dans certains cas).
+Les cellules ne peuvent avoir d'interactions autre que la collision avec des cellules appartenant à une plaque tectonique différente.\\
+Prenons l'exemple de deux plaques qui se rencontrent~: il y a collision (puis subduction ou obduction dans certains cas).
 Chaque cellule étant positionnée sur la surface de contact entre ces deux plaques est donc considérée en collision avec la cellule correspondante dans la plaque tectonique opposée.
-Pour obtenir cette cellule en question, nous nous aidons de l'arbre KD qui nous donne une liste de cellules toutes adjacentes.
-Dans cette liste nous ne retenons que les cellules ayant une plaque tectonique différente de celle de la cellule étudié.
-Enfin ces cellules dites en collision n'interagiront qu'avec le centre instantané de rotation (décrit plus bas), laissant chacune de leur plaque tectonique respective déformer leurs cellules indépendamment.
+Pour obtenir cette cellule en question, nous nous aidons de l'arbre KD, qui nous donne une liste de cellules toutes adjacentes entre elles.
+Dans cette liste, nous ne retenons que les cellules ayant une plaque tectonique différente de celle de la cellule étudié.
+Enfin ces cellules dites « en collision » n'interagiront qu'avec le centre instantané de rotation (décrit plus bas), laissant chacune de leur plaque tectonique respective déformer leurs cellules indépendamment.
 
 \subsubsection{Propagation par front de cellules}
 
-Pour propager la vélocité plusieurs méthodes ont été envisagé.
-La première entant la plus simple, se compose simplement d'une itération linéaire pour toutes les cellules existantes.
-Ainsi chacune d'elle devra propager sa propre vélocité à ses cellules adjacentes.
-Mais cette méthode est totalement erronée, car si nous faisons l'itération de toutes les autres cellules avant la cellule en collision, celle ci n'aura d'effet que sur ses seuls cellules adjacentes, et non sur toute la plaque.
-Pour remédier à ce problème nous avons dû aborder une approche par fronts partant de la cellules en collision et s'étendant sur toute la plaque (formant ainsi une onde.
+Pour propager la vélocité, plusieurs méthodes ont été envisagé.
+La première, la plus simple, se compose simplement d'une itération linéaire pour toutes les cellules existantes.
+Ainsi, chacune d'elle devra propager sa propre vélocité à ses cellules adjacentes.
+Cependant, cette méthode est totalement erronée, car si nous faisons l'itération de toutes les autres cellules avant la cellule en collision, celle-ci n'aura d'effet que sur ses seules cellules adjacentes, et non sur toute la plaque.\\
+Pour remédier à ce problème nous avons dû aborder une approche par fronts partant de la cellules en collision et s'étendant sur toute la plaque (formant ainsi une onde).\\
 Deux méthodes s'offraient à nous :
 \begin{itemize}
-\item La première est de trouver toutes les cellules dans un intervalle de rayons par rapport à la cellule en collision ;
-\item La deuxième méthode, récursive, consiste à créer un front d'origine avec seulement la cellules en collision et chaque front créé ainsi le suivant en ajoutant les cellules adjacentes n'ayant jamais participé au front.
+\item La première était de trouver toutes les cellules dans un intervalle de rayons par rapport à la cellule en collision ;
+\item La deuxième méthode, récursive, consistait à créer un front d'origine avec seulement la cellules en collision. Ainsi, chaque front créait le suivant en ajoutant les cellules adjacentes n'ayant jamais participé au front.
 \end{itemize}
-Chacune de ces méthodes ont leurs avantages et inconvénients.
-La première ne fonctionne que avec une plaque rectangulaire, en effet si la plaque est coudé les cellules de l'autre côté du coude seront déjà dans le front avant celles dans le coude, si la cellule en collision se trouve sur une des extrémités.
-Ce problème n'est plus avec la deuxième méthode, mais celle ci a pour désavantage de ne pas former un front circulaire, mais basé sur la disposition des cellules, donnant ainsi un front hexagonal pour une disposition en nid-d'abeille. \\
-Pesant le pour et le contre et en tenant compte du temps de calculs (notre implémentation d'arbre KD ne permettait pas une recherche par intervalle de rayons ce qui nous oblige à faire deux recherches par rayon et de supprimer le doublons) nous avons choisi la méthode récursive.
-Pour ce faire les cellules possèdent maintenant deux nouvelles propriétés mutable~: une pour savoir si la cellule à déjà fait partie du front (cela signifie aussi que la cellule a déjà propagée sa vélocité) : $a_C$ et l'autre pour savoir si la cellule fait actuellement partie du front : $b_C$.
+Chacune de ces méthodes présentaient des avantages et des inconvénients.\\
+La première ne fonctionnait qu'avec une plaque rectangulaire. En effet, si la plaque est coudée, les cellules de l'autre côté du coude seront déjà dans le front avant celles dans le coude si la cellule en collision se trouve sur une des extrémités.\\
+Ce problème n'existait plus avec la deuxième méthode, mais celle-ci avait pour inconvénient de ne pas former un front circulaire, mais basé sur la disposition des cellules, donnant ainsi un front hexagonal pour une disposition en nid d'abeille. \\
+Pesant le pour et le contre et en tenant compte du temps de calculs (notre implémentation d'arbre KD ne permettant pas une recherche par intervalles de rayons, ce qui nous obligeait à faire deux recherches par rayon afin de supprimer les doublons), nous avons choisi la méthode récursive.\\
+\medbreak
+Pour ce faire, nous avons donné aux cellules deux nouvelles propriétés mutable~: une pour savoir si la cellule à déjà fait partie du front (cela signifie aussi que la cellule a déjà propagé sa vélocité) : $a_C$ et une autre pour savoir si la cellule fait actuellement partie du front : $b_C$.\\
 Ces deux variables sont initialisées à faux au début de chaque étape complète de simulation.
-Pour chaque cellules en collision nous créons un nouveau front ne contenant que celle ci, toutes les cellules contenus dans le front sont considérées comme déjà calculées et ne vont plus faire partie du front, donc elles voient $b_C$ et $a_C$ mis à vrai durant la propagation de vélocité sur leurs cellules adjacentes.
-Ensuite chaque cellules dans le front itère sur toutes ses cellules adjacentes et les ajoute si leurs deux propriétés sont faussent (elle n'ont pas et ne font pas partie du front).
-Chaque cellule remplissant ces conditions est alors ajoutée dans le front et vois $b_C$ mis a vrai car elle fait désormais partie du front. \\
-Ainsi nous créons nouveau front grâce à l'ancien sans cellules en doublons.
-Dès que le front ne contient plus aucune cellules, cela signifie que nous avons finit avec la cellule en collision actuelle et pouvons passer à la prochaine cellule en collision ou recommencer un étape complète de simulation.
+Pour chaque cellule en collision, nous créons un nouveau front ne contenant que celle ci. Toutes les cellules contenues dans le front sont considérées comme déjà calculées et ne vont plus faire partie du front, donc elles voient $b_C$ et $a_C$ mis à vrai durant la propagation de vélocité sur leurs cellules adjacentes.\\
+Ensuite, chaque cellule dans le front itère sur toutes ses cellules adjacentes et les ajoute si leurs deux propriétés sont fausses (ce qui signifie qu'elles ne font pas partie du front).
+Chaque cellule remplissant ces conditions est alors ajoutée dans le front et voie $b_C$ mis à vrai car elle fait désormais partie du front. \\
+Ainsi nous créons nouveau front grâce à l'ancien sans cellules en doublon.
+Dès que le front ne contient plus aucune cellule, cela signifie que nous avons fini les calculs en rapport avec la cellule en collision actuelle et que nous pouvons passer à la prochaine cellule en collision ou recommencer une étape complète de simulation.
 
 \medbreak
 \begin{algorithmic}[1]
@@ -666,7 +671,7 @@ Dès que le front ne contient plus aucune cellules, cela signifie que nous avons
 \end{algorithmic}
 \medbreak
 
-Ou $n_t$ est le nombre de cellules total dans la simulation, $n_c$ le nombre de cellules en collision, $n_f$ nombre de cellules dans le front, $n_a$ nombre de cellules adjacentes à une cellule donnée, $a_C$ à vrai si la cellule a déjà fait partie du front donc à déjà propagée sa vélocité et $b_C$ à vrai si la cellule fait actuellement partie du front. \\
+Où $n_t$ est le nombre de cellules total dans la simulation, $n_c$ le nombre de cellules en collision, $n_f$ le nombre de cellules dans le front, $n_a$ le nombre de cellules adjacentes à une cellule donnée, $a_C$ qui vaut « vrai » si la cellule a déjà fait partie du front (donc a déjà propagé sa vélocité) et $b_C$ qui vaut « vrai » si la cellule fait actuellement partie du front. \\
 
 \begin{center}
   \includegraphics[width=4cm]{Images/front_1.png}
@@ -679,13 +684,13 @@ Ou $n_t$ est le nombre de cellules total dans la simulation, $n_c$ le nombre de 
   \includegraphics[width=4cm]{Images/front_6.png}
 \end{center}
 \captionof{figure}{Échantillons de six photos dans le temps montrant l'expansion du front aux cellules non calculées.
-En noir la cellule en collision, en jaune les cellules du front et en violet les autres cellules.}
+En noir, la cellule en collision ; en jaune, les cellules du front et en violet, les autres cellules.}
 
 \subsubsection{Calques de vélocité}
 
-Pour éviter des interférences entre les différentes propagations de vélocité des cellules en collision, nous utilisons des calques uniques contenant une vélocité par cellules, chacun de ces calques sont liés à une cellule en collision.
-Au début de l'étape complète de simulation chaque cellule réserve dans ses variables une liste de vecteur pour chaque cellules en collision puis pour chaque propagation de vélocité des cellules en collision, les cellules affectées ne travaillent que sur le vecteur correspondant au numéro de la cellule en collision.
-Puis à la fin de l'étape complète de simulation tous les vecteurs sont ajoutés entre eux pour donner le déplacement a appliquer à la cellule. \\
+Pour éviter des interférences entre les différentes propagations de vélocité des cellules en collision, nous utilisons des calques uniques contenant une vélocité par cellules. Chaque calque est lié à une cellule en collision.\\
+Au début de l'étape complète de simulation, chaque cellule réserve dans ses variables une liste de vecteur pour chaque cellules en collision puis, pour chaque propagation de vélocité des cellules en collision, les cellules affectées ne travaillent que sur le vecteur correspondant au numéro de la cellule en collision.
+À la fin de l'étape complète de simulation, tous les vecteurs sont ajoutés entre eux pour donner le déplacement à appliquer à la cellule. \\
 
 \begin{center}
   \includegraphics[width=8cm]{Images/calque.png}
@@ -695,17 +700,17 @@ Puis à la fin de l'étape complète de simulation tous les vecteurs sont ajout�
 \subsubsection{Centre instantané de rotation}
 
 Comme nous l'avons expliqué, chaque cellule dans le front doit appliquer une vélocité aux cellules qui feront partie du front l'itération suivante.
-Mais quelle doit être la direction de cette vélocité et sa norme~? \\
-Prenant le cas de deux cellules $C_1$ et $C_2$.
-$C_1$ fait partie du front et $C_2$ une de ses adjacentes non calculées, $C_1$ reçoit une vélocité $\vv{u}$, $C_2$ devra recevoir une vélocité $\vv{v}$ et $\vv{w}$ représente le vecteur de $C_1$ vers $C_2$.
-L'estimation de la direction de la vélocité dans un modèle sans friction est des plus simple, elle équivaut au vecteur allant de la cellule $C_1$ vers $C_2$ : $\vv{w}$, mais l'estimation de la norme de ce vecteur est quant à elle bien plus compliquée.
+Mais quelle doit être la direction de cette vélocité et sa norme~?
+Prenons le cas de deux cellules $C_1$ et $C_2$.\\
+$C_1$ fait partie du front et $C_2$ est une de ses adjacentes non calculées. $C_1$ reçoit une vélocité $\vv{u}$, $C_2$ devra recevoir une vélocité $\vv{v}$ et $\vv{w}$ qui représente le vecteur de $C_1$ vers $C_2$.\\
+L'estimation de la direction de la vélocité dans un modèle sans friction est des plus simple, elle équivaut au vecteur allant de la cellule $C_1$ vers $C_2$ : $\vv{w}$ ; toutefois, l'estimation de la norme de ce vecteur est quant à elle bien plus compliquée.\\
 La fonction calculant cette norme doit apporter les résultats suivants~:
-lorsque le vecteur $\vv{w}$ est colinéaire à $\vv{u}$ (les deux cellules sont alignées sur la vélocité) la cellule $C_2$ doit recevoir toute la vélocité $\vv{v} = \vv{u}$ et, au contraire, si $\vv{w}$ et $\vv{u}$ forment un angle $\frac{\pi}{2}$ alors la cellule $C_2$ ne doit recevoir aucune vélocité, $\vv{v} = \vv{0}$, car elle et disposé latéralement à la cellule $C_1$ et n'étant pas dans un modèle avec friction, elle ne bouge pas. \\
+lorsque le vecteur $\vv{w}$ est colinéaire à $\vv{u}$ (càd. que les deux cellules sont alignées sur la vélocité), la cellule $C_2$ doit recevoir toute la vélocité $\vv{v} = \vv{u}$. Au contraire, si $\vv{w}$ et $\vv{u}$ forment un angle $\frac{\pi}{2}$ alors la cellule $C_2$ ne doit recevoir aucune vélocité~: $\vv{v} = \vv{0}$, car elle est disposée latéralement à la cellule $C_1$ et, n'étant pas dans un modèle avec friction, elle ne bouge pas. \\
 La loi répondant à ces deux cas est le « Centre instantané de rotation d'un solide ».
 Cette loi permet de mettre en relation la vélocité à deux points de contacts sur deux plan d'un solide grâce à une rotation. \\
-Prenons l'exemple d'une échelle (le modèle est sans friction, sans gravité et uniquement sur un plan) posée avec un angle faible $\alpha$ sur un mur perpendiculaire au sol, elle forme deux points de contacts $P_1$ et $P_2$, $P_1$ en haut de l'échelle contre le mur et $P_2$ en bas de l'échelle contre le sol.
-Si nous appuyons sur le haut de l'échelle dans le direction du mur celle-ci va avoir tendance à glisser en direction du sol.
-En instantané nous pouvons faire l'approximation de ce mouvement par un rotation dont le centre serait l'intersection des deux droites perpendiculaires au sol et au mur passant respectivement par les points $P_1$ et $P_2$.
+Avec un modèle sans friction, sans gravité et uniquement sur un plan, prenons l'exemple d'une échelle posée avec un angle faible $\alpha$ sur un mur perpendiculaire au sol. Elle forme deux points de contact $P_1$ et $P_2$, $P_1$ en haut de l'échelle contre le mur et $P_2$ en bas de l'échelle (contre le sol).
+Si nous appuyons sur le haut de l'échelle dans le direction du mur, celle-ci va avoir tendance à glisser en direction du sol.
+En instantané, nous pouvons faire l'approximation de ce mouvement par un rotation dont le centre serait l'intersection des deux droites perpendiculaires au sol et au mur passant respectivement par les points $P_1$ et $P_2$.
 Nous nommerons $\vv{u}$ la vélocité de l'échelle à $P_1$, $\vv{v}$ la vélocité à $P_2$ lors du glissement, $C$ le centre de rotation, $d$ la distance entre $C$ et $P_1$, $f$ la distance entre $C$ et $P_2$ et enfin $\alpha$ l'angle de rotation.
 
 \begin{center}
@@ -797,9 +802,9 @@ L'implémentation de cette loi doit traiter quelques cas particuliers pour évit
 \end{center}
 \bigbreak
 
-Cette formule convient parfaitement pour une interaction avec une seule cellule, mais dans la plupart des cas il y en a plus. En effet au début de la simulation une cellule du front peut avoir au maximum quatre cellules adjacentes non calculées.
-Nous ne pouvons alors pas utiliser la même formule car la somme de la norme des vélocités appliquées aux cellules pourrait être supérieur à $||\vv{u}||$, cela signifierait une création de vélocité.
-Pour palier à ce problème toutes les vélocités sont divisées par le nombre de cellules adjacentes non calculées.
+Cette formule convient parfaitement pour une interaction avec une seule cellule, mais souvent les interactions sont plus nombreuses. En effet, au début de la simulation, une cellule du front peut avoir au maximum quatre cellules adjacentes non calculées.\\
+Nous ne pouvons alors pas utiliser la même formule, car la somme de la norme des vélocités appliquées aux cellules pourrait être supérieur à $||\vv{u}||$. Cela signifierait une création de vélocité.
+Pour pallier à ce problème, toutes les vélocités sont divisées par le nombre de cellules adjacentes non calculées.
 
 \begin{center}
   $\displaystyle{\sum \limits_{i=1}^n ||\vv{v}_{max}|| = ||\vv{u}||}$ \medbreak
@@ -838,13 +843,13 @@ Le module de Young contient de nombreuses valeur de $E$ pour la majorité des ma
   \item granite : 60 GPa.
 \end{itemize}
 
-\paragraph{Approximation du comportement de la compression et traction}
+\paragraph{Approximation du comportement de la compression et de la traction}
 \medbreak
 Cette formule nécessite de connaître la contrainte entre les deux cellules, or notre modèle de simulation se base uniquement sur la vélocité des cellules.
-Nous devons donc utiliser une approximation, premièrement il faut définir le comportement de cette approximation.
-Quand la distance entre deux cellules est supérieur à $1$ nous sommes en traction et nous devons alors ajouter une vélocité opposée à au vecteur entre les deux cellules.
-Sinon si la distance est inférieur à $1$, nous devons ajouter une vélocité colinéaire au vecteur entre les deux cellules pour la compression.
-Pour augmenter la norme de la vélocité, une fonction carré convient parfaitement et peut aussi être multipliée par un facteur pour être plus accentué, mais cette fonction ne traite que de la compression car elle est toujours positive.
+Nous devons donc utiliser une approximation ; premièrement, il nous faut définir le comportement de cette approximation.\\
+Quand la distance entre deux cellules est supérieur à $1$ nous sommes en traction et nous devons alors ajouter une vélocité opposée au vecteur entre les deux cellules.\\
+Sinon si la distance est inférieur à $1$, nous devons ajouter une vélocité colinéaire au vecteur entre les deux cellules pour la compression.\\
+Pour augmenter la norme de la vélocité, une fonction carré convient parfaitement et peut aussi être multipliée par un facteur pour être plus accentué. Toutefois, cette fonction ne traite que de la compression car elle est toujours positive.
 Nous devons donc utiliser l'opposé d'un carré quand $x$ est négatif.
 \medbreak
 \begin{center}
@@ -866,13 +871,13 @@ Où $d'$ est la différence entre la distance voulu $1$ et la distance entre les
 
 \subsubsection{Friction entre cellules}
 Les cellules doivent exercer entre elles une friction pour éviter de glisser.
-Notre modèle actuel se rapproche plus d'un ensemble de billes, où chaque billes essaierait de maintenir une distance égale entre ses billes adjacentes (cohésion de la roche).
-Si cette équidistance devait casser, les relations entre ces billes devraient êtres supprimées (si la roche se fissure).
-Cette situation est désirée lors d'une fissure dans une plaque tectonique (tous les liens inter-cellulaire se cassent le long de la faille), mais désavantageux dans une simple simulation de compression par un front de collision, car celle ci ressemblera tout simplement à un simulation de grains de sables.
-La friction est alors utilisée ici comme une force correctrice du centre instantané de rotation, car en effet la traction ne peut compenser une faible valeur calculée avec le CIR. \\
+Notre modèle actuel se rapproche plus d'un ensemble de billes, où chaque bille essaierait de maintenir une distance égale entre ses billes adjacentes, pour simuler la cohésion de la roche.
+Si cette équidistance devait casser, les relations entre ces billes devraient êtres supprimées (afin de simuler la fissure d'une roche).
+Cette situation est désirée lors d'une fissure dans une plaque tectonique. En effet, tous les liens inter-cellulaire se cassent le long de la faille. Toutefois, elle reste désavantageuse dans une simulation de compression par un front de collision, car celle-ci ressemblera tout simplement à une simulation de grains de sables.\\
+La friction est alors utilisée ici comme une force correctrice du centre instantané de rotation. En effet, la traction ne peut compenser une faible valeur calculée avec le CIR. \\
 La plus simple des lois à mettre en place pour la friction est la loi de Coulomb.
-Cette loi nous donne deux états~: en friction ou en détachement (glissement), libre à nous de mettre les bons facteurs (inférieur à 1) derrière ces deux états.
-Pour trouver dans quelle état deux cellules $C_1$ et $C_2$ se trouvent nous devons appliquer la formule suivante~:
+Cette loi nous donne deux états~: en friction ou en détachement (glissement). Nous nous sommes donnés la liberté de mettre des facteurs inférieurs à 1 derrière ces deux états car aucune recherche menée n'a permise de déterminer un facteur réel.
+Pour trouver dans quel état deux cellules $C_1$ et $C_2$ se trouvent nous devons appliquer la formule suivante~:
 \begin{center}
   \boxed{T_0 = f_0 \times N}
 \end{center}
@@ -902,28 +907,28 @@ Cette loi peut être représentée par un cône de friction pour simplifier cell
   \end{tikzpicture}
 \end{center}
 
-Malheureusement comme notre modèle de simulation est essentiellement cinématique (se basse essentiellement sur la vélocité), nous ne pouvons donc pas fournir une force et alors utiliser la loi de Coulomb.
-Cette loi restera inutilisé dans la simulation, mais nous savons qu'à un moment donné nous en auront besoin.
-De plus, toutes les cellules auront besoin d'une pression par défaut~: en effet si il n'y a pas de pression $N = 0$ et $T_0 = 0$.
-Pour éviter ce problème nous pourrons spécifier une pression par défaut entre les cellules à l'initialisation de la simulation, mais cela signifiera que deux cellules ne se repousseront pas même si il y a une pression entre elles. 
+Malheureusement, comme notre modèle de simulation est essentiellement cinématique (se base essentiellement sur la vélocité), nous ne pouvons pas fournir de force et ainsi utiliser la loi de Coulomb.
+Cette loi restera donc inutilisée dans la simulation, mais nous savons que nous en aurons besoin par la suite.
+De plus, toutes les cellules auront besoin d'une pression par défaut~: en effet, s'il n'y a pas de pression $N = 0$ et $T_0 = 0$.
+Pour éviter ce problème, nous pourrons spécifier une pression par défaut entre les cellules à l'initialisation de la simulation, mais cela signifiera que deux cellules ne se repousseront pas même s'il y a une pression entre elles. 
 
 \subsection{Les limites de la simulation}
 
-Notre objectif initial était de simuler la géomorphologie des alpes sur une parcelle de 100km de côté et de 10km de profondeur.
+Notre objectif initial était de simuler la géomorphologie des Alpes sur une parcelle de 100km de côté et de 10km de profondeur.
 Si nous gardons comme taille 10m par cellules, la simulation se porte alors à~:
 \begin{center}
   $100 \times 10^2 \times 100 \times 10^2 \times 10 \times 10^2 = 1 \times 10^{11}$ cellules
 \end{center}
 Nous devons donc utiliser 10 milliards de cellule pour simuler les alpes.
-Nous allons voir plus bas que notre objectif initial était loin d'être réalisable.
+Nous allons voir plus bas que cet objectif initial nécessitait beaucoup trop de puissance de calcul.
 
 \subsubsection{Les limites du réalisme}
 
-Comme nous l'avons de nombreuses fois montré, notre simulation a été obligé d'utiliser plusieurs approximations.
-La répartition de la vélocité n'est pas exacte et nous utilisons pas la loi de Hooke pour la compression à cause du modèle choisi.
-L'ensemble forme ainsi une pile d'approximation n'est sans moins marchant superbement en cohésion.
-Tout le long de la création de la simulation nous avions remarqué de nombreuses instabilité, certaine fois des « explosions de cellules », celle ci était alors éjecté de la plaque à une très grande distance et vitesse.
-Cela prouve que la simulation géomorphologique n'est pas une mince à faire pour avoir un résultat un tant soit peu réaliste.
+Comme nous l'avons quelques fois montré, notre simulation a été obligé d'utiliser plusieurs approximations, notamment à cause du manque de données exactes dans ce domaine, qui reste jeune.
+La répartition de la vélocité n'est pas exacte et nous n'utilisons pas la loi de Hooke pour la compression à cause du modèle choisi.
+L'ensemble, néanmoins, reste très cohérent.\\
+Pendante toute la période de conception de notre simulation, nous avons remarqué de nombreuses instabilités, certaines fois des « explosions de cellules », celles-ci étant alors éjectées de la plaque à une très grande vitesse.
+Cela prouve que la simulation de phénomènes géomorphologiques n'est pas une mince affaire (pour avoir un résultat un tant soit peu réaliste).
 
 \subsubsection{Les limites de temps de calcul}
 
@@ -943,20 +948,20 @@ Cela prouve que la simulation géomorphologique n'est pas une mince à faire pou
   \end{tikzpicture}
 \end{center}
 
-Comme nous pouvons le voir la complexité asymptotique (la relation entre le nombre d'opération, donc implicitement du temps, et le nombre d'éléments dans un algorithme) est linéaire~: $O(n)$.
-Donc pour une cellule le temps de calcul moyen est d'environ $0.01629$ ms/cellule, ainsi nous pouvons estimer que nos 10 milliards de cellules prendrons $16289999999$ms, ce qui fait 4525 heures et environs 189 jours.
-Or nous n'avons pas qu'un cellule en collision, nous avons tout un côté de la plaque en collision soit $10000$ cellules en collision.
-Cela augmente considérablement le temps de calcule pour arriver à 1890000 jours soit 5178 ans.
-Il faut donc 5178 ans de calcul avant de voir une seule cellule bouger.
-Nous pouvons en venir à la question suivante : simuler la géomorphologie numériquement ne serait il pas aussi long que d'observer ces phénomènes géomorphologiques.
+Comme nous pouvons le voir, la complexité asymptotique (la relation entre le nombre d'opération, donc implicitement du temps, et le nombre d'éléments dans un algorithme) est linéaire~: $O(n)$.
+Pour une cellule, le temps de calcul moyen est d'environ $0.01629$ ms/cellule ; ainsi nous pouvons estimer que nos 10 milliards de cellules prendrons $16290000000$ms, ce qui nous fait 4525 heures et environs 189 jours de temps de calcul.\\
+Or une collision n'est rarement constituée d'une seule cellule, mais plutôt de tout un côté de plaque ; soit $10000$ cellules.
+Cela augmente considérablement le temps de calcul pour arriver à 1890000 jours soit 5178 ans.
+Il faut donc 5178 ans de calculs avant de voir une seule cellule bouger.
+Nous pouvons en venir à la question suivante : simuler un processus géomorphologique numériquement ne serait il pas aussi long que d'observer ces phénomènes géomorphologiques~?
 
 \section{Conclusion}
 
 Ce TPE aura été pour nous l'occasion de nous réunir sur un projet commun qui, en connectant nos différents centres d’intérêts, nous aura appris beaucoup de nouvelles choses en ce qui concerne la géologie, la géomorphologie et l'histoire des roches et la terre en général.
 De plus, la recherche puis la création de notre simulateur fut un véritable défi technique, nous poussant à nous renseigner sur des domaines relativement pointus tant dans les mathématiques que dans la programmation informatique, afin d'offrir un démonstrateur certes incomplet, mais cependant fonctionnel et déjà assez intéressant.
 Nous aurons énormément appris en géologie et de ce point de vue le TPE aura été une réussite.
-Même si notre simulateur n'est pas encore capable de simuler des comportements complexes, il apparaît qu'il possède en lui les germes d'un moteur plus performant, c'est pourquoi l'affaire reste à suivre.
-De plus,pouvons déjà simuler un environnement réduit en deux dimensions, ce qui reste intéressant pour les fluides visqueux par exemple.
-Nous somme heureux d'être arrivé à un résultat dans notre travail mutuel et remercions nos accompagnateurs pour leurs critiques constructives.
+Même si notre simulateur n'est pas encore capable de simuler des comportements complexes, il apparaît qu'il possède en lui les germes d'un moteur plus performant.
+De plus, nous pouvons déjà simuler un environnement réduit en deux dimensions, ce qui reste intéressant pour les fluides visqueux par exemple.
+Nous sommes heureux d'être arrivés à un résultat dans notre travail mutuel et remercions nos accompagnateurs pour leurs critiques constructives.
 
 \end{document}
