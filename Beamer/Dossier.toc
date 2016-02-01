@@ -26,7 +26,7 @@
 \contentsline {subsection}{\numberline {3.5}Le d\IeC {\'e}p\IeC {\^o}t des s\IeC {\'e}diments}{13}
 \contentsline {subsection}{\numberline {3.6}Quelques rappels sur la g\IeC {\'e}ologie}{13}
 \contentsline {subsubsection}{\numberline {3.6.1}La tectonique des plaques}{13}
-\contentsline {subsection}{\numberline {3.7}La subduction}{13}
+\contentsline {subsection}{\numberline {3.7}La subduction}{14}
 \contentsline {subsubsection}{\numberline {3.7.1}L'histoire de la cha\IeC {\^\i }ne alpine}{14}
 \contentsline {subsection}{\numberline {3.8}Dynamique des roches}{15}
 \contentsline {subsubsection}{\numberline {3.8.1}Le temps}{15}
@@ -50,9 +50,9 @@
 \contentsline {subsubsection}{\numberline {4.3.5}Centre instantan\IeC {\'e} de rotation}{23}
 \contentsline {subsubsection}{\numberline {4.3.6}Compression et traction entre cellules}{25}
 \contentsline {paragraph}{Loi de Hooke}{25}
-\contentsline {paragraph}{Approximation du comportement de la compression et de la traction}{25}
-\contentsline {subsubsection}{\numberline {4.3.7}Friction entre cellules}{26}
-\contentsline {subsection}{\numberline {4.4}Les limites de la simulation}{27}
-\contentsline {subsubsection}{\numberline {4.4.1}Les limites du r\IeC {\'e}alisme}{27}
-\contentsline {subsubsection}{\numberline {4.4.2}Les limites de temps de calcul}{28}
-\contentsline {section}{\numberline {5}Conclusion}{28}
+\contentsline {paragraph}{Approximation du comportement de la compression et de la traction}{26}
+\contentsline {subsubsection}{\numberline {4.3.7}Friction entre cellules}{27}
+\contentsline {subsection}{\numberline {4.4}Les limites de la simulation}{28}
+\contentsline {subsubsection}{\numberline {4.4.1}Les limites du r\IeC {\'e}alisme}{28}
+\contentsline {subsubsection}{\numberline {4.4.2}Les limites de temps de calcul}{29}
+\contentsline {section}{\numberline {5}Conclusion}{29}
