@@ -1,1 +1,0 @@
-/usr/bin/c++   -std=c++11 -Wall -Wextra -Wshadow -Wconversion -Wsign-conversion -Wunused-parameter -Wno-long-long -O2    CMakeFiles/PWGenExe.dir/source/main.cpp.o  -o PWGenExe -rdynamic 

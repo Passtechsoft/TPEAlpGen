@@ -1,8 +1,0 @@
-Plusieurs couches: 
-	1- On simule des plaques, avec de grands ensembles définis au préalable.
-	2- On définis les grandes zones de tensions, et on établis un graphe des couches et des différentes compositions.
-	3- On applique les algorythmes de particularités géologiques aux zones ainsi créées, puis on génère les côtes.
-	4- Calcul de l'environnement, avec la vitesse des vents, l'humidité etc...
-	5- Calcul des étendues d'eau douce et du volume des rivières avec les intempéries.
-	6- Simulation de l'erosion
-	7- Les biomes

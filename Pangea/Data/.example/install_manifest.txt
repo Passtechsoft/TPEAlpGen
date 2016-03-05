@@ -1,4 +1,0 @@
-/usr/local/blackWolf
-/usr/local/DejaVuSansMono.ttf
-/usr/local/Graphics/BoardBlack.jpg
-/usr/local/Graphics/Pieces/ArrayBlack.png

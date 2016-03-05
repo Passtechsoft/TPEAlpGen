@@ -1,1 +1,0 @@
-/usr/bin/c++    -std=c++11 -Wall -pthread -Wno-unused-local-typedefs    CMakeFiles/blackWolf.dir/main.cpp.o  -o blackWolf -rdynamic libcore.a -lboost_system /usr/local/lib/libsfml-graphics.so /usr/local/lib/libsfml-window.so /usr/local/lib/libsfml-system.so /usr/local/lib/libthor.so /usr/local/lib/libsfgui.so -Wl,-rpath,/usr/local/lib: 
