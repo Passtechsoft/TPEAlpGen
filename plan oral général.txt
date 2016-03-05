@@ -1,0 +1,15 @@
+T : 30'   - Intro
+T : '     - Plan
+A : 1:00' - Petite intro obduction
+T : 2:00' - Erosion
+A : 2'    - Simulation
+A : 2'    - Alternatives
+T : 7'    - Simulation
+T :  2'       - Cellules
+Tr:  5'       - Front
+Tr: '         - Interactions
+Tr: '         - CIR
+Tr: '         - compression
+Tr: '         - limites matérielles
+T : 1:00'     - Améliorations
+T : '    - Bilan
