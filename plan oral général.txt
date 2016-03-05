@@ -1,10 +1,10 @@
 T : 30'   - Intro
 T : '     - Plan
-A : 1:00' - Petite intro obduction
+A : 1:00' - Intro tectonique
 T : 2:00' - Erosion
-A : 2'    - Simulation
-A : 2'    - Alternatives
-T : 7'    - Simulation
+A : 1:30' - Histoire Alpes
+A : 2'    - Simulation Alternatives
+A : 30'   - Simulation
 T :  2'       - Cellules
 Tr:  5'       - Front
 Tr: '         - Interactions
