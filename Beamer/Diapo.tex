@@ -7,6 +7,7 @@
 \usepackage{adjustbox}
 \usepackage{colortbl}
 \usepackage{subfigure}
+\usepackage{parcolumns}
 
 \useoutertheme{infolines}
 \setbeamersize{text margin left=1cm,text margin right=1cm}
@@ -102,7 +103,7 @@
 \section{Les simulations}
 
 \subsection{Les cellules}
-\begin{frame}
+\begin{frame}{Définition des cellules}
   Cellule : plus petit élément incompressible. Taille réel de 10 m et de 1 dans la simulation.
   \smallbreak
   Propriétés mutables :
@@ -119,7 +120,7 @@
   Cellules en collision : deux cellules en interaction n'ayant pas la même plaque.
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Représentation graphique des cellules}
   \begin{figure}
     \subfigure[Cellule inactive.]{\includegraphics[height=2.8cm]{Images/cellule_violet.png}}
     \subfigure[Cellule du front.]{\includegraphics[height=2.8cm]{Images/cellule_jaune.png}}
@@ -128,8 +129,7 @@
   \end{figure}
 \end{frame}
 
-\subsection{La disposition des cellules}
-\begin{frame}
+\begin{frame}{Disposition des cellules}
   Disposition en nid-d'abeille au lancement de la simulation, équidistance de 1 entre cellules.
   Distance « parfaite » de 1 entre les cellules.
   \begin{center}
@@ -138,7 +138,7 @@
 \end{frame}
 
 \subsection{Les interaction entre cellules}
-\begin{frame}
+\begin{frame}{Différentes interactions entre cellules}
 \begin{figure}
 \begin{center}
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.5,every node/.style={scale=0.8}]
@@ -181,11 +181,10 @@
 \end{figure}
 \end{frame}
 
-\subsection{Le centre instantané de rotation}
-\begin{frame}
-  \begin{multicols}{2}
+\begin{frame}{Centre instantané de rotation}
+  \begin{minipage}{\dimexpr.55\textwidth-\tabcolsep-.5pt}
     \begin{center}
-      \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.4cm,y=0.4cm,scale=0.65,every node/.style={scale=0.65}]
+      \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.4cm,y=0.4cm,scale=0.7,every node/.style={scale=0.7}]
       \clip(-5,-5) rectangle (17,12);
       \draw [shift={(16.25,7)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-150.26:4.15) arc (-150.26:-139.13:4.15) -- cycle;
       \draw [shift={(16.25,7)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (180:4.15) arc (180:191.31:4.15) -- cycle;
@@ -194,8 +193,8 @@
       \draw (0,-2) -- (0,12);
       \draw [domain=-4:16] plot(\x,{(-0-0*\x)/4});
       \draw [->] (0,7) -- (0,3.75);
-      \draw(0,7) circle (2cm);
-      \draw(4,0) circle (2cm);
+      \draw(0,7) circle (1.61cm);
+      \draw(4,0) circle (1.61cm);
       \draw [domain=-4:16] plot(\x,{(--28-7*\x)/4});
       \draw [->] (4,0) -- (5.38,-2.41);
       \draw (0,7)-- (16.25,7);
@@ -215,18 +214,20 @@
       \draw[color=black] (2.26,3.85) node {$w$};
       \end{scriptsize}
       \end{tikzpicture}
-    \end{center}    \vfill
-    \columnbreak
+    \end{center}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{\dimexpr.38\textwidth-\tabcolsep-.5pt}
     $\overrightarrow{u} = $ vélocité verticale \smallbreak
     $\overrightarrow{v} = $ vélocité horizontale \smallbreak
     $\alpha = \beta = $ rotation autour de F \smallbreak
     $||\overrightarrow{u}|| = \alpha \times d$ \smallbreak
     $||\overrightarrow{v}|| = \alpha \times f$ \smallbreak
     $\alpha = \frac{||\overrightarrow{u}||}{d}$ \smallbreak
-  \end{multicols}
+  \end{minipage}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Démonstration du centre instantané de rotation}
   \begin{figure}
     \begin{center}
     \begin{tabular}{|M|M|M|}
@@ -242,12 +243,12 @@
       \hline
     \end{tabular}
     \end{center}
-    \caption{6 échantillons de compressions avec le CIR.}
+    \caption{Six échantillons de compressions avec le centre instantané de rotation.}
   \end{figure}
 \end{frame}
 
-\subsection{La compression}
-\begin{frame}
+\subsection{La compression et traction}
+\begin{frame}{Loi de Hook et module de Young}
   \begin{center}
     $\sigma = E \times \varepsilon$
   \end{center}
@@ -257,39 +258,45 @@
     \item Granite : 60 GPa ;
     \item Calcaire : 20 à 70 GPa.
   \end{itemize}
-  \smallbreak
-  \begin{center}
-    Si traction : $d' \leqslant 0 \Rightarrow \sigma = -d'^2$ \medbreak
-    Si compression : $d' > 0 \Rightarrow \sigma = d'^2$
-  \end{center}
-  $d'$ = $1 -$ la distance entre les deux cellules. \\
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Approximation de la compression et traction}
+  Approximation symétrique dans les cas de compressions et tractions. \\
+  Où $d'$ = $1 -$ la distance entre les deux cellules. \\
+  \begin{center}
+    Si traction : \medbreak
+    \boxed{d' \leqslant 0 \Rightarrow \sigma = -d'^2} \medbreak
+    Si compression : \medbreak
+    \boxed{d' > 0 \Rightarrow \sigma = d'^2}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Démonstration de la compression et traction}
   \begin{figure}
+  \subfigure[b][Sans compression]{
     \begin{tabular}{|M|M|}
       \arrayrulecolor{sky}
       \hline
-      \includegraphics[width=3cm]{Images/normal_1.png} &
-      \includegraphics[width=3cm]{Images/normal_2.png} \\
+      \includegraphics[width=2.4cm]{Images/normal_1.png} &
+      \includegraphics[width=2.4cm]{Images/normal_2.png} \\
       \hline
     \end{tabular}
-    \caption{Simulation sans compression.}
-  \end{figure}
-  \begin{figure}
+  }
+  \subfigure[Avec compression]{
     \begin{tabular}{|M|M|}
       \arrayrulecolor{sky}
       \hline
-      \includegraphics[width=3cm]{Images/compression_1.png} &
-      \includegraphics[width=3cm]{Images/compression_2.png} \\
+      \includegraphics[width=2.4cm]{Images/compression_1.png} &
+      \includegraphics[width=2.4cm]{Images/compression_2.png} \\
       \hline
     \end{tabular}
-    \caption{Simulation avec compression.}
+  }
+  \caption{Pair de deux échantillons de simulation avec et sans compression}
   \end{figure}
 \end{frame}
 
 \subsection{La propagation par fronts}
-\begin{frame}
+\begin{frame}{Front de cellules}
   Propagation par front, l’ancien front crée le nouveau. Le premier front ne contient que la cellule en collision.
   Chaque cellule du front interagit avec les cellules qui précèdent le front.
   \begin{figure}
@@ -305,11 +312,11 @@
       \includegraphics[width=2.5cm]{Images/front_6.png} \\
       \hline
     \end{tabular}
-    \caption{Bleu : liens entre cellules, Violet : cellules inactives, Noir : cellule de collision, Jaune : cellules appartenant au front.}
+    \caption{Six échantillons de propagation de front lors de la simulation}
   \end{figure}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Calques de vélocités}
   Utilisation d'un calque pour chaque cellule en collision. Fusion des calques avant le déplacement des cellules.
   \begin{figure}
     \begin{center}
@@ -320,7 +327,7 @@
 \end{frame}
 
 \subsection{La friction}
-\begin{frame}
+\begin{frame}{Loi de Coulomb}
   \begin{center}
     $T_0 = f_0 \times N$
   \end{center}
@@ -349,7 +356,7 @@
 \end{frame}
 
 \subsection{Les limites matérielles}
-\begin{frame}
+\begin{frame}{Limites de temps de calcules}
   \begin{center}
     \begin{tikzpicture}
       \begin{axis}[height=5cm,width=10cm, axis x line=bottom, axis y line=left, grid=major, xlabel={Nombre de cellules}, ylabel={Temps de calcul (en ms)}]
@@ -374,7 +381,7 @@
 \end{frame}
 
 \section{Les Améliorations possibles}
-\begin{frame}
+\begin{frame}{Améliorations possibles de la simulation}
   Améliorations au profit du réalisme :
   \begin{itemize}
     \item implémenter les altérations ;
