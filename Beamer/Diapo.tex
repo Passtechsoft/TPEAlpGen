@@ -19,6 +19,8 @@
 \definecolor{xdxdff}{rgb}{0.49,0.49,1}
 \definecolor{uququq}{rgb}{0.25,0.25,0.25}
 \definecolor{qqqqff}{rgb}{0,0,1}
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{yel}{rgb}{1,1,0}
 \setcounter{tocdepth}{4}
 
 \title{Comment simuler numériquement la géomorphologie alpine ?}
@@ -153,13 +155,7 @@
 \begin{frame}
   Disposition en nid-d'abeille au lancement de la simulation, équidistance de 1 entre cellules.
   \begin{center}
-    \includegraphics[width=4cm]{Images/hexagone.png}
-  \end{center}
-  Pour $n_{max}$ cellules en $x$ et $y$ : \\
-  \begin{center}
-    $x_{max} = n_{max}$ \\
-    $x_{min} = n_{max} - 1$ \\
-    $y = n \times \sin{\frac{\pi}{3}}$
+    \includegraphics[width=5cm]{Images/hexagone.png}
   \end{center}
 \end{frame}
 
@@ -169,36 +165,36 @@
 \begin{center}
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.5,every node/.style={scale=0.8}]
 \clip(-2.25,-2.25) rectangle (21.25,6);
-\draw(0,2.83) circle (2cm);
+\draw[red](0,2.83) circle (2cm);
 \draw(2.83,0) circle (2cm);
-\draw(7,2.83) circle (2cm);
+\draw[red](7,2.83) circle (2cm);
 \draw(9.83,0) circle (2cm);
-\draw(15,2) circle (2cm);
+\draw[red](15,2) circle (2cm);
 \draw(19,2) circle (2cm);
-\draw [->] (0,2.83) -- (0,1);
+\draw[yel] [->] (0,2.83) -- (0,1);
 \draw [->] (2.83,0) -- (4.09,-1.26);
 \draw [->] (9.83,0) -- (8.75,1.09);
-\draw [->] (7,2.83) -- (7,4.83);
-\draw [->] (15,2) -- (15,4);
+\draw[yel] [->] (7,2.83) -- (7,4.83);
+\draw[yel] [->] (15,2) -- (15,4);
 \draw [->] (19,2) -- (19,3);
 \begin{scriptsize}
-\fill [color=qqqqff] (0,2.83) circle (1.5pt);
-\draw[color=qqqqff] (0.42,3.21) node {$C_1$};
+\fill [color=red] (0,2.83) circle (1.5pt);
+\draw[color=red] (0.42,3.21) node {$C_1$};
 \fill [color=qqqqff] (2.83,0) circle (1.5pt);
 \draw[color=qqqqff] (3.27,0.36) node {$C_2$};
-\fill [color=qqqqff] (7,2.83) circle (1.5pt);
-\draw[color=qqqqff] (7.42,3.21) node {$C_1$};
+\fill [color=red] (7,2.83) circle (1.5pt);
+\draw[color=red] (7.42,3.21) node {$C_1$};
 \fill [color=qqqqff] (9.83,0) circle (1.5pt);
 \draw[color=qqqqff] (10.24,0.36) node {$C_2$};
-\fill [color=qqqqff] (15,2) circle (1.5pt);
-\draw[color=qqqqff] (15.42,2.36) node {$C_1$};
+\fill [color=red] (15,2) circle (1.5pt);
+\draw[color=red] (15.42,2.36) node {$C_1$};
 \fill [color=qqqqff] (19,2) circle (1.5pt);
 \draw[color=qqqqff] (19.44,2.36) node {$C_2$};
 \draw[color=black] (0.19,2.13) node {$u$};
 \draw[color=black] (3.61,-0.35) node {$?$};
 \draw[color=black] (9.66,0.6) node {$?$};
-\draw[color=black] (7.14,4.04) node {$z$};
-\draw[color=black] (14.91,3.21) node {$i$};
+\draw[color=black] (7.14,4.04) node {$u$};
+\draw[color=black] (14.91,3.21) node {$u$};
 \draw[color=black] (18.63,2.73) node {$?$};
 \end{scriptsize}
 \end{tikzpicture}
@@ -254,16 +250,17 @@
 
 \begin{frame}
   \begin{figure}
-    \begin{center}
-      \includegraphics[width=3.5cm]{Images/cir_1.png}
-      \includegraphics[width=3.5cm]{Images/cir_2.png}
-      \includegraphics[width=3.5cm]{Images/cir_3.png}
-    \end{center}
-    \begin{center}
-      \includegraphics[width=3.5cm]{Images/cir_4.png}
-      \includegraphics[width=3.5cm]{Images/cir_5.png}
-      \includegraphics[width=3.5cm]{Images/cir_6.png}
-    \end{center}
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \includegraphics[width=3.5cm]{Images/cir_1.png} &
+      \includegraphics[width=3.5cm]{Images/cir_2.png} &
+      \includegraphics[width=3.5cm]{Images/cir_3.png} \\
+      \hline
+      \includegraphics[width=3.5cm]{Images/cir_4.png} &
+      \includegraphics[width=3.5cm]{Images/cir_5.png} &
+      \includegraphics[width=3.5cm]{Images/cir_6.png} \\
+      \hline
+    \end{tabular}
     \caption{6 échantillons de compressions avec le CIR.}
   \end{figure}
 \end{frame}
@@ -289,17 +286,21 @@
 
 \begin{frame}
   \begin{figure}
-    \begin{center}
-      \includegraphics[width=3cm]{Images/normal_1.png}
-      \includegraphics[width=3cm]{Images/normal_2.png}
-    \end{center}
+    \begin{tabular}{|c|c|}
+      \hline
+      \includegraphics[width=3cm]{Images/normal_1.png} &
+      \includegraphics[width=3cm]{Images/normal_2.png} \\
+      \hline
+    \end{tabular}
     \caption{Simulation sans compression.}
   \end{figure}
   \begin{figure}
-    \begin{center}
-      \includegraphics[width=3cm]{Images/compression_1.png}
-      \includegraphics[width=3cm]{Images/compression_2.png}
-    \end{center}
+    \begin{tabular}{|c|c|}
+      \hline
+      \includegraphics[width=3cm]{Images/compression_1.png} &
+      \includegraphics[width=3cm]{Images/compression_2.png} \\
+      \hline
+    \end{tabular}
     \caption{Simulation avec compression.}
   \end{figure}
 \end{frame}
@@ -309,17 +310,17 @@
   Propagation par front, l’ancien front crée le nouveau. Le premier front ne contient que la cellule en collision.
   Chaque cellule du front interagit avec les cellules qui précèdent le front.
   \begin{figure}
-    \begin{center}
-      \includegraphics[width=2.5cm]{Images/front_1.png}
-      \includegraphics[width=2.5cm]{Images/front_2.png}
-      \includegraphics[width=2.5cm]{Images/front_3.png}
-    \end{center}
-    \begin{center}
-      \includegraphics[width=2.5cm]{Images/front_4.png}
-      \includegraphics[width=2.5cm]{Images/front_5.png}
-      \includegraphics[width=2.5cm]{Images/front_6.png}
-    \end{center}
-
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \includegraphics[width=2.5cm]{Images/front_1.png} &
+      \includegraphics[width=2.5cm]{Images/front_2.png} &
+      \includegraphics[width=2.5cm]{Images/front_3.png} \\
+      \hline
+      \includegraphics[width=2.5cm]{Images/front_4.png} &
+      \includegraphics[width=2.5cm]{Images/front_5.png} &
+      \includegraphics[width=2.5cm]{Images/front_6.png} \\
+      \hline
+    \end{tabular}
     \caption{Bleu : liens entre cellules, Violet : cellules inactives, Noir : cellule de collision, Jaune : cellules appartenant au front.}
   \end{figure}
 \end{frame}
@@ -381,7 +382,7 @@
     \end{tikzpicture}
   \end{center}
   \begin{center}
-    \boxed{$0.01629 ms/cellule$}
+    \boxed{1.629 \times 10^{-2} ms/cellule}
   \end{center}
   $100 \times 10^2 \times 100 \times 10^2 \times 10 \times 10^2 = 10^{11}$ cellules \\
   100 milliards de cellules : $16290000000$ ms = 4525 h = 189 j\\
