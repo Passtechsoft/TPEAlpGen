@@ -5,7 +5,7 @@ T : 2:00' - Erosion
 A : 1:30' - Histoire Alpes
 A : 2'    - Simulation Alternatives
 A : 30'   - Simulation
-T :  2'       - Cellules
+T : 30'       - Cellules
 Tr: 5'        - Disposition
 Tr: '         - Interactions
 Tr: '         - CIR
