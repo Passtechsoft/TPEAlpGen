@@ -55,28 +55,35 @@
 \headcommand {\beamer@framepages {15}{15}}
 \headcommand {\slideentry {4}{6}{3}{16/16}{La propagation par fronts}{0}}
 \headcommand {\beamer@framepages {16}{16}}
-\headcommand {\slideentry {4}{6}{4}{17/17}{La propagation par fronts}{0}}
+\headcommand {\beamer@subsectionentry {0}{4}{6}{17}{La propagation par fronts}}\headcommand {\beamer@subsectionpages {16}{16}}
+\headcommand {\slideentry {4}{6}{1}{17/17}{La propagation par fronts}{0}}
 \headcommand {\beamer@framepages {17}{17}}
-\headcommand {\beamer@subsectionentry {0}{4}{7}{18}{La compression}}\headcommand {\beamer@subsectionpages {14}{17}}
-\headcommand {\slideentry {4}{7}{1}{18/18}{La compression}{0}}
+\headcommand {\slideentry {4}{6}{2}{18/18}{La propagation par fronts}{0}}
 \headcommand {\beamer@framepages {18}{18}}
-\headcommand {\slideentry {4}{7}{2}{19/19}{La compression}{0}}
+\headcommand {\slideentry {4}{6}{3}{19/19}{La propagation par fronts}{0}}
 \headcommand {\beamer@framepages {19}{19}}
-\headcommand {\beamer@subsectionentry {0}{4}{8}{20}{La friction}}\headcommand {\beamer@subsectionpages {18}{19}}
-\headcommand {\slideentry {4}{8}{1}{20/20}{La friction}{0}}
+\headcommand {\slideentry {4}{6}{4}{20/20}{La propagation par fronts}{0}}
 \headcommand {\beamer@framepages {20}{20}}
-\headcommand {\sectionentry {5}{Les Am\IeC {\'e}liorations possibles}{21}{Les Am\IeC {\'e}liorations possibles}{0}}
-\headcommand {\beamer@sectionpages {9}{20}}
-\headcommand {\beamer@subsectionpages {20}{20}}
-\headcommand {\slideentry {5}{0}{2}{21/21}{}{0}}
+\headcommand {\beamer@subsectionentry {0}{4}{7}{21}{La compression}}\headcommand {\beamer@subsectionpages {17}{20}}
+\headcommand {\slideentry {4}{7}{1}{21/21}{La compression}{0}}
 \headcommand {\beamer@framepages {21}{21}}
-\headcommand {\sectionentry {6}{Conclusion}{22}{Conclusion}{0}}
-\headcommand {\beamer@sectionpages {21}{21}}
-\headcommand {\beamer@subsectionpages {21}{21}}
-\headcommand {\slideentry {6}{0}{3}{22/22}{}{0}}
+\headcommand {\slideentry {4}{7}{2}{22/22}{La compression}{0}}
 \headcommand {\beamer@framepages {22}{22}}
-\headcommand {\beamer@partpages {1}{22}}
-\headcommand {\beamer@subsectionpages {22}{22}}
-\headcommand {\beamer@sectionpages {22}{22}}
-\headcommand {\beamer@documentpages {22}}
-\headcommand {\def \inserttotalframenumber {22}}
+\headcommand {\beamer@subsectionentry {0}{4}{8}{23}{La friction}}\headcommand {\beamer@subsectionpages {21}{22}}
+\headcommand {\slideentry {4}{8}{1}{23/23}{La friction}{0}}
+\headcommand {\beamer@framepages {23}{23}}
+\headcommand {\sectionentry {5}{Les Am\IeC {\'e}liorations possibles}{24}{Les Am\IeC {\'e}liorations possibles}{0}}
+\headcommand {\beamer@sectionpages {12}{23}}
+\headcommand {\beamer@subsectionpages {23}{23}}
+\headcommand {\slideentry {5}{0}{2}{24/24}{}{0}}
+\headcommand {\beamer@framepages {24}{24}}
+\headcommand {\sectionentry {6}{Conclusion}{25}{Conclusion}{0}}
+\headcommand {\beamer@sectionpages {24}{24}}
+\headcommand {\beamer@subsectionpages {24}{24}}
+\headcommand {\slideentry {6}{0}{3}{25/25}{}{0}}
+\headcommand {\beamer@framepages {25}{25}}
+\headcommand {\beamer@partpages {1}{25}}
+\headcommand {\beamer@subsectionpages {25}{25}}
+\headcommand {\beamer@sectionpages {25}{25}}
+\headcommand {\beamer@documentpages {25}}
+\headcommand {\def \inserttotalframenumber {25}}

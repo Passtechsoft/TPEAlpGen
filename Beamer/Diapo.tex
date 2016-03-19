@@ -1,6 +1,9 @@
 \documentclass{beamer}
 
+\usepackage[frenchb]{babel}
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+
 \usepackage{default}
 \usepackage{pslatex}
 \usepackage{graphicx}
@@ -8,7 +11,6 @@
 \usepackage{pgfplots}
 % \usepackage{algorithmic}
 \usepackage{multicol}
-\usepackage[french]{babel}
 
 \usetheme{Warsaw}
 \usetikzlibrary{arrows}
@@ -139,7 +141,7 @@
 
 \subsection{Les cellules}
 \begin{frame}
-  Cellule : le plus petit élément incompressible de la simulation, représenté par une sphère de diamètre 1. \smallbreak
+  Cellule : plus petit élément incompressible, sphère de diamètre 1. \smallbreak
   \begin{figure}
     \begin{center}
       \includegraphics[width=2cm]{Images/cellule.png}
@@ -160,7 +162,7 @@
 
 \subsection{La disposition des cellules}
 \begin{frame}
-  Disposition en nid-d'abeille au lancement de la simulation, équidistance de 1 entre les cellules.
+  Disposition en nid-d'abeille au lancement de la simulation, équidistance de 1 entre cellules.
   \begin{center}
     \includegraphics[width=4cm]{Images/hexagone.png}
   \end{center}
@@ -261,6 +263,58 @@
   \end{multicols}
 \end{frame}
 
+\begin{frame}
+  \begin{figure}
+    \begin{center}
+      \includegraphics[width=3.5cm]{Images/cir_1.png}
+      \includegraphics[width=3.5cm]{Images/cir_2.png}
+      \includegraphics[width=3.5cm]{Images/cir_3.png}
+    \end{center}
+    \begin{center}
+      \includegraphics[width=3.5cm]{Images/cir_4.png}
+      \includegraphics[width=3.5cm]{Images/cir_5.png}
+      \includegraphics[width=3.5cm]{Images/cir_6.png}
+    \end{center}
+    \caption{6 échantillons de compressions avec le CIR.}
+  \end{figure}
+\end{frame}
+
+\subsection{La compression}
+\begin{frame}
+  \begin{center}
+    $\sigma = E \times \varepsilon$
+  \end{center}
+  $\sigma = $ Contrainte appliquée sur le matériau (en Pa). $E = $ Module de Young pour le matériau étudié (en Pa). $\varepsilon = $ Coefficient de déformation (en $\%$). \smallbreak
+  Module de Young :
+  \begin{itemize}
+    \item Granite : 60 GPa ;
+    \item Calcaire : 20 à 70 GPa.
+  \end{itemize}
+  \smallbreak
+  \begin{center}
+    Si traction : $d' \leqslant 0 \Rightarrow \sigma = -d'^2$ \medbreak
+    Si compression : $d' > 0 \Rightarrow \sigma = d'^2$
+  \end{center}
+  $d'$ = $1 -$ la distance entre les deux cellules. \\
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \begin{center}
+      \includegraphics[width=3cm]{Images/normal_1.png}
+      \includegraphics[width=3cm]{Images/normal_2.png}
+    \end{center}
+    \caption{Simulation sans compression.}
+  \end{figure}
+  \begin{figure}
+    \begin{center}
+      \includegraphics[width=3cm]{Images/compression_1.png}
+      \includegraphics[width=3cm]{Images/compression_2.png}
+    \end{center}
+    \caption{Simulation avec compression.}
+  \end{figure}
+\end{frame}
+
 \subsection{La propagation par fronts}
 \begin{frame}
   Propagation par front, l’ancien front crée le nouveau. Le premier front ne contient que la cellule en collision.
@@ -290,75 +344,6 @@
     \caption{Du rouge vers le jaune les différentes vélocités par cellules et par collisions.}
   \end{figure}
 \end{frame}
-
-\begin{frame}
-  \begin{multicols}{2}
-    \includegraphics[width=6cm]{Images/geogebra_2.png}
-    \vfill
-    \columnbreak
-    Si $(\overrightarrow{v}, \overrightarrow{u}) = 0$ \smallbreak
-    $\overrightarrow{v} = \overrightarrow{u}$ \smallbreak
-    $d = f = \infty$ \smallbreak
-    Si $(\overrightarrow{u}, \overrightarrow{v}) = \frac{\pi}{2}$ \smallbreak
-    $f = 0$ \smallbreak
-    $\overrightarrow{v} = \overrightarrow{0}$
-  \end{multicols}
-\end{frame}
-
-\begin{frame}
-  \begin{figure}
-    \begin{center}
-      \includegraphics[width=3.5cm]{Images/cir_1.png}
-      \includegraphics[width=3.5cm]{Images/cir_2.png}
-      \includegraphics[width=3.5cm]{Images/cir_3.png}
-    \end{center}
-    \begin{center}
-      \includegraphics[width=3.5cm]{Images/cir_4.png}
-      \includegraphics[width=3.5cm]{Images/cir_5.png}
-      \includegraphics[width=3.5cm]{Images/cir_6.png}
-    \end{center}
-    \caption{6 échantillons de compressions avec le CIR.}
-  \end{figure}
-\end{frame}
-
-
-
-\subsection{La compression}
-\begin{frame}
-  \begin{center}
-    $\sigma = E \times \varepsilon$
-  \end{center}
-  $\sigma = $ La contrainte appliquée sur le matériau (en Pa). $E = $ Le module de Young pour le matériau étudié (en Pa). $\varepsilon = $ Coefficient de déformation (en $\%$). \smallbreak
-  Module de Young :
-  \begin{itemize}
-    \item Granite : 60 GPa ;
-    \item Calcaire : 20 à 70 GPa.
-  \end{itemize}
-  \smallbreak
-  \begin{center}
-    Si traction : $d' \leqslant 0 \Rightarrow E = -d'^2$ \medbreak
-    Si compression : $d' > 0 \Rightarrow E = d'^2$
-  \end{center}
-  $d'$ = différence entre $1$ et la distance entre les deux cellules. \\
-\end{frame}
-
-\begin{frame}
-  \begin{figure}
-    \begin{center}
-      \includegraphics[width=3cm]{Images/normal_1.png}
-      \includegraphics[width=3cm]{Images/normal_2.png}
-    \end{center}
-    \caption{Simulation sans compression.}
-  \end{figure}
-  \begin{figure}
-    \begin{center}
-      \includegraphics[width=3cm]{Images/compression_1.png}
-      \includegraphics[width=3cm]{Images/compression_2.png}
-    \end{center}
-    \caption{Simulation avec compression.}
-  \end{figure}
-\end{frame}
-
 
 \subsection{La friction}
 \begin{frame}
