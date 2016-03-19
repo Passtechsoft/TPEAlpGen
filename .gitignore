@@ -13,3 +13,8 @@
 /Beamer/*.toc
 /Beamer/*.log
 /Beamer/*.aux
+/Beamer/*.nav
+/Beamer/*.out
+/Beamer/*.snm
+/Beamer/*.idx
+/Beamer/*.backup
