@@ -1,10 +1,12 @@
 \documentclass{beamer}
 
-\usepackage[frenchb]{babel}
-\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\DeclareUnicodeCharacter{00A0}{ }
 
-\usepackage{default}
+
 \usepackage{pslatex}
 \usepackage{graphicx}
 \usepackage{tikz}
@@ -42,7 +44,24 @@
   \end{multicols}
 \end{frame}
 
-\section{Les phénomènes géormophologiques}
+\section{Concepts clefs}
+
+\subsection{Glossaire}
+\begin{frame}
+ \begin{center}
+	\begin{figure}
+	 \includegraphics[width=8cm]{Images/Images_Alexis/image007.jpg}
+	 \caption{Exemple d'obduction}
+	\end{figure}
+		\begin{itemize}
+		 \item Géomorphologie: étude de la genèse des reliefs.
+		 \item Plaque litosphérique : Partie supérieure des plaques tectoniques - terrestres ou maritimes -
+		 \item Asténosphere : partie inférieure des plaques tectoniques, siège des séismes de profondeurs
+		 \item Obduction : une plaque en chevauche une autre
+		\end{itemize}
+ \end{center}
+\end{frame}
+ 
 \subsection{La subduction et l'obduction}
 \begin{frame}
   \begin{figure}
@@ -52,6 +71,19 @@
       \caption{A gauche le subduction et à droite l'obduction.}
     \end{center}
   \end{figure}
+\end{frame}
+
+\subsection{Introduction à la tectonique des plaques}
+\begin{frame}
+  \begin{center}
+    \begin{figure}
+      \includegraphics[width=8cm]{Images/Images_Alexis/plaques.png}
+      \caption{Carte des principales plaques tectoniques}
+      \includegraphics[width=8cm]{Images/Images_Alexis/andes.jpg}
+      \includegraphics[width=8cm]{Images/Images_Alexis/japon.jpg}
+      \caption{A droite les Andes, à gauche le Japon}
+    \end{figure}
+  \end{center}
 \end{frame}
 
 \section{Les altérations}
@@ -124,7 +156,111 @@
   \end{center}
 \end{frame}
 
-\section{Les simulations}
+\section{Problématiques géologiques des Alpes}
+
+\subsection{Un bref historique des Alpes}
+\begin{frame}
+	\begin{center}
+		\begin{figure}
+			\includegraphics[width=4cm]{Images/Images_Alexis/mont_blanc.jpg}
+		\end{figure}
+
+		Historique des Alpes, d'aujourd'hui
+		\begin{itemize}
+		 \item -200 Ma, trias : ouverture de l’océan alpin ;
+		 \item -140 Ma, crétacé inférieur : début de la compression de l’océan alpin ;
+		 \item -65 Ma, paléocène : émersion de la plate-forme continentale, le mont blanc passe sous la zone d'obduction pour ressurgir ensuite ;
+		 \item -23 Ma : néogène, création du jura
+		 \item Pliocène : séparation de la couche calcaire du reste des plis
+		\end{itemize}
+	\end{center}
+\end{frame}
+
+\subsection{L'effet des glaciers sur le paysage Alpin}
+\begin{frame}
+	\begin{center}
+		\begin{figure}
+			\includegraphics[width=4cm]{Images/Images_Alexis/glaciers_img3.png}
+			\includegraphics[width=4cm]{Images/Images_Alexis/glacier_reculon.png}
+			\includegraphics[width=4cm]{Images/Images_Alexis/gresivaudan.jpg}
+		\end{figure}
+	\end{center}
+\end{frame}
+
+
+\section{Simulations Alternatives}
+
+\subsection{Le bruit de perlin}
+\begin{frame}
+	\begin{center}
+	 \begin{figure}
+	  \includegraphics[width=4cm]{Images/Images_Alexis/perlin_noise.png}
+	  \includegraphics[width=4cm]{Images/Images_Alexis/fractal&shader.jpg}
+	 \end{figure}
+
+	\end{center}
+
+\end{frame}
+
+\subsection{Voronoi}
+\begin{frame}
+ \begin{center}
+  \begin{figure}
+   \includegraphics[width=10cm]{Images/Images_Alexis/voronoi.png}
+  \end{figure}
+
+ \end{center}
+
+\end{frame}
+
+
+\subsection{Voxels}
+\subsubsection{Explications}
+\begin{frame}
+ \begin{center}
+	Voxels \& Boxels
+  \begin{figure}
+   \includegraphics[width=6cm]{Images/Images_Alexis/voxel_teapot.jpg}
+   \includegraphics[width=6cm]{Images/Images_Alexis/example_matricielle.jpg}
+   \includegraphics[width=6cm]{Images/Images_Alexis/comparaison_vecteur_matrice.png}
+  \end{figure}
+ \end{center}
+\end{frame}
+
+\subsubsection{Examples}
+\begin{frame}
+ \begin{center}
+  \begin{figure}
+   \includegraphics[width=6cm]{Images/Images_Alexis/voxel_engine3.jpg}
+   \includegraphics[width=6cm]{Images/Images_Alexis/voxel_engine1.jpg}
+   \includegraphics[width=6cm]{Images/Images_Alexis/voxel_engine4.jpg}
+   \includegraphics[width=6cm]{Images/Images_Alexis/voxel_engine2.jpg}
+  \end{figure}
+ \end{center}
+\end{frame}
+
+\subsection{Simulations physiques}
+\begin{frame}
+ \begin{center}
+	Simulation physique
+  \begin{figure}
+   \includegraphics[width=10cm]{Images/simulation_physique.png}
+  \end{figure}
+ \end{center}
+\end{frame}
+
+\subsection{Autres simulations cellulaires}
+\begin{frame}
+ \begin{center}
+  \begin{figure}
+   \includegraphics[width=10cm]{Images/3100_cell.png}
+   \includegraphics[width=10cm]{Images/7100_cell.png}
+  \end{figure}
+ \end{center}
+\end{frame}
+
+%subduction_converence_ocean.png
+\section{La simulation cellulaire}
 
 \subsection{Les cellules}
 \begin{frame}
