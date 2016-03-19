@@ -376,7 +376,27 @@
 
 \subsection{Les limites matérielles}
 \begin{frame}
-  
+  \begin{center}
+    \begin{tikzpicture}
+      \begin{axis}[height=5cm,width=10cm, axis x line=bottom, axis y line=left, grid=major, xlabel={Nombre de cellules}, ylabel={Temps de calcul (en ms)}]
+	\addplot coordinates {
+	  (100,2.5)
+	  (2500,41)
+	  (10000,167)
+	  (22500,366)
+	  (40000,654)
+	  (62500,1010)
+	  (90000,1466)
+	};
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+  \begin{center}
+    \boxed{$0.01629 ms/cellule$}
+  \end{center}
+  $100 \times 10^2 \times 100 \times 10^2 \times 10 \times 10^2 = 10^{11}$ cellules \\
+  100 milliards de cellules : $16290000000$ ms = 4525 h = 189 j\\
+  $10000$ cellules en collisions : 1890000 j = 5178 a.
 \end{frame}
 
 \section{Les Améliorations possibles}
