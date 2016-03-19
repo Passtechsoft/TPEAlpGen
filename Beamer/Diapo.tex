@@ -6,6 +6,7 @@
 \usepackage{pgfplots}
 \usepackage{adjustbox}
 \usepackage{colortbl}
+\usepackage{subfigure}
 
 \useoutertheme{infolines}
 \setbeamersize{text margin left=1cm,text margin right=1cm}
@@ -106,8 +107,8 @@
 
 \subsection{Les cellules}
 \begin{frame}
-  Cellule : plus petit élément incompressible.
-   \smallbreak
+  Cellule : plus petit élément incompressible. Taille réel de 10 m et de 1 dans la simulation.
+  \smallbreak
   Propriétés mutables :
   \begin{itemize}
    \item vélocité~;
@@ -117,19 +118,24 @@
   Propriétés immuables :
   \begin{itemize}
    \item plaque tectonique.\\
-   Si plaque différente : cellules en collision
   \end{itemize}
+  \smallbreak
+  Cellules en collision : deux cellules en interaction n'ayant pas la même plaque.
+\end{frame}
+
+\begin{frame}
   \begin{figure}
-    \begin{center}
-      \includegraphics[width=2cm]{Images/cellule.png}
-    \end{center}
-    \caption{Représentation de 2 cellules.}
+    \subfigure[Cellule inactive.]{\includegraphics[height=2.8cm]{Images/cellule_violet.png}}
+    \subfigure[Cellule du front.]{\includegraphics[height=2.8cm]{Images/cellule_jaune.png}}
+    \subfigure[Cellule en collision.]{\includegraphics[height=2.8cm]{Images/cellule_noir.png}}
+    \caption{Représentation graphique de tous les états d'une cellule. Les interactions sont symbolisées par des lignes bleues.}
   \end{figure}
 \end{frame}
 
 \subsection{La disposition des cellules}
 \begin{frame}
   Disposition en nid-d'abeille au lancement de la simulation, équidistance de 1 entre cellules.
+  Distance « parfaite » de 1 entre les cellules.
   \begin{center}
     \includegraphics[width=5cm]{Images/hexagone.png}
   \end{center}
