@@ -18,3 +18,4 @@
 /Beamer/*.snm
 /Beamer/*.idx
 /Beamer/*.backup
+/Beamer/*.synctex.gz
