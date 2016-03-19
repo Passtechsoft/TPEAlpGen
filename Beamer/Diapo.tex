@@ -103,9 +103,15 @@
 \section{Les simulations}
 
 \subsection{Les cellules}
-\begin{frame}{Définition des cellules}
-  Cellule : plus petit élément incompressible. Taille réel de 10 m et de 1 dans la simulation.
-  \smallbreak
+\begin{frame}{Définition d'une cellule}
+  Cellule : plus petit élément incompressible.\\
+  Taille réelle : sphère de 10 m de Ø\\
+  Taille dans la simulation : cercle de Ø 1
+  \begin{figure}
+    \begin{center}
+      \includegraphics[width=1.5cm]{Images/cellule.png}
+    \end{center}
+  \end{figure}
   Propriétés mutables :
   \begin{itemize}
    \item vélocité~;
@@ -120,7 +126,7 @@
   Cellules en collision : deux cellules en interaction n'ayant pas la même plaque.
 \end{frame}
 
-\begin{frame}{Représentation graphique des cellules}
+\begin{frame}{Représentation graphique de cellules}
   \begin{figure}
     \subfigure[Cellule inactive.]{\includegraphics[height=2.8cm]{Images/cellule_violet.png}}
     \subfigure[Cellule du front.]{\includegraphics[height=2.8cm]{Images/cellule_jaune.png}}
@@ -384,26 +390,18 @@
 \begin{frame}{Améliorations possibles de la simulation}
   Améliorations au profit du réalisme :
   \begin{itemize}
-    \item implémenter les altérations ;
-    \item implémentation de la loi de Hooke et du module de Young~;
-    \item implémentation de la loi de Coulomb~;
-    \item implémentation de l'inertie.
+    \item implémenter les altérations~;
+    \item implémenter la loi de Hooke et la loi de Coulomb~;
+    \item implémenter l'inertie.
   \end{itemize}
-  Améliorations au profit de l'optimisation :
+  Améliorations au profit de l'optimisation~:
   \begin{itemize}
-    \item regroupement de cellules en fonction de la profondeur~;
-    \item parallélisation des calculs (utilisation de l'accélération graphique).
+    \item regrouper certaines cellules de vecteurs~;
+    \item paralléliser les calculs (accélération graphique).
   \end{itemize}
 \end{frame}
 
 \section{Conclusion}
-\begin{frame}
- \begin{center}
-  \begin{huge}
-   Fin
-  \end{huge} 
- \end{center}
-\end{frame}
 
 
 \end{document}
