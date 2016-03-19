@@ -1,48 +1,36 @@
 \documentclass{beamer}
 
-\usepackage[frenchb]{babel}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
+\input{entete_beamer_pdflatex}
 
-\usepackage{default}
-\usepackage{pslatex}
-\usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{pgfplots}
-% \usepackage{algorithmic}
-\usepackage{multicol}
+\usepackage{adjustbox}
+\usepackage{colortbl}
 
-\usetheme{Warsaw}
+\useoutertheme{infolines}
 \usetikzlibrary{arrows}
-\pagestyle{empty}
 \definecolor{qqwuqq}{rgb}{0,0.39,0}
 \definecolor{xdxdff}{rgb}{0.49,0.49,1}
 \definecolor{uququq}{rgb}{0.25,0.25,0.25}
 \definecolor{qqqqff}{rgb}{0,0,1}
 \definecolor{red}{rgb}{1,0,0}
 \definecolor{yel}{rgb}{1,1,0}
+\definecolor{sky}{rgb}{0.2,0.2,1}
 \setcounter{tocdepth}{4}
+\newcolumntype{M}{>{$\vcenter\bgroup\hbox\bgroup}c<{\egroup\egroup$}}
+\setlength{\arrayrulewidth}{2pt}
+\setlength{\extrarowheight}{0pt}
+\setlength{\tabcolsep}{0pt}
 
 \title{Comment simuler numériquement la géomorphologie alpine ?}
 \subtitle{Sujet de TPE}
 \author{Gros Alexis, Manceau Thibaut, Porteries Tristan}
 % \logo{\includegraphics[height=0.5cm]{blender.png}}
 
-\makeindex
-
-\useoutertheme{infolines}
-
 \begin{document}
 
 % Titre
 \frame{\titlepage}
-
-% Sommaire
-\begin{frame}{Sommaire}
-  \begin{multicols}{2}
-    \small \tableofcontents
-  \end{multicols}
-\end{frame}
 
 \section{Les phénomènes géormophologiques}
 \subsection{La subduction et l'obduction}
@@ -250,7 +238,9 @@
 
 \begin{frame}
   \begin{figure}
-    \begin{tabular}{|c|c|c|}
+    \begin{center}
+    \begin{tabular}{|M|M|M|}
+      \arrayrulecolor{sky}
       \hline
       \includegraphics[width=3.5cm]{Images/cir_1.png} &
       \includegraphics[width=3.5cm]{Images/cir_2.png} &
@@ -261,6 +251,7 @@
       \includegraphics[width=3.5cm]{Images/cir_6.png} \\
       \hline
     \end{tabular}
+    \end{center}
     \caption{6 échantillons de compressions avec le CIR.}
   \end{figure}
 \end{frame}
@@ -286,7 +277,8 @@
 
 \begin{frame}
   \begin{figure}
-    \begin{tabular}{|c|c|}
+    \begin{tabular}{|M|M|}
+      \arrayrulecolor{sky}
       \hline
       \includegraphics[width=3cm]{Images/normal_1.png} &
       \includegraphics[width=3cm]{Images/normal_2.png} \\
@@ -295,7 +287,8 @@
     \caption{Simulation sans compression.}
   \end{figure}
   \begin{figure}
-    \begin{tabular}{|c|c|}
+    \begin{tabular}{|M|M|}
+      \arrayrulecolor{sky}
       \hline
       \includegraphics[width=3cm]{Images/compression_1.png} &
       \includegraphics[width=3cm]{Images/compression_2.png} \\
@@ -310,7 +303,8 @@
   Propagation par front, l’ancien front crée le nouveau. Le premier front ne contient que la cellule en collision.
   Chaque cellule du front interagit avec les cellules qui précèdent le front.
   \begin{figure}
-    \begin{tabular}{|c|c|c|}
+    \begin{tabular}{|M|M|M|}
+      \arrayrulecolor{sky}
       \hline
       \includegraphics[width=2.5cm]{Images/front_1.png} &
       \includegraphics[width=2.5cm]{Images/front_2.png} &
