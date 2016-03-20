@@ -1,11 +1,14 @@
-- Application du deplacement globale de la plaque à toutes les cellules.
 - Collision :
-	- Test de collision entre cellules avec des spheres.
-	- Enregistrement de la vélocité dû à la collision.
-- Deplacement des cellules en fonction de leur velocité enregistré :
-	Pour chaque rayons d'ondes :
+	- Test de collision entre cellules avec des sphères.
+	- Enregistrement de la vélocité dûe à la collision.
+- Déplacement des cellules en fonction de leur vélocité enregistrée :
+	Pour chaque rayon d'onde :
 		- Construction d'un kdtree des cellules.
-		- Diffusion de la velocité aux cellules adjacentes.
+		- Diffusion de la vélocité aux cellules adjacentes.
 
-Pour chaque tests de collision, la cellule declencheuse demande recursivement a totu les cellule adjacent si elle peuvent se deplacer:
-- pour chaque cellule on test si elle peuvent ce deplacer puis on stocke leur cellules adjacentes dans une list puis, prochaine iteration
+Pour chaque test de collision, la cellule déclencheuse demande récursivement à toutes les cellules adjacentes si elles peuvent se déplacer :
+- pour chaque cellule, on teste si elle peut se déplacer puis on stocke les cellules adjacentes dans une liste. On lance l'itération suivante.
+
+À la fin de chaque itération : 
+- Application du déplacement global de la plaque à toutes les cellules.
+Puis on recommence tout
