@@ -9,7 +9,7 @@ extern "C" {
 
 #include "glew-mx.h"
 
-static float radius = std::sqrt(std::pow(0.5f, 2.0f) + std::pow(1.0f, 2.0f));
+static float radius = 1.0f; //std::sqrt(std::pow(0.5f, 2.0f) + std::pow(1.0f, 2.0f));
 
 KX_Cell::KX_Cell(MT_Vector3 position):
 	m_position(position),
@@ -34,7 +34,7 @@ void KX_Cell::FindAdjacents(KDTree *tree, KX_CellList& cells)
 	KDTreeNearest *nearests = NULL;
 
 	// On recherche toutes les cellules dans un certain rayon.
-	unsigned int found = BLI_kdtree_range_search(tree, m_position.getValue(), &nearests, radius);
+	unsigned int found = BLI_kdtree_range_search(tree, m_position.getValue(), &nearests, radius * 1.25);
 
 	for (unsigned int i = 0; i < found; ++i) {
 		const KDTreeNearest& nearest = nearests[i];
@@ -69,7 +69,7 @@ void KX_Cell::AddInFront(KX_CellList& cells)
 }
 
 #define USE_DIRECTION
-// #define USE_DISTANCE
+#define USE_DISTANCE
 
 void KX_Cell::PropagateVelocity(unsigned int layer)
 {
@@ -175,11 +175,12 @@ void KX_Cell::PropagateVelocity(unsigned int layer)
 
 		float diff = radius - distance;
 		float comp = 0.0f;
+		float pow = 2.0;
 		if (diff < 0.0f) {
-			comp = -std::pow(-diff, 3.5f);
+			comp = -std::pow(-diff, pow);
 		}
 		else {
-			comp = std::pow(diff, 3.5f);
+			comp = std::pow(diff, pow);
 		}
 // 		std::cout << comp << ", " << distance << std::endl;
 		MT_Vector3 velocity = dirnorm * originalVelocity.length() * factor + dirnorm * comp;
@@ -257,7 +258,7 @@ void KX_Cell::Render()
 
 	glColor3fv(m_color.getValue());
 	GLUquadric *quad = gluNewQuadric();
-	gluSphere(quad, 0.4f, 10, 10);
+	gluSphere(quad, 0.1f, 10, 10);
 
 	glPopMatrix();
 

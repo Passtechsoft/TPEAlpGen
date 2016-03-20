@@ -10,8 +10,8 @@ extern "C" {
 
 KX_Terrain::KX_Terrain()
 	:m_tree(NULL),
-	m_sizeX(10),
-	m_sizeY(10),
+	m_sizeX(16),
+	m_sizeY(16),
 	m_interval(1.0f),
 	m_time(0.0f)
 {
@@ -23,31 +23,17 @@ KX_Terrain::KX_Terrain()
 		// Le décalage en x de la première cellule : alternance 0 et m_interval / 2.
 		float gapx = (y % 2) ? (m_interval / 2.0f) : 0.0f;
 		for (unsigned int x = 0; x < maxx; ++x) {
-			/* L'ajout de bruit dans la position des cellules permet une certaine stabilité
-			 * car le CIR ne fonctionne pas avec un angle parfais de 0 ou pi/2.
-			 */
-			const float randmax = 0.2f;
-			float randx = 
-#ifdef USE_RAND
-				(float)rand() / (float) (RAND_MAX / randmax);
-#else
-				0.0f;
-#endif
-			float randy = 
-#ifdef USE_RAND
-				(float)rand() / (float) (RAND_MAX / randmax);
-#else
-				0.0f;
-#endif
-			MT_Vector3 position(x * m_interval + gapx + randx,
-								y * m_interval * yinterval + randy, 
-								0.0f);
-			KX_Cell *cell = new KX_Cell(position);
-			m_cells.push_back(cell);
+			for (unsigned int z = 0; z < 2; ++z) {
+				MT_Vector3 position(x * m_interval + gapx,
+									y * m_interval * yinterval, 
+									z * m_interval);
+				KX_Cell *cell = new KX_Cell(position);
+				m_cells.push_back(cell);
+			}
 		}
 	}
 
-	const float scale = .2f;
+	const float scale = .02f;
 
 	const unsigned int colliders = 2;
 	unsigned int indices[colliders] = {
@@ -56,7 +42,7 @@ KX_Terrain::KX_Terrain()
 // 		(unsigned int)m_cells.size() - 5
 	};
 
-	MT_Vector3 direction(0.f, 0.5f, 0.0f);
+	MT_Vector3 direction(0.2f, 0.5f, 0.0f);
 	MT_Vector3 velocities[colliders] = {
 		direction * scale,
 // 		direction * scale,
@@ -64,7 +50,7 @@ KX_Terrain::KX_Terrain()
 		direction * -scale
 	};
 
-	for (unsigned int i = 0; i < m_sizeX; ++i) {
+	for (unsigned int i = 0; i < m_sizeX * m_sizeY; ++i) {
 		KX_ColliderInfo info;
 		info.cell = m_cells[/*indices[i]*/i];
 		info.velocity = direction * scale; //velocities[i];
