@@ -1,42 +1,40 @@
 \documentclass{beamer}
 
-\usepackage[french]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{textcomp}
-\DeclareUnicodeCharacter{00A0}{ }
-
-
 \usepackage{pslatex}
 \usepackage{graphicx}
+\input{entete_beamer_pdflatex}
 \usepackage{tikz}
 \usepackage{pgfplots}
-% \usepackage{algorithmic}
-\usepackage{multicol}
+\usepackage{adjustbox}
+\usepackage{colortbl}
+\usepackage{subfigure}
+\usepackage{parcolumns}
 
-\usetheme{Warsaw}
+\useoutertheme{infolines}
+\setbeamersize{text margin left=1cm,text margin right=1cm}
 \usetikzlibrary{arrows}
-\pagestyle{empty}
 \definecolor{qqwuqq}{rgb}{0,0.39,0}
 \definecolor{xdxdff}{rgb}{0.49,0.49,1}
 \definecolor{uququq}{rgb}{0.25,0.25,0.25}
 \definecolor{qqqqff}{rgb}{0,0,1}
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{yel}{rgb}{1,1,0}
+\definecolor{sky}{rgb}{0.2,0.2,1}
 \setcounter{tocdepth}{4}
+\newcolumntype{M}{>{$\vcenter\bgroup\hbox\bgroup}c<{\egroup\egroup$}}
+\setlength{\arrayrulewidth}{2pt}
+\setlength{\extrarowheight}{0pt}
+\setlength{\tabcolsep}{0pt}
 
 \title{Comment simuler numériquement la géomorphologie alpine ?}
 \subtitle{Sujet de TPE}
 \author{Gros Alexis, Manceau Thibaut, Porteries Tristan}
 % \logo{\includegraphics[height=0.5cm]{blender.png}}
 
-\makeindex
-
-\useoutertheme{infolines}
-
 \begin{document}
 
 % Titre
 \frame{\titlepage}
-
 % Sommaire
 \begin{frame}{Sommaire}
   \begin{multicols}{2}
@@ -62,6 +60,7 @@
  \end{center}
 \end{frame}
  
+
 \subsection{La subduction et l'obduction}
 \begin{frame}
   \begin{figure}
@@ -91,26 +90,14 @@
 \begin{frame}
   \begin{center}
     \begin{figure}
-      \includegraphics[width=4.5cm]{Images/Diapos/Alteration/Physique/cryoclastie.jpg}
-      \caption{Cryoclastie}
-    \end{figure}
-  \end{center}
-  \begin{center}
-    \begin{figure}
-      \includegraphics[width=7.4cm]{Images/Diapos/Alteration/Physique/haloclastie3.jpg}
-      \caption{Haloclastie}
+      \includegraphics[width=6cm]{Images/Diapos/Alteration/Physique/cryoclastie.jpg}
+      \caption{Exemple du phénomène de cryoclastie}
     \end{figure}
   \end{center}
 \end{frame}
 
 \subsection{Les altérations chimiques}
 \begin{frame}
-  \begin{center}
-    \begin{figure}
-      \includegraphics[width=7cm]{Images/Diapos/Alteration/Chimiques/hydrolyse.png}
-      \caption{Hydratation de molécules de sodium et de potassium.}
-    \end{figure}
-  \end{center}
   \begin{center}
     \begin{figure}
       \includegraphics[width=5cm]{Images/Diapos/Alteration/Chimiques/hydrolyse.jpeg}
@@ -122,17 +109,12 @@
 
 \subsection{Le ruissellement et l'érosion fluviale}
 \begin{frame}
+ \begin{center}
   \begin{figure}
-    \includegraphics[width=5cm]{Images/Diapos/Erosion/Fluviale/bad_lands.jpg}
-    \includegraphics[width=6cm]{Images/Diapos/Erosion/Fluviale/n_base.jpg}
-    \caption{Ruissellement et érosion verticale}
+    \subfigure[Les « Badlands »]{\includegraphics[height=3cm]{Images/Diapos/Erosion/Fluviale/bad_lands.jpg}}
+    \subfigure[Schéma de l'érosion verticale]{\includegraphics[height=3cm]{Images/Diapos/Erosion/Fluviale/n_base.jpg}}
   \end{figure}
-  \begin{center}
-    \begin{figure}
-      \includegraphics[width=2cm]{Images/Diapos/Erosion/Fluviale/solixfluxion.jpg}
-      \caption{Solifluxion}
-    \end{figure}
-  \end{center}
+ \end{center}
 \end{frame}
 
 \subsection{L'érosion karstique}
@@ -141,7 +123,7 @@
     \begin{figure}[h]
       \includegraphics[width=5.35cm]{Images/Diapos/Erosion/Karstique/dolines.jpg}
       \includegraphics[width=4cm]{Images/Diapos/Erosion/Karstique/erosion-karstique-fig04.jpg}
-      \caption{Dolines et grotte souterraine dus à l'érosion karstique.}
+      \caption{Dolines et grottes souterraines}
     \end{figure}
   \end{center}
 \end{frame}
@@ -150,7 +132,7 @@
 \begin{frame}
   \begin{center}
     \begin{figure}
-      \includegraphics[width=8cm]{Images/Diapos/Erosion/Glaciaire/Erosion_glaciaire_Bourque4B.png}
+      \includegraphics[width=7cm]{Images/Diapos/Erosion/Glaciaire/Erosion_glaciaire_Bourque4B.png}
       \caption{Schéma de l'érosion glaciaire}
     \end{figure}
   \end{center}
@@ -263,8 +245,15 @@
 \section{La simulation cellulaire}
 
 \subsection{Les cellules}
-\begin{frame}
-  Cellule : plus petit élément incompressible, sphère de diamètre 1. \smallbreak
+\begin{frame}{Définition d'une cellule}
+  Cellule : plus petit élément incompressible.\\
+  Taille réelle : sphère de 10 m de Ø\\
+  Taille dans la simulation : cercle de Ø 1
+  \begin{figure}
+    \begin{center}
+      \includegraphics[width=1.5cm]{Images/cellule.png}
+    \end{center}
+  \end{figure}
   Propriétés mutables :
   \begin{itemize}
    \item vélocité~;
@@ -273,66 +262,65 @@
   \end{itemize}
   Propriétés immuables :
   \begin{itemize}
-   \item plaque tectonique.
+   \item plaque tectonique.\\
   \end{itemize}
+  \smallbreak
+  Cellules en collision : deux cellules en interaction n'ayant pas la même plaque.
+\end{frame}
+
+\begin{frame}{Représentation graphique de cellules}
   \begin{figure}
-    \begin{center}
-      \includegraphics[width=2cm]{Images/cellule.png}
-    \end{center}
-    \caption{Représentation de 2 cellules.}
+    \subfigure[Cellule inactive.]{\includegraphics[height=2.8cm]{Images/cellule_violet.png}}
+    \subfigure[Cellule du front.]{\includegraphics[height=2.8cm]{Images/cellule_jaune.png}}
+    \subfigure[Cellule en collision.]{\includegraphics[height=2.8cm]{Images/cellule_noir.png}}
+    \caption{Représentation graphique de tous les états d'une cellule. Les interactions sont symbolisées par des lignes bleues.}
   \end{figure}
 \end{frame}
 
-\subsection{La disposition des cellules}
-\begin{frame}
+\begin{frame}{Disposition des cellules}
   Disposition en nid-d'abeille au lancement de la simulation, équidistance de 1 entre cellules.
+  Distance « parfaite » de 1 entre les cellules.
   \begin{center}
-    \includegraphics[width=4cm]{Images/hexagone.png}
-  \end{center}
-  Pour $n_{max}$ cellules en $x$ et $y$ : \\
-  \begin{center}
-    $x_{max} = n_{max}$ \\
-    $x_{min} = n_{max} - 1$ \\
-    $y = n \times \sin{\frac{\pi}{3}}$
+    \includegraphics[width=5cm]{Images/hexagone.png}
   \end{center}
 \end{frame}
 
 \subsection{Les interaction entre cellules}
-\begin{frame}
+\begin{frame}{Différentes interactions entre cellules}
 \begin{figure}
 \begin{center}
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.5,every node/.style={scale=0.8}]
 \clip(-2.25,-2.25) rectangle (21.25,6);
-\draw(0,2.83) circle (2cm);
+\draw[red](0,2.83) circle (2cm);
 \draw(2.83,0) circle (2cm);
-\draw(7,2.83) circle (2cm);
+\draw[red](7,2.83) circle (2cm);
 \draw(9.83,0) circle (2cm);
-\draw(15,2) circle (2cm);
+\draw[red](15,2) circle (2cm);
 \draw(19,2) circle (2cm);
-\draw [->] (0,2.83) -- (0,1);
+\draw[yel] [->] (0,2.83) -- (0,1);
 \draw [->] (2.83,0) -- (4.09,-1.26);
 \draw [->] (9.83,0) -- (8.75,1.09);
-\draw [->] (7,2.83) -- (7,4.83);
-\draw [->] (15,2) -- (15,4);
+\draw[yel] [->] (7,2.83) -- (7,4.83);
+\draw[yel] [->] (15,2) -- (15,4);
 \draw [->] (19,2) -- (19,3);
 \begin{scriptsize}
-\fill [color=qqqqff] (0,2.83) circle (1.5pt);
-\draw[color=qqqqff] (0.42,3.21) node {$C_1$};
+\fill [color=red] (0,2.83) circle (1.5pt);
+\draw[color=red] (0.42,3.21) node {$C_1$};
 \fill [color=qqqqff] (2.83,0) circle (1.5pt);
 \draw[color=qqqqff] (3.27,0.36) node {$C_2$};
-\fill [color=qqqqff] (7,2.83) circle (1.5pt);
-\draw[color=qqqqff] (7.42,3.21) node {$C_1$};
+\fill [color=red] (7,2.83) circle (1.5pt);
+\draw[color=red] (7.42,3.21) node {$C_1$};
 \fill [color=qqqqff] (9.83,0) circle (1.5pt);
 \draw[color=qqqqff] (10.24,0.36) node {$C_2$};
-\fill [color=qqqqff] (15,2) circle (1.5pt);
-\draw[color=qqqqff] (15.42,2.36) node {$C_1$};
+\fill [color=red] (15,2) circle (1.5pt);
+\draw[color=red] (15.42,2.36) node {$C_1$};
 \fill [color=qqqqff] (19,2) circle (1.5pt);
 \draw[color=qqqqff] (19.44,2.36) node {$C_2$};
 \draw[color=black] (0.19,2.13) node {$u$};
 \draw[color=black] (3.61,-0.35) node {$?$};
 \draw[color=black] (9.66,0.6) node {$?$};
-\draw[color=black] (7.14,4.04) node {$z$};
-\draw[color=black] (14.91,3.21) node {$i$};
+\draw[color=black] (7.14,4.04) node {$u$};
+\draw[color=black] (14.91,3.21) node {$u$};
 \draw[color=black] (18.63,2.73) node {$?$};
 \end{scriptsize}
 \end{tikzpicture}
@@ -341,11 +329,10 @@
 \end{figure}
 \end{frame}
 
-\subsection{Le centre instantané de rotation}
-\begin{frame}
-  \begin{multicols}{2}
+\begin{frame}{Centre instantané de rotation}
+  \begin{minipage}{\dimexpr.55\textwidth-\tabcolsep-.5pt}
     \begin{center}
-      \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.4cm,y=0.4cm,scale=0.65,every node/.style={scale=0.65}]
+      \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.4cm,y=0.4cm,scale=0.7,every node/.style={scale=0.7}]
       \clip(-5,-5) rectangle (17,12);
       \draw [shift={(16.25,7)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-150.26:4.15) arc (-150.26:-139.13:4.15) -- cycle;
       \draw [shift={(16.25,7)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (180:4.15) arc (180:191.31:4.15) -- cycle;
@@ -354,8 +341,8 @@
       \draw (0,-2) -- (0,12);
       \draw [domain=-4:16] plot(\x,{(-0-0*\x)/4});
       \draw [->] (0,7) -- (0,3.75);
-      \draw(0,7) circle (2cm);
-      \draw(4,0) circle (2cm);
+      \draw(0,7) circle (1.61cm);
+      \draw(4,0) circle (1.61cm);
       \draw [domain=-4:16] plot(\x,{(--28-7*\x)/4});
       \draw [->] (4,0) -- (5.38,-2.41);
       \draw (0,7)-- (16.25,7);
@@ -375,35 +362,41 @@
       \draw[color=black] (2.26,3.85) node {$w$};
       \end{scriptsize}
       \end{tikzpicture}
-    \end{center}    \vfill
-    \columnbreak
+    \end{center}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{\dimexpr.38\textwidth-\tabcolsep-.5pt}
     $\overrightarrow{u} = $ vélocité verticale \smallbreak
     $\overrightarrow{v} = $ vélocité horizontale \smallbreak
     $\alpha = \beta = $ rotation autour de F \smallbreak
     $||\overrightarrow{u}|| = \alpha \times d$ \smallbreak
     $||\overrightarrow{v}|| = \alpha \times f$ \smallbreak
     $\alpha = \frac{||\overrightarrow{u}||}{d}$ \smallbreak
-  \end{multicols}
+  \end{minipage}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Démonstration du centre instantané de rotation}
   \begin{figure}
     \begin{center}
-      \includegraphics[width=3.5cm]{Images/cir_1.png}
-      \includegraphics[width=3.5cm]{Images/cir_2.png}
-      \includegraphics[width=3.5cm]{Images/cir_3.png}
+    \begin{tabular}{|M|M|M|}
+      \arrayrulecolor{sky}
+      \hline
+      \includegraphics[width=3.5cm]{Images/cir_1.png} &
+      \includegraphics[width=3.5cm]{Images/cir_2.png} &
+      \includegraphics[width=3.5cm]{Images/cir_3.png} \\
+      \hline
+      \includegraphics[width=3.5cm]{Images/cir_4.png} &
+      \includegraphics[width=3.5cm]{Images/cir_5.png} &
+      \includegraphics[width=3.5cm]{Images/cir_6.png} \\
+      \hline
+    \end{tabular}
     \end{center}
-    \begin{center}
-      \includegraphics[width=3.5cm]{Images/cir_4.png}
-      \includegraphics[width=3.5cm]{Images/cir_5.png}
-      \includegraphics[width=3.5cm]{Images/cir_6.png}
-    \end{center}
-    \caption{6 échantillons de compressions avec le CIR.}
+    \caption{Six échantillons de compressions avec le centre instantané de rotation.}
   \end{figure}
 \end{frame}
 
-\subsection{La compression}
-\begin{frame}
+\subsection{La compression et traction}
+\begin{frame}{Loi de Hook et module de Young}
   \begin{center}
     $\sigma = E \times \varepsilon$
   \end{center}
@@ -413,52 +406,65 @@
     \item Granite : 60 GPa ;
     \item Calcaire : 20 à 70 GPa.
   \end{itemize}
-  \smallbreak
-  \begin{center}
-    Si traction : $d' \leqslant 0 \Rightarrow \sigma = -d'^2$ \medbreak
-    Si compression : $d' > 0 \Rightarrow \sigma = d'^2$
-  \end{center}
-  $d'$ = $1 -$ la distance entre les deux cellules. \\
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Approximation de la compression et traction}
+  Approximation symétrique dans les cas de compressions et tractions. \\
+  Où $d'$ = $1 -$ la distance entre les deux cellules. \\
+  \begin{center}
+    Si traction : \medbreak
+    \boxed{d' \leqslant 0 \Rightarrow \sigma = -d'^2} \medbreak
+    Si compression : \medbreak
+    \boxed{d' > 0 \Rightarrow \sigma = d'^2}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Démonstration de la compression et traction}
   \begin{figure}
-    \begin{center}
-      \includegraphics[width=3cm]{Images/normal_1.png}
-      \includegraphics[width=3cm]{Images/normal_2.png}
-    \end{center}
-    \caption{Simulation sans compression.}
-  \end{figure}
-  \begin{figure}
-    \begin{center}
-      \includegraphics[width=3cm]{Images/compression_1.png}
-      \includegraphics[width=3cm]{Images/compression_2.png}
-    \end{center}
-    \caption{Simulation avec compression.}
+  \subfigure[b][Sans compression]{
+    \begin{tabular}{|M|M|}
+      \arrayrulecolor{sky}
+      \hline
+      \includegraphics[width=2.4cm]{Images/normal_1.png} &
+      \includegraphics[width=2.4cm]{Images/normal_2.png} \\
+      \hline
+    \end{tabular}
+  }
+  \subfigure[Avec compression]{
+    \begin{tabular}{|M|M|}
+      \arrayrulecolor{sky}
+      \hline
+      \includegraphics[width=2.4cm]{Images/compression_1.png} &
+      \includegraphics[width=2.4cm]{Images/compression_2.png} \\
+      \hline
+    \end{tabular}
+  }
+  \caption{Pair de deux échantillons de simulation avec et sans compression}
   \end{figure}
 \end{frame}
 
 \subsection{La propagation par fronts}
-\begin{frame}
+\begin{frame}{Front de cellules}
   Propagation par front, l’ancien front crée le nouveau. Le premier front ne contient que la cellule en collision.
   Chaque cellule du front interagit avec les cellules qui précèdent le front.
   \begin{figure}
-    \begin{center}
-      \includegraphics[width=2.5cm]{Images/front_1.png}
-      \includegraphics[width=2.5cm]{Images/front_2.png}
-      \includegraphics[width=2.5cm]{Images/front_3.png}
-    \end{center}
-    \begin{center}
-      \includegraphics[width=2.5cm]{Images/front_4.png}
-      \includegraphics[width=2.5cm]{Images/front_5.png}
-      \includegraphics[width=2.5cm]{Images/front_6.png}
-    \end{center}
-
-    \caption{Bleu : liens entre cellules, Violet : cellules inactives, Noir : cellule de collision, Jaune : cellules appartenant au front.}
+    \begin{tabular}{|M|M|M|}
+      \arrayrulecolor{sky}
+      \hline
+      \includegraphics[width=2.5cm]{Images/front_1.png} &
+      \includegraphics[width=2.5cm]{Images/front_2.png} &
+      \includegraphics[width=2.5cm]{Images/front_3.png} \\
+      \hline
+      \includegraphics[width=2.5cm]{Images/front_4.png} &
+      \includegraphics[width=2.5cm]{Images/front_5.png} &
+      \includegraphics[width=2.5cm]{Images/front_6.png} \\
+      \hline
+    \end{tabular}
+    \caption{Six échantillons de propagation de front lors de la simulation}
   \end{figure}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Calques de vélocités}
   Utilisation d'un calque pour chaque cellule en collision. Fusion des calques avant le déplacement des cellules.
   \begin{figure}
     \begin{center}
@@ -469,7 +475,7 @@
 \end{frame}
 
 \subsection{La friction}
-\begin{frame}
+\begin{frame}{Loi de Coulomb}
   \begin{center}
     $T_0 = f_0 \times N$
   \end{center}
@@ -498,7 +504,7 @@
 \end{frame}
 
 \subsection{Les limites matérielles}
-\begin{frame}
+\begin{frame}{Limites de temps de calcules}
   \begin{center}
     \begin{tikzpicture}
       \begin{axis}[height=5cm,width=10cm, axis x line=bottom, axis y line=left, grid=major, xlabel={Nombre de cellules}, ylabel={Temps de calcul (en ms)}]
@@ -515,7 +521,7 @@
     \end{tikzpicture}
   \end{center}
   \begin{center}
-    \boxed{$0.01629 ms/cellule$}
+    \boxed{1.629 \times 10^{-2} ms/cellule}
   \end{center}
   $100 \times 10^2 \times 100 \times 10^2 \times 10 \times 10^2 = 10^{11}$ cellules \\
   100 milliards de cellules : $16290000000$ ms = 4525 h = 189 j\\
@@ -523,29 +529,21 @@
 \end{frame}
 
 \section{Les Améliorations possibles}
-\begin{frame}
+\begin{frame}{Améliorations possibles de la simulation}
   Améliorations au profit du réalisme :
   \begin{itemize}
-    \item implémenter les altérations ;
-    \item implémentation de la loi de Hooke et du module de Young~;
-    \item implémentation de la loi de Coulomb~;
-    \item implémentation de l'inertie.
+    \item implémenter les altérations~;
+    \item implémenter la loi de Hooke et la loi de Coulomb~;
+    \item implémenter l'inertie.
   \end{itemize}
-  Améliorations au profit de l'optimisation :
+  Améliorations au profit de l'optimisation~:
   \begin{itemize}
-    \item regroupement de cellules en fonction de la profondeur~;
-    \item parallélisation des calculs (utilisation de l'accélération graphique).
+    \item regrouper certaines cellules de vecteurs~;
+    \item paralléliser les calculs (accélération graphique).
   \end{itemize}
 \end{frame}
 
 \section{Conclusion}
-\begin{frame}
- \begin{center}
-  \begin{huge}
-   Fin
-  \end{huge} 
- \end{center}
-\end{frame}
 
 
 \end{document}
