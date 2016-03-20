@@ -11,7 +11,7 @@
 \usepackage{parcolumns}
 
 \useoutertheme{infolines}
-\setbeamersize{text margin left=1cm,text margin right=1cm}
+%\setbeamersize{text margin left=1cm,text margin right=1cm}
 \usetikzlibrary{arrows}
 \definecolor{qqwuqq}{rgb}{0,0.39,0}
 \definecolor{xdxdff}{rgb}{0.49,0.49,1}
@@ -27,7 +27,7 @@
 \setlength{\tabcolsep}{0pt}
 
 \title{Comment simuler numériquement la géomorphologie alpine ?}
-\subtitle{Sujet de TPE}
+\subtitle{Compte rendu de nos recherches et explication de notre démonstrateur}
 \author{Gros Alexis, Manceau Thibaut, Porteries Tristan}
 %\logo{\includegraphics[height=0.5cm]{blender.png}}
 
@@ -38,7 +38,9 @@
 % Sommaire
 \begin{frame}{Sommaire}
   \begin{multicols}{2}
-    \small \tableofcontents
+    \normalsize
+    \setcounter{tocdepth}{1}
+    \tableofcontents
   \end{multicols}
 \end{frame}
 
@@ -59,7 +61,7 @@
 		\end{description}
  \end{center}
 \end{frame}
- 
+
 
 \subsection{La subduction et l'obduction}
 \begin{frame}
@@ -80,7 +82,7 @@
       \caption{Carte des principales plaques tectoniques}
       \includegraphics[width=4.5cm]{Images/Images_Alexis/andes.jpg}
       \includegraphics[width=4.5cm]{Images/Images_Alexis/japon.jpg}
-      \caption{À droite les Andes, à gauche le Japon}
+      \caption{À gauche les Andes, à droite le Japon}
     \end{figure}
   \end{center}
 \end{frame}
@@ -560,6 +562,7 @@
 
 \subsection{Remerciements et sources}
 \begin{frame}
+<<<<<<< HEAD
   Sources :
   \begin{footnotesize}
   \begin{itemize}
@@ -592,6 +595,13 @@ Université Pierre et Marie Curie - Paris VI, 1999. French. <tel-00327733>
   \end{itemize}
 % Il est obligé de citer ainsi les thèses d'un point de vue légal. Ceci dit, la taille des informations inutiles sera réduite au minimum pour plus de clarté.
   \end{footnotesize}
+=======
+  Sources :\\
+  Serge Fudral, Richard Bézin, Benoît Crespin, Xavier Skapin, Olivier Terraz, Philippe Meseure. Opérations
+topologiques pour la géomorphologie. Journées de l’Association Française d’Informatique
+Graphique, Oct 2011, Biarritz, France. pp.95-104, 2011. <hal-00633705>
+  
+>>>>>>> 33702f82ce778100c61a4cf5add83b967245ece0
 \end{frame}
 
 \end{document}
