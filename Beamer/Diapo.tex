@@ -39,7 +39,7 @@
 \begin{frame}
     \frametitle{Sommaire}
     \begin{multicols}{2}
-      {
+      {\small
 				\setcounter{tocdepth}{1}
         \tableofcontents
       }
@@ -135,8 +135,8 @@
 \subsection{L'historique des Alpes}
 \begin{frame}{Chronologie des Alpes}
   \begin{itemize}
-    \item \textit{-200 Ma, trias} : ouverture de l’océan alpin ;
-    \item \textit{-140 Ma, crétacé inférieur} : début de la compression de l’océan alpin ;
+    \item \textit{-200 Ma, trias} : ouverture de l’océan alpin~;
+    \item \textit{-140 Ma, crétacé inférieur} : début de la compression de l’océan alpin~;
     \item \textit{-65 Ma, paléocène} : émersion de la plate-forme continentale, le mont blanc passe sous la zone d'obduction pour ressurgir ensuite ;
     \item \textit{-23 Ma, néogène}: création du jura ;
     \item \textit{Pliocène} : séparation de la couche calcaire du reste des plis.
@@ -162,29 +162,29 @@
 
 
 \section{Les simulations alternatives}
-\subsection{Le bruit de perlin}
-\begin{frame}{Bruit de perlin}
+\subsection{Le bruit de Perlin}
+\begin{frame}{Bruit de Perlin}
   \begin{center}
     \begin{figure}
-      \subfigure[Représentation du bruit de perlin]{\includegraphics[height=4cm]{Images/Images_Alexis/perlin_noise.png}}
-      \subfigure[Paysage généré grâce à un bruit de perlin fractalisé]{\includegraphics[height=4cm]{Images/Images_Alexis/fractal&shader.jpg}}
-      \caption{Différentes représentation du bruit de perlin}
+      \subfigure[Représentation du bruit de Perlin]{\includegraphics[height=4cm]{Images/Images_Alexis/perlin_noise.png}}
+      \subfigure[Paysage généré grâce à un bruit de Perlin fractalisé]{\includegraphics[height=4cm]{Images/Images_Alexis/fractal&shader.jpg}}
+      \caption{Différentes représentation du bruit de Perlin}
     \end{figure}
   \end{center}
 \end{frame}
 
-\subsection{Les cellules de voronoi}
+\subsection{Les cellules de Voronoi}
 \begin{frame}{Cellules de Voronoi}
   \begin{center}
     \begin{figure}
       \includegraphics[width=5cm]{Images/Images_Alexis/voronoi.png}
-      \caption{Représentation des cellules de voronoi.}
+      \caption{Représentation des cellules de Voronoi.}
     \end{figure}
   \end{center}
 \end{frame}
 
-\subsection{Les voxels et boxel}
-\begin{frame}{Présentation de voxels et boxel}
+\subsection{Les voxels et boxels}
+\begin{frame}{Présentation de voxels et boxels}
   \begin{center}
     \begin{figure}
       \includegraphics[width=5cm]{Images/Images_Alexis/voxel_teapot.jpg}
@@ -224,7 +224,6 @@
     \begin{figure}
       \subfigure[Simulation après 3100 pas de simulation]{\includegraphics[width=10cm]{Images/3100_cell.png}}
       \subfigure[Simulation après 7100 pas de simulation]{\includegraphics[width=10cm]{Images/7100_cell.png}}
-      \caption{Source: Publication scientifique}
     \end{figure}
   \end{center}
 \end{frame}
@@ -234,9 +233,9 @@
 \subsection{Les cellules}
 \begin{frame}{Définition d'une cellule}
   \begin{tabular}{m{8cm}m{1cm}m{2cm}}
-    \mbox{Cellule : plus petit élément incompressible. Taille}
-    \mbox{réelle : sphère de 10 m de Ø Taille dans la}
-    \mbox{simulation : cercle de Ø 1} &&
+    \mbox{Cellule : plus petit élément incompressible.}
+    \mbox{Taille réelle : sphère de 10 m de Ø}
+    \mbox{Taille dans la simulation : cercle de Ø 1} &&
     \includegraphics[width=1.5cm]{Images/cellule.png}
   \end{tabular}
   Propriétés mutables :
@@ -263,8 +262,8 @@
 \end{frame}
 
 \begin{frame}{Disposition des cellules}
-  Disposition en nid-d'abeille au lancement de la simulation, équidistance de 1 entre cellules.
-  Distance « parfaite » de 1 entre les cellules.
+  Disposition en nid-d'abeille au lancement de la simulation.\\
+  Équidistance de 1 entre les cellules.
   \begin{center}
     \includegraphics[width=5cm]{Images/hexagone.png}
   \end{center}
@@ -376,7 +375,7 @@
       \hline
     \end{tabular}
     \end{center}
-    \caption{Six échantillons de compressions avec le centre instantané de rotation.}
+    \caption{Six échantillons de compression avec le centre instantané de rotation.}
   \end{figure}
 \end{frame}
 
@@ -424,7 +423,7 @@
       \hline
     \end{tabular}
   }
-  \caption{Pair de deux échantillons de simulation avec et sans compression}
+  \caption{Paire de deux échantillons de simulation avec et sans compression}
   \end{figure}
 \end{frame}
 
@@ -455,7 +454,7 @@
     \begin{center}
       \includegraphics[width=6cm]{Images/calque.png}
     \end{center}
-    \caption{Du rouge vers le jaune les différentes vélocités par cellules et par collisions.}
+    \caption{Du rouge vers le jaune les différentes vélocités par cellule et par collision.}
   \end{figure}
 \end{frame}
 
@@ -484,12 +483,12 @@
 	\end{scriptsize}
       \end{tikzpicture}
     \end{center}
-    \caption{Le cône représentant la force maximale possible avant un glissement.}
+    \caption{Le cône représente la force maximale possible avant un glissement.}
   \end{figure}
 \end{frame}
 
 \subsection{Les limites matérielles}
-\begin{frame}{Limites de temps de calcules}
+\begin{frame}{Limites de temps de calculs}
   \begin{center}
     \begin{tikzpicture}
       \begin{axis}[height=5cm,width=10cm, axis x line=bottom, axis y line=left, grid=major, xlabel={Nombre de cellules}, ylabel={Temps de calcul (en ms)}]
