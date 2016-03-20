@@ -434,8 +434,9 @@
 
 \subsection{La propagation par fronts}
 \begin{frame}{Front de cellules}
-  Propagation par front, l’ancien front crée le nouveau. Le premier front ne contient que la cellule en collision.
-  Chaque cellule du front interagit avec les cellules qui précèdent le front.
+  Propagation par front, l’ancien front crée le nouveau.
+  Le premier front ne contient que la cellule en collision.
+  Interaction avec les cellules du front actuelle et du front suivant.
   \begin{figure}
     \begin{tabular}{|M|M|M|}
       \arrayrulecolor{sky}
@@ -454,7 +455,7 @@
 \end{frame}
 
 \begin{frame}{Calques de vélocités}
-  Utilisation d'un calque pour chaque cellule en collision. Fusion des calques avant le déplacement des cellules.
+  Un calque par cellule en collision. Fusion des calques avant déplacement des cellules.
   \begin{figure}
     \begin{center}
       \includegraphics[width=6cm]{Images/calque.png}
