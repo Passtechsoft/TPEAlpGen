@@ -29,10 +29,10 @@
 \title{Comment simuler numériquement la géomorphologie alpine ?}
 \subtitle{Sujet de TPE}
 \author{Gros Alexis, Manceau Thibaut, Porteries Tristan}
-% \logo{\includegraphics[height=0.5cm]{blender.png}}
+%\logo{\includegraphics[height=0.5cm]{blender.png}}
 
 \begin{document}
-
+\CenterWallPaper{1}{Images/inde.jpg}
 % Titre
 \frame{\titlepage}
 % Sommaire
@@ -51,12 +51,12 @@
 	 \includegraphics[width=8cm]{Images/Images_Alexis/image007.jpg}
 	 \caption{Exemple d'obduction}
 	\end{figure}
-		\begin{itemize}
-		 \item Géomorphologie: étude de la genèse des reliefs.
-		 \item Plaque litosphérique : Partie supérieure des plaques tectoniques - terrestres ou maritimes -
-		 \item Asténosphere : partie inférieure des plaques tectoniques, siège des séismes de profondeurs
-		 \item Obduction : une plaque en chevauche une autre
-		\end{itemize}
+		\begin{description}
+		 \item[Géomorphologie :] Étude de la genèse des reliefs.
+		 \item[Plaque litosphérique :] Partie supérieure des plaques tectoniques - terrestres ou maritimes -
+		 \item[Asténosphere :] Partie inférieure des plaques tectoniques, siège des séismes de profondeurs
+		 \item[Obduction :] Une plaque en chevauche une autre
+		\end{description}
  \end{center}
 \end{frame}
  
@@ -67,7 +67,7 @@
     \begin{center}
       \includegraphics[width=6cm]{Images/subduction.png}
       \includegraphics[width=6cm]{Images/obduction.png}
-      \caption{A gauche le subduction et à droite l'obduction.}
+      \caption{A gauche une subduction et à droite une obduction.}
     \end{center}
   \end{figure}
 \end{frame}
@@ -76,10 +76,10 @@
 \begin{frame}
   \begin{center}
     \begin{figure}
-      \includegraphics[width=8cm]{Images/Images_Alexis/plaques.png}
+      \includegraphics[width=5.5cm]{Images/Images_Alexis/plaques.png}
       \caption{Carte des principales plaques tectoniques}
-      \includegraphics[width=8cm]{Images/Images_Alexis/andes.jpg}
-      \includegraphics[width=8cm]{Images/Images_Alexis/japon.jpg}
+      \includegraphics[width=5cm]{Images/Images_Alexis/andes.jpg}
+      \includegraphics[width=5cm]{Images/Images_Alexis/japon.jpg}
       \caption{A droite les Andes, à gauche le Japon}
     \end{figure}
   \end{center}
@@ -147,13 +147,13 @@
 			\includegraphics[width=4cm]{Images/Images_Alexis/mont_blanc.jpg}
 		\end{figure}
 
-		Historique des Alpes, d'aujourd'hui
+		Historique des évènements marquant des Alpes
 		\begin{itemize}
-		 \item -200 Ma, trias : ouverture de l’océan alpin ;
-		 \item -140 Ma, crétacé inférieur : début de la compression de l’océan alpin ;
-		 \item -65 Ma, paléocène : émersion de la plate-forme continentale, le mont blanc passe sous la zone d'obduction pour ressurgir ensuite ;
-		 \item -23 Ma : néogène, création du jura
-		 \item Pliocène : séparation de la couche calcaire du reste des plis
+		 \item \textit{-200 Ma, trias} : ouverture de l’océan alpin ;
+		 \item \textit{-140 Ma, crétacé inférieur} : début de la compression de l’océan alpin ;
+		 \item \textit{-65 Ma, paléocène} : émersion de la plate-forme continentale, le mont blanc passe sous la zone d'obduction pour ressurgir ensuite ;
+		 \item \textit{-23 Ma, néogène}: création du jura
+		 \item \textit{Pliocène} : séparation de la couche calcaire du reste des plis
 		\end{itemize}
 	\end{center}
 \end{frame}
@@ -162,9 +162,11 @@
 \begin{frame}
 	\begin{center}
 		\begin{figure}
+			\includegraphics[width=6cm]{Images/Images_Alexis/glacier_reculon.png}
 			\includegraphics[width=4cm]{Images/Images_Alexis/glaciers_img3.png}
-			\includegraphics[width=4cm]{Images/Images_Alexis/glacier_reculon.png}
-			\includegraphics[width=4cm]{Images/Images_Alexis/gresivaudan.jpg}
+		\end{figure}
+		\begin{figure}
+			\includegraphics[width=6cm]{Images/Images_Alexis/gresivaudan.jpg}
 		\end{figure}
 	\end{center}
 \end{frame}
@@ -177,11 +179,11 @@
 	\begin{center}
 	 \begin{figure}
 	  \includegraphics[width=4cm]{Images/Images_Alexis/perlin_noise.png}
+	  \caption{Une représentation du bruit de perlin}
 	  \includegraphics[width=4cm]{Images/Images_Alexis/fractal&shader.jpg}
+	  \caption{Paysage généré grâce à un bruit de perlin fractalisé}
 	 \end{figure}
-
 	\end{center}
-
 \end{frame}
 
 \subsection{Voronoi}
@@ -200,10 +202,12 @@
 \subsubsection{Explications}
 \begin{frame}
  \begin{center}
-	Voxels \& Boxels
   \begin{figure}
+   Voxels \& Boxels
    \includegraphics[width=6cm]{Images/Images_Alexis/voxel_teapot.jpg}
    \includegraphics[width=6cm]{Images/Images_Alexis/example_matricielle.jpg}
+  \end{figure}
+  \begin{figure}
    \includegraphics[width=6cm]{Images/Images_Alexis/comparaison_vecteur_matrice.png}
   \end{figure}
  \end{center}
@@ -212,19 +216,19 @@
 \subsubsection{Examples}
 \begin{frame}
  \begin{center}
-  \begin{figure}
-   \includegraphics[width=6cm]{Images/Images_Alexis/voxel_engine3.jpg}
-   \includegraphics[width=6cm]{Images/Images_Alexis/voxel_engine1.jpg}
-   \includegraphics[width=6cm]{Images/Images_Alexis/voxel_engine4.jpg}
-   \includegraphics[width=6cm]{Images/Images_Alexis/voxel_engine2.jpg}
-  \end{figure}
+  \begin{tabular}{ll}
+   \includegraphics[width=5.5cm]{Images/Images_Alexis/voxel_engine3.jpg} &%
+   \includegraphics[width=5.5cm]{Images/Images_Alexis/voxel_engine1.jpg} \\
+   \includegraphics[width=5.5cm]{Images/Images_Alexis/voxel_engine4.jpg} &%
+   \includegraphics[width=5.5cm]{Images/Images_Alexis/voxel_engine2.jpg} \\
+  \end{tabular}
  \end{center}
 \end{frame}
 
 \subsection{Simulations physiques}
 \begin{frame}
  \begin{center}
-	Simulation physique
+	\LARGE Simulation physique
   \begin{figure}
    \includegraphics[width=10cm]{Images/simulation_physique.png}
   \end{figure}
@@ -234,10 +238,19 @@
 \subsection{Autres simulations cellulaires}
 \begin{frame}
  \begin{center}
+	\Large Autres simulations cellulaires:
+	\begin{figure}
   \begin{figure}
    \includegraphics[width=10cm]{Images/3100_cell.png}
-   \includegraphics[width=10cm]{Images/7100_cell.png}
+   \caption{Simulation après 3100 pas de simulation.}
   \end{figure}
+  \begin{figure}
+   \includegraphics[width=10cm]{Images/7100_cell.png}
+   \caption{Simulation après 7100 pas de simulation.}
+  \end{figure}
+  \caption{Source: Publication scientifique}
+  \end{figure}
+  
  \end{center}
 \end{frame}
 
