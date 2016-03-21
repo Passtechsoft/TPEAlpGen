@@ -156,16 +156,25 @@
 \begin{frame}{L'effet des glaciers sur le paysage alpin}
   \begin{center}
     \begin{figure}
-      \includegraphics[height=2cm]{Images/Images_Alexis/glacier_reculon.png}
-      \includegraphics[height=2cm]{Images/Images_Alexis/glaciers_img3.png}
+      \includegraphics[height=2.5cm]{Images/Images_Alexis/glacier_reculon.png}
+      \includegraphics[height=3cm]{Images/Images_Alexis/glaciers_img3.png}
       \caption{Les ères glaciaires successives ont grandement participé au façonnage de nos paysages.}
-      \includegraphics[width=4cm]{Images/Images_Alexis/gresivaudan.jpg}
+      \includegraphics[width=3.5cm]{Images/Images_Alexis/gresivaudan.jpg}
     \end{figure}
   \end{center}
 \end{frame}
 
-
 \section{Les simulations alternatives}
+\subsection{Les simulations physiques}
+\begin{frame}{Simulation physique par pâtes}
+  \begin{center}
+    \begin{figure}
+      \includegraphics[width=7cm]{Images/simulation_physique.png}
+      \caption{Photo de simulation physique par pâtes}
+    \end{figure}
+  \end{center}
+\end{frame}
+
 \subsection{Le bruit de Perlin}
 \begin{frame}{Bruit de Perlin}
   \begin{center}
@@ -208,16 +217,6 @@
       \includegraphics[height=3cm]{Images/Images_Alexis/voxel_engine4.jpg}
       \includegraphics[height=3cm]{Images/Images_Alexis/voxel_engine2.jpg}
       \caption{Exemples d'application des voxels}
-    \end{figure}
-  \end{center}
-\end{frame}
-
-\subsection{Les simulations physiques}
-\begin{frame}{Simulation physique par pâtes}
-  \begin{center}
-    \begin{figure}
-      \includegraphics[width=7cm]{Images/simulation_physique.png}
-      \caption{Photo de simulation physique par pâtes}
     \end{figure}
   \end{center}
 \end{frame}
@@ -401,13 +400,13 @@
 \end{frame}
 
 \begin{frame}{Approximation de la compression et traction}
-  Approximation symétrique dans les cas de compression et traction. \\
+  Approximation asymétrique en cas de compression et traction. \\
   Où $d'$ = $1 -$ la distance entre les deux cellules. \\
   \begin{center}
     Si traction : \medbreak
-    \boxed{d' \leqslant 0 \Rightarrow \sigma = -d'^2} \medbreak
+    \boxed{d' \leqslant 0 \Rightarrow \varepsilon = -d'^{16}} \medbreak
     Si compression : \medbreak
-    \boxed{d' > 0 \Rightarrow \sigma = d'^2}
+    \boxed{d' > 0 \Rightarrow \varepsilon = d'^2}
   \end{center}
 \end{frame}
 
@@ -531,7 +530,7 @@
   \end{itemize}
   Améliorations au profit de l'optimisation~:
   \begin{itemize}
-    \item regrouper certaines cellules de vecteurs~;
+    \item regrouper certaines cellules proches en fonction de la profondeur~;
     \item paralléliser les calculs (accélération graphique).
   \end{itemize}
 \end{frame}
@@ -542,6 +541,7 @@
 \begin{frame}{Sources}
   \begin{scriptsize}
   \begin{itemize}
+   \item Serge Fudral - Géologue retraité~;
    \item Richard Bézin, Benoît Crespin, Xavier Skapin, Olivier Terraz, Philippe Meseure. Opérations
 topologiques pour la géomorphologie.
     \begin{tiny} 
