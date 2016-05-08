@@ -9,7 +9,7 @@
 /Pangea/Data/.example/*
 /build_linux/*
 /build_linux_debug/*
-/Beamer/*.pdf
+#/Beamer/*.pdf
 /Beamer/*.toc
 /Beamer/*.log
 /Beamer/*.aux
